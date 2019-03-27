@@ -11,6 +11,8 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int commitTest = 1;
 
 		// 앞의 인덱스와 같은지 확인 -> 아니면 contain확인 -> 포함 안되있으면 추가 -> 돼있으면  그룹단어 X
 		

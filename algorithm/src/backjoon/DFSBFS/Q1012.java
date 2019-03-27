@@ -7,7 +7,7 @@ import java.util.Stack;
 import java.util.StringTokenizer;
 
 public class Q1012 {
-
+	
 	
 	public static void main(String[] args) throws IOException {
 
