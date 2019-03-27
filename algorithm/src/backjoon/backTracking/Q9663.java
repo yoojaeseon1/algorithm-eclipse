@@ -1,10 +1,10 @@
-package backjoon;
+package backjoon.backTracking;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main {
+public class Q9663{
 	
 	static int n;
 	static int answer;

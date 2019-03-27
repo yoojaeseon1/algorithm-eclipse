@@ -76,14 +76,15 @@ public class Q1012 {
 	}
 }
 
-class Position {
-	int x;
-	int y;
-
+class Position{
+	
+	private int x;
+	private int y;
+	
 	public Position() {
 		// TODO Auto-generated constructor stub
 	}
-
+	
 	public Position(int x, int y) {
 		this.x = x;
 		this.y = y;
@@ -92,9 +93,8 @@ class Position {
 	public int getX() {
 		return x;
 	}
-
+	
 	public int getY() {
 		return y;
 	}
-
 }
