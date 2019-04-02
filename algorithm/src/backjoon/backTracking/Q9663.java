@@ -31,8 +31,7 @@ public class Q9663{
 	}
 	
 	public static void dfs(int row) {
-		
-		
+
 		if(row == n) {
 			answer++;
 		} else {
