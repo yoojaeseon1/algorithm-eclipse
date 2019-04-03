@@ -10,50 +10,16 @@ public class Main {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		StringBuilder inputString = new StringBuilder(br.readLine());
-		char curChar;
-		int totalCount = 0;
-		int startIndex = 0;
+		String inputString = br.readLine();
 		
-
-		for (int i = 1; i < inputString.length(); i++) {
-			curChar = inputString.charAt(i);
-			System.out.println("start index : " + startIndex);
-			if (curChar == '=' || curChar == '-' || curChar == 'j') {
-				if(curChar == '=') {
-					if(inputString.charAt(i-1) == 'c' || inputString.charAt(i-1) == 's' || inputString.charAt(i-1) == 'z') {
-						totalCount++;
-						totalCount += (i-1) - startIndex;
-						System.out.println("i : " + i);
-						System.out.println("total count : " + totalCount);
-						startIndex = i+1;
-					} else if(i != 1 && inputString.charAt(i-2) == 'z' && inputString.charAt(i-1) == 'd') {
-						totalCount++; // 위의 if문 한번 걸치고 온다.
-						System.out.println("i : " + i);
-						totalCount += (i - 2) - startIndex;
-						System.out.println("total count : " + totalCount);
-						startIndex = i+1;
-					}
-				} else if(curChar == '-') {
-					if(inputString.charAt(i-1) == 'c' || inputString.charAt(i-1) == 'd') {
-						totalCount++;
-						totalCount += (i-1) - startIndex;
-						startIndex = i+1;
-					}
-				} else if(curChar == 'j') {
-					totalCount++;
-					totalCount += (i-1) - startIndex;
-					startIndex = i+1;
-				}
-			}
-		}
-		System.out.println("start index : " + startIndex);
+		String[] croatias = {"c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="};
 		
-		if(startIndex != inputString.length()) {
-			totalCount += inputString.length() - startIndex;
+		for(int i = 0; i < croatias.length; i++) {
+			inputString = inputString.replace(croatias[i], "0"); // 계속 String 인스턴스 생성(실행할 때마다 heap영역에 쌓인다.)
 		}
 		
-		System.out.println(totalCount);
-
+		System.out.println(inputString);
+		System.out.println(inputString.length());
+		
 	}
 }
