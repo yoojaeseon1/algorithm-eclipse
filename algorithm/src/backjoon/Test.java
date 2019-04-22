@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
  
 public class Test {
+	
     public static int size;
     public static int[][] chess;
     
