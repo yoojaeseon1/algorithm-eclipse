@@ -43,16 +43,21 @@ ex)
 
 StringTokenizer st = new StringTokenizer(temp, delim); >> delim의 default 값 : " "
 
-1. st.nextToken() >> this    남아있는 token들 : is, string
+delim을 설정한 이후 재 설정 하지 않으면 계속 그 delim으로 적용돼 token이 생성된다.
+(인스턴스 생성할 때, st.nextToken(String delim)할 때 모두 마찬가지)
 
-2 - 1 : st.nextToken("$") >> 1is   남아있는  token들 : string
+nextToken(delim)실행 시 남아있는 문자열의 시작에는 해당 delim이 맨 앞에 포함되어있다.
 
-2 - 2 : st.nextToken("$1") >> is   남아있는  token들  : string
-
-
-3 - 1 : st.nextToken() >> 1string 남아있는 String : 없음
-
-3 - 2 : st.nextToken() >> string 남아있는 String : 없음
+	String temp = "$1is$1string$1shaha";
+		
+		StringTokenizer st = new StringTokenizer(temp, "$");
+		
+		System.out.println(st.nextToken());  // 반환값 :"1is", 남아있는 문자열 : "$1string$1shaha"
+		System.out.println(st.nextToken("s")); // 반환값 : "$1", 남아있는 문자열 : "string$1shaha"
+		System.out.println(st.nextToken()); // 반환값 : tring$1, 남아있는 문자열 : "shaha"
+		System.out.println(st.nextToken()); // delim이 "s"로 적용되서 haha를 출력한다.
+		
+하나의 delim으로 계속 nextToken을 반환 시킬 때는 크게 신경 쓸 필요없이 해당 delim으로 문자열이 나워져 token이 된다고 생각하자.
 
 --------------------------------------------------------------------------------------
 

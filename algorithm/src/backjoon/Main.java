@@ -9,12 +9,15 @@ import java.util.StringTokenizer;
 public class Main {
 	public static void main(String[] args) throws IOException {
 		
-		String temp = "$1is$1string$1haha";
+		String temp = "$1is$1string$1shaha";
 		
 		StringTokenizer st = new StringTokenizer(temp, "$");
 		
 		System.out.println(st.nextToken());
-		System.out.println(st.nextToken("$1"));
+		System.out.println(st.nextToken("s"));
 		System.out.println(st.nextToken());
+		System.out.println(st.nextToken());
+		
+//		System.out.println(st.nextToken());
 	}
 }
