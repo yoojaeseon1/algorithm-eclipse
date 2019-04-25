@@ -16,12 +16,12 @@ public class DigitToHangle {
 		char currentDigit;
 		StringBuilder result = new StringBuilder();
 
-		String[] digits = { "", "ÀÏ", "ÀÌ", "»ï", "»ç", "¿À", "À°", "Ä¥", "ÆÈ", "±¸" };
+		String[] digits = { "", "ì¼", "ì´", "ì‚¼", "ì‚¬", "ì˜¤", "ìœ¡", "ì¹ ", "íŒ”", "êµ¬" };
 
-		String[] units = { "", "¸¸", "¾ï", "Á¶", "°æ" };
+		String[] units = { "", "ë§Œ", "ì–µ", "ì¡°", "ê²½" };
 		int unitCheck = 1;
 
-		String[] units2 = { "", "½Ê", "¹é", "Ãµ" };
+		String[] units2 = { "", "ì‹­", "ë°±", "ì²œ" };
 
 		for (int i = inputNum.length() - 1; i >= 0; i--) {
 			currentDigit = inputNum.charAt(i);
