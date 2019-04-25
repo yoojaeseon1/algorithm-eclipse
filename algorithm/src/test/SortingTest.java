@@ -13,6 +13,7 @@ public class SortingTest {
 		Integer[] arr = {1,4,5,7,2,8,2};
 		
 		List<Integer> list = new ArrayList<>();
+		List<String> strList = new ArrayList<>();
 		
 		list.add(3);
 		list.add(5);
@@ -23,9 +24,44 @@ public class SortingTest {
 		list.add(4);
 		Collections.sort(list, (o1,o2)->(o2-o1));
 		
-		for(int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i));
+		strList.add("11");
+		strList.add("1000");
+		strList.add("102");
+		
+		
+		System.out.print("str order(ascending) : ");
+		Collections.sort(strList, (o1,o2)->o1.compareTo(o2));
+		for(int i = 0; i < strList.size(); i++) {
+			System.out.print(strList.get(i) + " ");
 		}
+		System.out.println();
+		System.out.print("str order(descending) : ");
+		
+		Collections.sort(strList, (o1,o2)->o2.compareTo(o1));
+		for(int i = 0; i < strList.size(); i++) {
+			System.out.print(strList.get(i) + " ");
+		}
+		
+		System.out.println();
+		System.out.print("num order(ascending) : ");
+		
+		Collections.sort(strList, (o1,o2)->Integer.parseInt(o1)-Integer.parseInt(o2));
+		for(int i = 0; i < strList.size(); i++) {
+			System.out.print(strList.get(i) + " ");
+		}
+		
+		System.out.println();
+		System.out.print("num order(descending) : ");
+		
+		Collections.sort(strList, (o1,o2)->Integer.parseInt(o2)-Integer.parseInt(o1));
+		for(int i = 0; i < strList.size(); i++) {
+			System.out.print(strList.get(i) + " ");
+		}
+		
+		
+//		for(int i = 0; i < list.size(); i++) {
+//			System.out.println(list.get(i));
+//		}
 //		Arrays.sort(arr, new Descending());
 //		Arrays.sort(arr, Collections.reverseOrder());
 		

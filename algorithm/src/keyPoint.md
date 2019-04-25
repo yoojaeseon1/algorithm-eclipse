@@ -185,6 +185,17 @@ String[] result2 = result.toArray(new String[result.size()]);
 	List<Integer> list = new ArrayList<Integer>();
 
 	Collections.sort(list, (o1, o2)->o2-o1); // 첫 번째 인자만 넣으면 오름차순 정렬
+
+	
+	// 문자열 정렬
+
+	Collections.sort(nList, (o1,o2)->Integer.parseInt(o1)-Integer.parseInt(o2)); // 문자열을 숫자 순서대로  오름차순 정렬
+	
+	Collections.sort(nList, (o1,o2)->Integer.parseInt(o2)-Integer.parseInt(o1)); // 문자열을 숫자 순서대로  내림차순 정렬
+	
+	Collections.sort(nList, (o1,o2)->o1.compareTo(o2)); // 문자 순서대로 오름차순 정렬 (ex)123 > 1000 : 문자 순서대로면 두번 째 인덱스에 오는 수가 123이 더 크니까)
+	
+	Collections.sort(nList, (o1,o2)->o2.compareTo(o1)); // 문자 순서대로 내림차순 정렬 (ex)123 > 1000 : 문자 순서대로면 두번 째 인덱스에 오는 수가 123이 더 크니까)
 	
 Collections.reverse(list)는 정렬이 아니라 인덱스를 반대로 재 배열 해준다.
 
