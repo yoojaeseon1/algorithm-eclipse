@@ -298,7 +298,11 @@ int 배열을 정렬하는 것은 결과가 다르다.
 
 ---
 
-#### 인스턴스의 copy
+#### 인스턴스와 배열의 copy
+
+##### 인스턴스의 copy
+
+###### deep copy
 
 인스턴스를 copy 할 경우 deep copy가 되어 복사의 대상이 된 인스턴스의 필드 값이 바뀌면 복사한 인스턴스의 필드 값도 바뀐다.
 
@@ -312,6 +316,8 @@ ex)
 	System.out.println(b.name); // output : yoo
 	a.setName("changed name");
 	System.out.println(b.name); // output : changed name
+	
+###### shallow copy
 
 하지만 String을 포함한 래퍼클래스의 인스턴스와 기본형 변수는 shallow copy가 된다.
 
@@ -326,14 +332,14 @@ ex)
  
 ---
 
-#### 배열의 copy
+##### 배열의 copy
 
-#### deep copy
+###### deep copy
 
 	int[] original = {1,2,3,4,5};
 	int[] coiped = original // deep copy가 되어 original의 값이 수정되면면 같은 인덱스의 copied의 값도 바뀐다.
 	
-#### shallow copy
+###### shallow copy
 
 	int[] original = {1,2,3,4,5};
 	int[] copied = new int[original.length];
@@ -342,7 +348,7 @@ ex)
 	
 	// shallow copy가 되어 original의 값이 수정되어도 copied의 값에는 아무런 영향이 없다.
 	
-##### 2차원 배열 shallow copy
+###### 2차원 배열 shallow copy
 
 여러번 쓸거면 이렇게 만들어서 쓰고 아니면 main문에 똑같이 작성하자
 

@@ -30,15 +30,16 @@ public class Main {
 	}
 	
 	static int[][] copyArray(int[][] original) {
-		
+
 		int[][] copied = new int[original.length][original[0].length];
-		
-		for(int i = 0; i < original.length; i++) {
+
+		for (int i = 0; i < original.length; i++) {
 			System.arraycopy(original[i], 0, copied[i], 0, original[i].length);
 		}
-		
+
 		return copied;
-		
-		
+
 	}
+	
+	
 }
