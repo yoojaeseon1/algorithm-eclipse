@@ -1,4 +1,4 @@
-package backjoon.string;
+package backjoon.sorting;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -38,7 +38,20 @@ public class Q1026 {
 		Arrays.sort(a);
 //		Arrays.sort(b);
 //		Arrays.sort(b, Collections.reverseOrder());
-		Arrays.sort(b, new Descending());
+//		Arrays.sort(b, new Descending());
+		Arrays.sort(b, new Comparator<Integer> () {
+
+			@Override
+			public int compare(Integer o1, Integer o2) {
+				if(o1 > o2) {
+					return -1;
+				} else if(o1 == o2) {
+					return 0;
+				} else {
+					return 1;
+				}
+			}
+		});
 		
 		for(int i = 0; i < a.length; i++) {
 			s += a[i] * b[i];

@@ -3,47 +3,42 @@ package backjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
-// 배열이 list로 정렬하는 것보다 훨씬(약 3배) 빠르다.
 
 public class Main {
 
 	public static void main(String[] args) throws IOException {
-		
+
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		String nStr = br.readLine();
+		int[][] original = {{1,2},{3,4},{5,6}};
 		
-		String[] nArr = nStr.split("");
+//		int[][] copied = original;
+		int[][] copied = copyArray(original);
 		
-//		String[] nArr = new String[nStr.length()];
+		original[1][1] = 8;
 		
-//		for(int i = 0; i < nArr.length; i++) {
-//			nArr[i] = nStr.substring(i, i+1);
-//		}
+//		int[] copied = new int[original.length];
 		
-		List<String> nList = new ArrayList<>();
+//		System.arraycopy(original, 0, copied, 0, original.length);
 		
-//		for(int i = 0; i < nStr.length(); i++) {
-//			nList.add(nStr.substring(i, i+1));
-//		}
+//		original[1] = 8;
 		
-		
-		Collections.sort(nList, (o1,o2)->o2.compareTo(o1));
-//		Collections.sort(nList, (o1,o2)->Integer.parseInt(o2)-Integer.parseInt(o1));
-//		Collections.sort(nList, (o1,o2)->o2.compareTo(o1));
-		
-		Arrays.sort(nArr, Collections.reverseOrder());
-		
-//		for(int i = 0; i < nArr.length; i++) {
-		for(int i = 0; i < nList.size(); i++) {
-//			System.out.print(nArr[i]);
-			System.out.print(nList.get(i));
+		for(int i = 0; i < copied.length; i++) {
+			System.out.println(copied[i][0] + " " + copied[i][1]);
 		}
+		
+	}
+	
+	static int[][] copyArray(int[][] original) {
+		
+		int[][] copied = new int[original.length][original[0].length];
+		
+		for(int i = 0; i < original.length; i++) {
+			System.arraycopy(original[i], 0, copied[i], 0, original[i].length);
+		}
+		
+		return copied;
+		
+		
 	}
 }
-

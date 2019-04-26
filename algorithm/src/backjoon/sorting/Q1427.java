@@ -1,4 +1,4 @@
-package backjoon.string;
+package backjoon.sorting;
 
 import java.io.BufferedReader;
 import java.io.IOException;

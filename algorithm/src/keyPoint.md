@@ -16,13 +16,13 @@ if- else if문 작성할 때 if문 또는 상위의 else if문의 조건에서 �
 
 #### 탐색문제
 
-전체적으로 탐색해야 하는 문제(ex) contains 메서드 사용해야 하는 문제 )는 list 대신 map을 사용하면 시간초과가 발생하지 않을 수 있다.
+전체적으로 탐색해야 하는 문제(ex) list.contains() 메서드 사용해야 하는 문제 )는  list 대신 map을 사용하면 시간초과가 발생하지 않을 수 있다.
 
 ---
 
 배열과 list중에서 배열을 사용해도 무관하다면 배열을 사용하는것이 수행시간이 적게 나온다.(정렬 할 때, 거의 1/3 수준)
 
-배열 : Array.sort(array);
+배열 : Arrays.sort(array);
 
 list : Collections.sort(list);
 
@@ -85,14 +85,13 @@ nextToken(delim)실행 시 남아있는 문자열의 시작에는 해당 delim�
 
 ---
 
-기본형변수(int, float, double, char...)에 대한 래퍼클래스(Integer, Float, Double, Character ...) 가 존재한다.
+기본형변수(int, float, double, char, boolean...)에 대한 래퍼클래스(Integer, Float, Double, Character, Boolean...) 가 존재한다.
 
-기본형의 경우 따로 초기화를 하지 않아도 0 또는 '' 또는 ""의 값이 초기화 되어있다.
+기본형의 경우 따로 초기화를 하지 않아도 0 또는 ''또는 "" 또는 false 의 값이 초기화 되어있다.
 
+Integer wrapper = new Integer(10);  -> Integer wrapper = 10; //오토박싱(autoboxing)
 
-Integer i = new Integer(10);  -> Integer i = 10; //오토박싱(autoboxing)
-
-int i1 = i.intValue();        -> int i1 = i;        //언박싱(unboxing)
+int primitive = wrapper.intValue();  -> int primitive = wrapper;        //언박싱(unboxing)
 
 객체와 변수를 따로 변환하지 않고 쉽게 초기화 할 수 있도록 돕는다.
 
@@ -131,9 +130,9 @@ replaceFirst, replaceLast는 하나만
 
 #### 배열을 ArrayList로
 
-String[] city = {"서울","부산","대구","광주"};
-List<String> al = new ArrayList<String>();
-Collections.addAll(al, city);
+	String[] city = {"서울","부산","대구","광주"};
+	List<String> list = new ArrayList<String>();
+	Collections.addAll(list, city);
 
 배열이 래퍼클래스의 배열일 경우만 사용가능하다.
 
@@ -145,15 +144,83 @@ String[] result2 = result.toArray(new String[result.size()]);
 
 배열이 래퍼클래스의 배열일 경우만 사용가능하다.
 
-배열을 내림차순 해주는 메소드는 없으므로 List로 바꿔서 정렬하고 다시 배열로 바꿔줘야한다.
-
 ---
 
 배열과 list중에서 배열을 사용해도 무관하다면 배열을 사용하는것이 수행시간이 적게 나온다.(정렬 할 때, 거의 1/3 수준)
 
-#### 배열의 내림차순 정렬
 
-기본형이 아닌 래퍼클래스의 배열을 사용해야 한다.
+#### 2차원 배열의 정렬
+
+##### 배열
+
+ex) 첫 번째 인덱스 오름차순 -> 같으면 두 번째 인덱스 오름차순 
+
+		Arrays.sort(coordiArr, new Comparator<int[]>() {
+
+			@Override
+			public int compare(int[] o1, int[] o2) {
+				
+				if(o1[0] > o2[0]) return 1;
+				else if(o1[0] == o2[0]) {
+					return Integer.compare(o1[1], o2[1]);
+				} else
+					return -1;
+			}
+		});
+
+Integer.compare(o1,o2); // 오름차순
+Integer.compare(o2,o1); // 내림차순
+
+##### list
+
+래퍼 클래스의 배열로 받아서 Collections.sort해주면 동일하게 정렬된다.
+
+#### Comparator 인터페이스
+
+Comparator 인터페이스의 compare(Object o1, Object o2){} 를 구현하여 사용한다.
+
+배열과 list의 정렬에서 모두 사용할 수 있다.
+
+단순히 오름차순, 내림차순이 아니라 정렬하는 기준이 정해져 있을 경우 사용하면 된다.
+
+1회성으로 사용할 경우에는 익명 클래스로 바로 인자에 넣어서 사용하면 된다.
+
+compare(Object o1, Object o2)에서의 리턴 값
+
+	// 오름차순
+
+	if(o1 > o2) return 1 ;
+	else if(o1 == o2) return 0;
+	else return -1;
+	
+	// 내림차순
+
+	if(o1 > o2) return -1;
+	else if(o1 == o2) return 0;
+	else return -1;
+	
+String의 경우 사전순, 문자열의 길이, 문자이지만 숫자의 크기로 정렬하는 것처럼 다양하게 구현할 수 있다.
+
+- list의 내림차순 정렬 참고(Collections.sort 대신 Arrays.sort를 사용한다.)
+
+단순히 사전순으로 비교할 때는 
+
+	String a = "haha";
+	String b = "hoho";
+
+	// 리턴 값으로
+	
+	o1.compareTo(o1); 오름차순
+	o2.compareTo(o2); 내림차순
+	
+
+##### 오름차순
+
+기본적으로 모든 메소드의 default가 오름차순이다. 내림차순일 경우에만 신경 써주면 된다.
+
+##### 내림차순
+
+기본형이 아닌 래퍼클래스의 배열을 사용해야 한다.(한 번만 사용할 경우 익명클래스로 바로 Arrays.sort함수에 인자로 넣으면 된다.)
 
 	class Descending implements Comparator<Integer>{
 
@@ -175,12 +242,30 @@ String[] result2 = result.toArray(new String[result.size()]);
 	Integer arr = {1,3,6,4,3,2};
 
 	Arrays.sort(arr, new Descending());
+	
+	// 또는
+	
+	Arrays.sort(arr, new Comparator<Integer>(){
+		
+		@Override
+		public int compare(Integer o1, Integer o2) {
+			if(o1>o2)return -1;
+			else if (o1==o2) return 1;
+			else return 1;
+	});
 
 	// 또는
 
 	Arrays.sort(arr, Collections.reverseOrder());  // 속도 차이는 거의 없으니 이거 쓰는게 훨씬 간편하다.
+	
 
-#### List의 내림차순 정렬(람다식 사용)
+#### List의  정렬(람다식 사용)
+
+##### 오름차순
+
+모든 메서드의 default가 오름차순이므로 내림차순일 경우만 신경쓰면 된다.
+
+##### 내림차순
 
 	List<Integer> list = new ArrayList<Integer>();
 
@@ -193,18 +278,91 @@ String[] result2 = result.toArray(new String[result.size()]);
 	
 	Collections.sort(nList, (o1,o2)->Integer.parseInt(o2)-Integer.parseInt(o1)); // 문자열을 숫자 순서대로  내림차순 정렬
 	
-	Collections.sort(nList, (o1,o2)->o1.compareTo(o2)); // 문자 순서대로 오름차순 정렬 (ex)123 > 1000 : 문자 순서대로면 두번 째 인덱스에 오는 수가 123이 더 크니까)
+	Collections.sort(nList, (o1,o2)->o1.compareTo(o2)); // 사전 순서대로 오름차순 정렬 (ex)123 > 1000 : 문자 순서대로면 두번 째 인덱스에 오는 수가 123이 더 크니까)
 	
-	Collections.sort(nList, (o1,o2)->o2.compareTo(o1)); // 문자 순서대로 내림차순 정렬 (ex)123 > 1000 : 문자 순서대로면 두번 째 인덱스에 오는 수가 123이 더 크니까)
+	Collections.sort(nList, (o1,o2)->o2.compareTo(o1)); // 사전 순서대로 내림차순 정렬 (ex)123 > 1000 : 문자 순서대로면 두번 째 인덱스에 오는 수가 123이 더 크니까)
 	
 Collections.reverse(list)는 정렬이 아니라 인덱스를 반대로 재 배열 해준다.
 
 ---
 
-#### list가 아닌 
+#### String 배열을 정렬하는 것과
+
+int 배열을 정렬하는 것은 결과가 다르다.
+
+11 103 132 19 102
+
+숫자 :  [11, 19, 102, 103, 132]
+
+문자 :  ["102", "103", "11", "132", "19"]
+
+---
+
+#### 인스턴스의 copy
+
+인스턴스를 copy 할 경우 deep copy가 되어 복사의 대상이 된 인스턴스의 필드 값이 바뀌면 복사한 인스턴스의 필드 값도 바뀐다.
+
+ex)
+
+	Test a = new Test();
+	a.setName("yoo");
+	Test b = new Test();
+	b = a;
+	
+	System.out.println(b.name); // output : yoo
+	a.setName("changed name");
+	System.out.println(b.name); // output : changed name
+
+하지만 String을 포함한 래퍼클래스의 인스턴스와 기본형 변수는 shallow copy가 된다.
+
+ex)
+
+	String a = "name";
+	String b = a;
+	
+	System.out.println(b); // output : name
+	a = "changed name";
+	System.out.println(b); // output : name
+ 
+---
+
+#### 배열의 copy
+
+#### deep copy
+
+	int[] original = {1,2,3,4,5};
+	int[] coiped = original // deep copy가 되어 original의 값이 수정되면면 같은 인덱스의 copied의 값도 바뀐다.
+	
+#### shallow copy
+
+	int[] original = {1,2,3,4,5};
+	int[] copied = new int[original.length];
+	
+	System.arraycopy(original,0,copied,0,original.length); 
+	
+	// shallow copy가 되어 original의 값이 수정되어도 copied의 값에는 아무런 영향이 없다.
+	
+##### 2차원 배열 shallow copy
+
+여러번 쓸거면 이렇게 만들어서 쓰고 아니면 main문에 똑같이 작성하자
+
+	static int[][] copyArray(int[][] original) {
+
+		int[][] copied = new int[original.length][original[0].length];
+
+		for (int i = 0; i < original.length; i++) {
+			System.arraycopy(original[i], 0, copied[i], 0, original[i].length);
+		}
+
+		return copied;
+
+	}
+ 
+---
+	// list가 아닌 
 
 
-무한한 숫자를 표현할 때는 
+#### 무한한 숫자를 표현할 때는 
 
 BingInteger, BigDecimal 을 사용하자
 
@@ -227,19 +385,6 @@ StringBuilder.append(String a) // a를 리턴한다.
 
 ---
 
-#### String 배열을 정렬하는 것과
-
-int 배열을 정렬하는 것은 결과가 다르다.
-
-11 103 132 19 102
-
-숫자 :  [11, 19, 102, 103, 132]
-
-문자 :  ["102", "103", "11", "132", "19"]
-
-
----
-
 #### 가변 크기 2차원배열 생성하는 법
 
 
@@ -258,7 +403,8 @@ int 배열을 정렬하는 것은 결과가 다르다.
 ex) 
 
 	String[] a = b.split("\\*");
-
+	
+그냥 "+"만 인자로 넣으면 PatternSyntaxException을 반환한다.
 
 ---
 
@@ -327,3 +473,12 @@ ex)
 
 ---
 
+#### list의 중복된 원소 제거
+
+	List<String> wordsList = new ArrayList<>();
+	
+	Set<String> wordsSet = new Hashset<>(strList); // 인자로 배열을 Arrays.asList(배열)로 입력해도 된다.
+	
+	wordsList = new ArrayList<>(wordsSet);
+	
+---
