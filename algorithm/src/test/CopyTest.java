@@ -84,7 +84,6 @@ public class CopyTest {
 		}
 
 		return copied;
-
 	}
 
 }

@@ -364,7 +364,8 @@ ex)
 ###### deep copy
 
 	int[] original = {1,2,3,4,5};
-	int[] coiped = original // deep copy가 되어 original의 값이 수정되면면 같은 인덱스의 copied의 값도 바뀐다.
+	int[] coiped = original // deep copy가 되어 original의 값이 수정되면 같은 인덱스의 copied의 값도 바뀐다.
+								 // copied의 값이 수정되어도 original의 값이 바뀐다.(같은 주소값을 사용하기 때문에)
 	
 ###### shallow copy
 
@@ -515,3 +516,9 @@ ex)
 	wordsList = new ArrayList<>(wordsSet);
 	
 ---
+
+### main문 안에서의 초기화
+
+- 기본형 변수의 배열은 자동으로 초기화가 된다.(0,false 등)
+
+- 기본형 변수는 초기화를 해줘야 된다.

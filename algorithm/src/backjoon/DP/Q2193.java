@@ -27,5 +27,20 @@ public class Q2193 {
 		}
 
 		System.out.println(pinaryNum[n]);
+		
+		
+//		long[] dp = new long[n+1];
+//		
+//		
+//		if(n <= 2) {
+//			System.out.println(1);
+//		} else {
+//			dp[1] = 1;
+//			dp[2] = 1;
+//			for(int i = 3; i <= n; i++) {
+//				dp[i] = dp[i-2] + dp[i-1];
+//			}
+//			System.out.println(dp[n]);
+//		}
 	}
 }
