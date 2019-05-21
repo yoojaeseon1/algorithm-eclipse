@@ -195,8 +195,8 @@ ex) 첫 번째 인덱스 오름차순 -> 같으면 두 번째 인덱스 오름�
 			}
 		});
 
-Integer.compare(o1,o2); // 오름차순
-Integer.compare(o2,o1); // 내림차순
+Integer.compare(o1,o2); // 오름차순(가장 작은 것이 1등)
+Integer.compare(o2,o1); // 내림차순(가장 큰 것이 1등)
 
 ##### list
 
@@ -366,6 +366,21 @@ ex)
 	int[] original = {1,2,3,4,5};
 	int[] coiped = original // deep copy가 되어 original의 값이 수정되면 같은 인덱스의 copied의 값도 바뀐다.
 								 // copied의 값이 수정되어도 original의 값이 바뀐다.(같은 주소값을 사용하기 때문에)
+								 
+	Stack<int[]> testStack = new Stack<>();
+		
+	int[] test = new int[2];
+		
+	test[0] = 1;
+	test[1] = 2;
+		
+	int[] test2 = test;
+		
+	testStack.push(test);
+		
+	test2[0] = 5;
+		
+	System.out.println(testStack.pop()[0]); // push될 때 deep copy되서 들어가기 때문에 push된 배열도 영향을 받는다.
 	
 ###### shallow copy
 
@@ -494,6 +509,8 @@ StringBuilder.append에 char형 변수를 인자로 넣을 수 있다.(안되는
 
 인스턴스1.toString().equals(인스턴스2.toString()); 을 해야한다.
 
+인스턴스1.equals(인스턴스2); 로는 StringBuilder/StringBuffer 에 들어있는 값이 같은지 확인 할 수 없다.
+
 ex)
 
 	StringBuilder str1 = new StrigBuilder("haha");
@@ -517,8 +534,46 @@ ex)
 	
 ---
 
-### main문 안에서의 초기화
+#### main문 안에서의 초기화
 
 - 기본형 변수의 배열은 자동으로 초기화가 된다.(0,false 등)
 
 - 기본형 변수는 초기화를 해줘야 된다.
+
+---
+
+#### map에서 key뽑아 반복문 돌리는 방법
+
+		Set<Character> keySet = nameMap.keySet();
+
+		Iterator keyIter = keySet.iterator();
+		
+		while (keyIter.hasNext()) {
+			// key의 자료형 또는 클래스로 casting해주면 된다.(next() 메소드는 Object 객체를 반환한다.)
+			char key = (char) keyIter.next();  
+			
+			if (nameMap.get(key) >= 5) {
+				entryList.add(key);
+			}
+		}
+		
+#### map에서 key와 value를 동시에 뽑아 반복문 돌리는 방법
+
+	Set<Character> entrySet = nameMap.entrySet();
+
+	Iterator entryIter = entrySet.iterator();
+
+	while(iterator.hasNext()){
+	
+	  Map.Entry entry = (Map.Entry)entryIter.next();
+	
+	  String key = (String)entry.getKey();
+	
+	  String value = (String)entry.getValue();
+	
+	  System.out.println("hashMap Key : " + key);
+	
+	  System.out.println("hashMap Value : " + value);
+	
+	}
+	
