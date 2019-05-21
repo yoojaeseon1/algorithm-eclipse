@@ -577,3 +577,24 @@ ex)
 	
 	}
 	
+#### Object 타입 배열의 활용 방법 
+
+여러 타입의 자료형, 인스턴스를 한번에 push, enqueue(add, offer <-> poll) 할 때 사용할 수 있다.
+
+    Stack<Object[]> boardStack = new Stack<>();
+
+	Object[] curPosition = new Object[3];
+	StringBuilder movedRoute = new StringBuilder();
+	movedRoute.append(board[0][0]);
+	curPosition[0] = 0;
+	curPosition[1] = 0;
+	curPosition[2] = movedRoute;
+	boardStack.push(curPosition);
+	
+	// 각각 다운캐스팅 해야 해당 인스턴스의 메소드를 사용할 수 있다.(안하면 overriding되지 않은 Ojbect 타입의  메소드만 사용가능)
+	
+	curPosition = boardStack.pop();
+	curX = (int) curPosition[0];
+	curY = (int) curPosition[1];
+	movedRoute = (StringBuilder) curPosition[2];
+	

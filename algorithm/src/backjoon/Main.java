@@ -2,6 +2,8 @@ package backjoon;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
@@ -10,7 +12,7 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
+		
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		Stack<Object[]> boardStack = new Stack<>();
 
@@ -47,8 +49,8 @@ public class Main {
 			movedRoute = (StringBuilder) curPosition[2];
 			// System.out.println("maxCount : " + maxCount);
 			// System.out.println("movedRoute : " + movedRoute);
-			if (movedRoute.length() > maxCount) {
-				maxCount = Math.max(maxCount, movedRoute.length());
+			if (movedRoute.length() > maxCount) { // 경로 확인용 나중에  제거
+				maxCount = Math.max(maxCount, movedRoute.length()); // 이거 빼고 조건문 다 제거
 				maxRoute.setLength(0);
 				maxRoute.append(movedRoute);
 			}
