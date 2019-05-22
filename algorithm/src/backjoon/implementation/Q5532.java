@@ -1,11 +1,11 @@
-package backjoon;
+package backjoon.implementation;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class Main {
-
-	public static void main(String[] args) throws Exception {
+public class Q5532 {
+	
+public static void main(String[] args) throws Exception {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
@@ -28,4 +28,5 @@ public class Main {
 		System.out.println(l-Math.max(languageTime,mathTime));
 		
 	}
+
 }

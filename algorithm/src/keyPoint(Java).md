@@ -18,6 +18,20 @@ if- else if문 작성할 때 if문 또는 상위의 else if문의 조건에서 �
 
 전체적으로 탐색해야 하는 문제(ex) list.contains() 메서드 사용해야 하는 문제 )는  list 대신 map을 사용하면 시간초과가 발생하지 않을 수 있다.
 
+알파벳 하나를 포함하는지 탐색해야 하는 경우
+
+	boolean[] alphabet = new boolean[26];
+	alphabet[alpha-'A'] = true;
+	if(alphabet[alpha-'A']) {
+		executed statement
+	}
+
+위와 같이 배열의 인덱스를 아스키코드 값으로 접근하자.
+
+아스키코드
+
+알파벳 대문자(A~Z) : 65 ~ 90
+알파벳 소문자(a~z) : 97 ~ 122
 
 ---
 
@@ -247,7 +261,7 @@ String의 경우 사전순, 문자열의 길이, 문자이지만 숫자의 크�
 
 ##### 내림차순
 
-기본형이 아닌 래퍼클래스의 배열을 사용해야 한다.(한 번만 사용할 경우 익명클래스로 바로 Arrays.sort함수에 인자로 넣으면 된다.)
+Comparator 인터페이스를 구현 할 경우에는 기본형이 아닌 래퍼클래스의 배열을 사용해야 한다.(한 번만 사용할 경우 익명클래스로 바로 Arrays.sort함수에 인자로 넣으면 된다.)
 
 	class Descending implements Comparator<Integer>{
 
@@ -283,7 +297,8 @@ String의 경우 사전순, 문자열의 길이, 문자이지만 숫자의 크�
 
 	// 또는
 
-	Arrays.sort(arr, Collections.reverseOrder());  // 속도 차이는 거의 없으니 이거 쓰는게 훨씬 간편하다.
+	Arrays.sort(arr, Collections.reverseOrder()); 
+	// 속도 차이는 거의 없으니 이거 쓰는게 훨씬 간편하다.(기본 자료형 배열도 가능, Comparator인터페이스를 구현한 것이 아니니까)
 	
 
 #### List의  정렬(람다식 사용)
@@ -361,6 +376,13 @@ ex)
 
 ##### 배열의 copy
 
+deep copy (System.arraycopy()로 인한 부하를 줄이는 것이 좋으므로 )
+- 입력받은 배열을 수정할 일이 없을 경우 
+- source array를 copy 이후에 사용하지 않을 때
+
+shallow copy
+- source array를 copy 이후에 수정할 일이 있을 경우(destination array도 같이 수정되는 것을 방지하기 위해)
+
 ###### deep copy
 
 	int[] original = {1,2,3,4,5};
@@ -381,6 +403,20 @@ ex)
 	test2[0] = 5;
 		
 	System.out.println(testStack.pop()[0]); // push될 때 deep copy되서 들어가기 때문에 push된 배열도 영향을 받는다.
+	
+인자로 들어가는 모든 경우에 deep copy된다.
+
+		boolean[] source = new boolean[26];
+		
+		DeepCopy test = new DeepCopy(1, source);
+		
+		System.out.println(test.getVisited()[5]);
+		
+		source[5] = true;
+		
+		System.out.println(test.getVisited()[5]); // output : 5
+		
+복사해서 사용하려면 필드를 사용한 생성자에서 System.arrayCopy()메소드를 사용해야 한다.
 	
 ###### shallow copy
 
