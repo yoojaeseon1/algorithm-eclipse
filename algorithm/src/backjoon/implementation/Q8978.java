@@ -57,6 +57,7 @@ public class Q8978 {
 				} else {
 					rankCount += rankAdded + 1;
 					rankAdded = 0;
+					
 				}
 				if (nations[i][0] == k)
 					break;
