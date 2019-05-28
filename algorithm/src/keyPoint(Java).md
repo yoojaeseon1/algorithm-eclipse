@@ -559,6 +559,13 @@ ex)
 	}
 
 ---
+#### StringBuilder/StringBuffer 엔 있고 String에는 없는 메소드
+
+.reverse(); : 해당 문자열의 인덱스를 거꾸로 한 문자열로 만든다.
+
+
+
+---
 
 #### list의 중복된 원소 제거
 
