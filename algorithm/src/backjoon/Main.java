@@ -10,32 +10,43 @@ public class Main {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
+		int N = Integer.parseInt(br.readLine());
+		
+		int[] beforeTallerArray = new int[N+1];
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		String A = st.nextToken();
-		String B = st.nextToken();
-
-		int minDifference;
-		int tempDifference = 0;
-		for (int i = 0; i < A.length(); i++) {
-			if (A.charAt(i) != B.charAt(i))
-				tempDifference++;
+		for(int i = 1; i <= N; i++){
+			beforeTallerArray[i] = Integer.parseInt(st.nextToken());
 		}
 		
-		minDifference = tempDifference;
+		int emptyCount = 0;
+		int beforeTallerCount;
+		int[] resultSequenceArray = new int[N+1];
 		
-		System.out.println(tempDifference);
-		tempDifference = 0;
-		for (int i = 0; i < A.length(); i++) {
-			if (A.charAt(i) != B.charAt(i+B.length() - A.length()))
-				tempDifference++;
+		for(int i = 1; i <= N; i++) {
+			beforeTallerCount = beforeTallerArray[i];
+			for(int j = 0; j < N; j++) {
+				if(resultSequenceArray[j] == 0) {
+					System.out.println("j : " + j);
+					if(beforeTallerCount == emptyCount) {
+						System.out.println(i);
+						System.out.println("emptyCount : " + emptyCount);
+						System.out.println("--------");
+						resultSequenceArray[emptyCount] = i;
+						emptyCount = 0;
+						break;
+					} else {
+						emptyCount++;
+					}
+				}
+			}
 		}
 		
-		minDifference = Math.min(minDifference, tempDifference);
+		for(int i = 0; i < N; i++) {
+			System.out.print(resultSequenceArray[i] + " ");
+		}
 		
-		System.out.println(tempDifference);
 		
-		System.out.println(minDifference);
-
+		
+		
 	}
-
 }

@@ -1,4 +1,4 @@
-package backjoon.DFSBFS;
+package backjoon.DFS;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,10 +1,12 @@
-package backjoon.DFSBFS;
+package backjoon.DFS;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Stack;
 import java.util.StringTokenizer;
+
+import backjoon.Position;
 
 public class Q1012 {
 	
@@ -73,28 +75,5 @@ public class Q1012 {
 		for(int i =0; i < areaCounts.length; i++) {
 			System.out.println(areaCounts[i]);
 		}
-	}
-}
-
-class Position{
-	
-	private int x;
-	private int y;
-	
-	public Position() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	public Position(int x, int y) {
-		this.x = x;
-		this.y = y;
-	}
-
-	public int getX() {
-		return x;
-	}
-	
-	public int getY() {
-		return y;
 	}
 }

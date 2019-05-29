@@ -14,25 +14,18 @@ public class Q1120 {
 		String A = st.nextToken();
 		String B = st.nextToken();
 
-		int minDifference;
+		int minDifference = 51;
 		int tempDifference = 0;
-		for (int i = 0; i < A.length(); i++) {
-			if (A.charAt(i) != B.charAt(i))
-				tempDifference++;
+
+		for (int bStartIndex = 0; bStartIndex <= B.length() - A.length(); bStartIndex++) {
+			for (int i = 0; i < A.length(); i++) {
+				if (A.charAt(i) != B.charAt(i + bStartIndex)) {
+					tempDifference++;
+				}
+			}
+			minDifference = Math.min(minDifference, tempDifference);
+			tempDifference = 0;
 		}
-
-		minDifference = tempDifference;
-
-		System.out.println(tempDifference);
-		tempDifference = 0;
-		for (int i = 0; i < A.length(); i++) {
-			if (A.charAt(i) != B.charAt(i + B.length() - A.length()))
-				tempDifference++;
-		}
-
-		minDifference = Math.min(minDifference, tempDifference);
-
-		System.out.println(tempDifference);
 
 		System.out.println(minDifference);
 

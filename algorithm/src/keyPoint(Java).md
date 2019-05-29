@@ -280,7 +280,7 @@ Comparator 인터페이스를 구현 할 경우에는 기본형이 아닌 래퍼
 
 메인 메소드	
 	
-	Integer arr = {1,3,6,4,3,2};
+	Integer arr = {1,3,6,4,3,2}; // Comparator 인터페이스에서 기본형 타입으로는 정렬이 안되므로 래퍼클래스의 인스턴스를 생성해야한다.
 
 	Arrays.sort(arr, new Descending());
 	
@@ -299,6 +299,16 @@ Comparator 인터페이스를 구현 할 경우에는 기본형이 아닌 래퍼
 
 	Arrays.sort(arr, Collections.reverseOrder()); 
 	// 속도 차이는 거의 없으니 이거 쓰는게 훨씬 간편하다.(기본 자료형 배열도 가능, Comparator인터페이스를 구현한 것이 아니니까)
+	
+	// 또는
+	
+		Arrays.sort(arr, new Comparator<Integer>(){
+		
+		@Override
+		public int compare(Integer o1, Integer o2) {
+			
+			return Integer.compare(o2,o1); // 인자에 int형으로 들어가도 알아서 오토박싱해준다.(메소드의 인자는 원래 int형이다.)
+	});
 	
 
 #### List의  정렬(람다식 사용)

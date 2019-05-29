@@ -1,6 +1,6 @@
 // baekjoon 2583
 
-package backjoon.DFSBFS;
+package backjoon.DFS;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,6 +10,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 import java.util.StringTokenizer;
+
+import backjoon.Position;
 
 public class Q2583 {
 
@@ -24,8 +26,8 @@ public class Q2583 {
 
 		StringTokenizer st = new StringTokenizer(br.readLine());
 
-		m = Integer.parseInt(st.nextToken()); // ¼¼·Î
-		n = Integer.parseInt(st.nextToken()); // °¡·Î
+		m = Integer.parseInt(st.nextToken()); // ï¿½ï¿½ï¿½ï¿½
+		n = Integer.parseInt(st.nextToken()); // ï¿½ï¿½ï¿½ï¿½
 		mapArr = new int[m][n];
 		int occupiedCnt = Integer.parseInt(st.nextToken());
 		int areaCnt = 0;
