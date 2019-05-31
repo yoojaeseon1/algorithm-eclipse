@@ -1,4 +1,4 @@
-package backjoon;
+package backjoon.greedy;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -10,7 +10,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-public class Main {
+
+// map 대신 char배열을 사용하는 것도 좋다.(알파벳, 숫자(0~9)는 아스키코드 값으로 인덱스에 접근 가능하니까)
+
+public class Q1969 {
 
 	public static void main(String[] args) throws Exception {
 
@@ -26,7 +29,6 @@ public class Main {
 		for (int di = 0; di < N; di++) {
 			DNAs[di] = br.readLine();
 		}
-
 
 		int hamDistanceSum = 0;
 		StringBuilder resultDNA = new StringBuilder();
@@ -55,11 +57,13 @@ public class Main {
 					maxDNAList.add(currentDNA);
 			}
 			Collections.sort(maxDNAList);
-			
+
 			resultDNA.append(maxDNAList.get(0));
 			hamDistanceSum += (N - DNAMap.get(maxDNAList.get(0)));
 		}
 		System.out.println(resultDNA);
 		System.out.println(hamDistanceSum);
+
 	}
+
 }
