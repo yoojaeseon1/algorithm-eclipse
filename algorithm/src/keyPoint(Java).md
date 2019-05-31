@@ -12,6 +12,14 @@
 
 if- else if문 작성할 때 if문 또는 상위의 else if문의 조건에서 걸러진 것을 참고해서 else if의 조건문을 작성하자
 
+조건문에서 인덱스를 결정하는 변수(i,j등)이 인덱스 범위에 들어오는지 확인하는 조건을 먼저 작성하자
+
+	while (j >= 0 && operator[j] == '<') // j의 범위를 먼저 확인하기 때문에 에러가 나지 않는다.
+			j--;
+			
+	while (operator[j] == '<' && j >= 0)  // indexOutOfBound 에러가 날 수 있다.
+			j--;
+
 ---
 
 #### 탐색문제
@@ -569,11 +577,22 @@ ex)
 	}
 
 ---
-#### StringBuilder/StringBuffer 엔 있고 String에는 없는 메소드
+#### StringBuilder/StringBuffer에는 있고 String에는 없는 메소드
 
 .reverse(); : 해당 문자열의 인덱스를 거꾸로 한 문자열로 만든다.
 
 
+#### String에는 있고  StringBuilder/StringBuffer에는 없는 메소드
+
+.split() : 인자로 입력한 정규표현식에 따라 문자열을 분리해서 String[]로 반환한다.
+
+---
+
+#### StringBuilder/StringBuffer.insert(index)
+
+해당 index에 추가하고 그 뒤로 오는 문자열을 한칸씩 밀어준다.(해당 인덱스에 대체 해주는 것이 아니다.)
+
+String은 insert의 기능을 하는 메소드가 없다.(문자/문자열로 접근해서 대체 해주는 replace메소드가 있다.(replace는 StringBuilder/StringBuffer도 있다.))
 
 ---
 

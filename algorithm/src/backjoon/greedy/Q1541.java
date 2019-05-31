@@ -9,72 +9,85 @@ public class Q1541 {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		StringBuilder input = new StringBuilder(br.readLine());
-		StringBuilder numString = new StringBuilder();
-		int tempSum = 0;
-		int resultSum = 0;
+		StringBuilder formula = new StringBuilder(br.readLine());
+		StringBuilder tempOperand = new StringBuilder();
+		long tempSum = 0;
+		long resultSum = 0;
 		boolean minusFlag = false;
-		int firstIndex = 0;
+		int formulaIndex = 0;
 		char sign = ' ';
 
-		while (input.charAt(firstIndex) != '+' && input.charAt(firstIndex) != '-') {
-			numString.append(input.charAt(firstIndex));
-			firstIndex++;
+		while (formula.charAt(formulaIndex) != '+' && formula.charAt(formulaIndex) != '-') {
+			tempOperand.append(formula.charAt(formulaIndex));
+			formulaIndex++;
+			if (formulaIndex == formula.length()) // not exist operator(ex)
+													// input : 12345)
+				break;
 		}
 
-		// System.out.println(numString);
-		// System.out.println(firstIndex);
+		resultSum += Integer.parseInt(tempOperand.toString());
+		tempOperand.setLength(0);
 
-		resultSum += Integer.parseInt(numString.toString());
-		numString.setLength(0);
-		int j;
-
-		for (int i = firstIndex; i < input.length(); i++) {
-			sign = input.charAt(i);
-			System.out.println(sign);
-			j = i + 1;
-			while (j < input.length() && input.charAt(j) != '+' && input.charAt(j) != '-') {
-				// System.out.println(input.charAt(j));
-				numString.append(input.charAt(j));
-				j++;
+		for (int fi = formulaIndex; fi < formula.length(); fi++) {
+			sign = formula.charAt(fi);
+			int fj = fi + 1; // 한 번의 루프마다 지워지고 생성되는 건지 아니면 루프마다 생성되고 전체가 끝나면 한
+								// 번에 다 지워지는 건지 확인
+			while (fj < formula.length() && formula.charAt(fj) != '+' && formula.charAt(fj) != '-') {
+				tempOperand.append(formula.charAt(fj));
+				fj++;
 			}
-			// System.out.println("----");
 			if (sign == '+') {
-				if (minusFlag)
-					tempSum += Integer.parseInt(numString.toString());
-				else {
-					resultSum += Integer.parseInt(numString.toString());
-					numString.setLength(0);
+				if (minusFlag) {
+					tempSum += Integer.parseInt(tempOperand.toString());
+					tempOperand.setLength(0);
+				} else {
+					resultSum += Integer.parseInt(tempOperand.toString());
+					tempOperand.setLength(0);
 				}
-			} else {
+			} else { // sign == '-'
 				if (minusFlag) {
 					resultSum -= tempSum;
-					tempSum = 0;
-					// minusFlag = false;
+					tempSum = Integer.parseInt(tempOperand.toString());
+					tempOperand.setLength(0);
+					minusFlag = true;
 				} else {
-					tempSum += Integer.parseInt(numString.toString());
-					numString.setLength(0);
+					tempSum += Integer.parseInt(tempOperand.toString());
+					tempOperand.setLength(0);
 					minusFlag = true;
 				}
 			}
-			// System.out.println(resultSum);
-			// System.out.println("-----------");
-			i = j - 1;
+			fi = fj - 1;
 		}
 
-		if (sign == '-' && minusFlag)
+		if (minusFlag)
 			resultSum -= tempSum;
-		else if (sign == '-' && !minusFlag)
-			resultSum += tempSum;
-		else {
-			resultSum += tempSum;
-			System.out.println("haha");
-		}
-		// System.out.println(tempSum);
-		// resultSum += tempSum;
 
 		System.out.println(resultSum);
-
+		
+		
+//		String getEx = br.readLine();
+//		String[] tokenStrMinus = getEx.split("-");
+//		
+//		int result = countStr(tokenStrMinus[0]);
+//		
+//		for(int i = 1; tokenStrMinus.length > i; i++) {
+//			result -= countStr(tokenStrMinus[i]);
+//		}
+//		
+//		System.out.println(result);
+		
+		
 	}
+	
+	
+//	public static int countStr(String str) {
+//		String[] tokenStrPlus = str.split("\\+");
+//		int sum = 0;
+//		for(int i = 0; i < tokenStrPlus.length; i++) {
+//			sum += Integer.parseInt(tokenStrPlus[i]);			
+//		}
+//		
+//		return sum;
+//	}
 
 }
