@@ -350,9 +350,9 @@ int 배열을 정렬하는 것은 결과가 다르다.
 
 ##### 인스턴스의 copy
 
-###### deep copy
+###### shallow copy
 
-인스턴스를 copy 할 경우 deep copy가 되어 복사의 대상이 된 인스턴스의 필드 값이 바뀌면 복사한 인스턴스의 필드 값도 바뀐다.
+인스턴스를 copy 할 경우 shallow copy가 되어 복사의 대상이 된 인스턴스의 필드 값이 바뀌면 복사한 인스턴스의 필드 값도 바뀐다.
 
 ex)
 
@@ -365,9 +365,9 @@ ex)
 	a.setName("changed name");
 	System.out.println(b.name); // output : changed name
 	
-###### shallow copy
+###### deep copy
 
-하지만 String을 포함한 래퍼클래스의 인스턴스와 기본형 변수는 shallow copy가 된다.
+하지만 String을 포함한 래퍼클래스의 인스턴스와 기본형 변수는 deep copy가 된다.
 
 ex)
 
@@ -389,10 +389,10 @@ deep copy (System.arraycopy()로 인한 부하를 줄이는 것이 좋으므로 
 shallow copy
 - source array를 copy 이후에 수정할 일이 있을 경우(destination array도 같이 수정되는 것을 방지하기 위해)
 
-###### deep copy
+###### shallow copy
 
 	int[] original = {1,2,3,4,5};
-	int[] coiped = original // deep copy가 되어 original의 값이 수정되면 같은 인덱스의 copied의 값도 바뀐다.
+	int[] coiped = original // shallow copy가 되어 original의 값이 수정되면 같은 인덱스의 copied의 값도 바뀐다.
 								 // copied의 값이 수정되어도 original의 값이 바뀐다.(같은 주소값을 사용하기 때문에)
 								 
 	Stack<int[]> testStack = new Stack<>();
@@ -408,9 +408,9 @@ shallow copy
 		
 	test2[0] = 5;
 		
-	System.out.println(testStack.pop()[0]); // push될 때 deep copy되서 들어가기 때문에 push된 배열도 영향을 받는다.
+	System.out.println(testStack.pop()[0]); // push될 때 shallow copy되서 들어가기 때문에 push된 배열도 영향을 받는다.
 	
-인자로 들어가는 모든 경우에 deep copy된다.
+인자로 들어가는 모든 경우에  shallow copy된다.
 
 		boolean[] source = new boolean[26];
 		
@@ -424,16 +424,16 @@ shallow copy
 		
 복사해서 사용하려면 필드를 사용한 생성자에서 System.arrayCopy()메소드를 사용해야 한다.
 	
-###### shallow copy
+###### deep copy
 
 	int[] original = {1,2,3,4,5};
 	int[] copied = new int[original.length];
 	
 	System.arraycopy(original,0,copied,0,original.length); 
 	
-	// shallow copy가 되어 original의 값이 수정되어도 copied의 값에는 아무런 영향이 없다.
+	// deep copy가 되어 original의 값이 수정되어도 copied의 값에는 아무런 영향이 없다.
 	
-###### 2차원 배열 shallow copy
+###### 2차원 배열 deep copy
 
 여러번 쓸거면 이렇게 만들어서 쓰고 아니면 main문에 똑같이 작성하자
 
