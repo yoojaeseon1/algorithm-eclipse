@@ -584,6 +584,23 @@ String은 insert의 기능을 하는 메소드가 없다.(문자/문자열로 �
 
 ---
 
+#### String과 Char의 빈 문자열/문자의 초기화
+
+String은 빈 문자열을 초기화 할 수 있지만
+
+Char는 빈 문자를 초기화 할 수 없다.
+
+빈 문자를 사용해야 할 때는 String을 사용하는 것이 편리하다.
+
+ex)
+
+	String initString = ""; // 가능
+	
+	Char initChar = '' // 에러 발생
+
+
+---
+
 #### list의 중복된 원소 제거
 
 	List<String> wordsList = new ArrayList<>();
@@ -639,6 +656,10 @@ String은 insert의 기능을 하는 메소드가 없다.(문자/문자열로 �
 	
 #### Object 타입 배열의 활용 방법 
 
+Object배열보다는 해당 자료형,인스턴스를 필드로 가지는 클래스를 만들어 그 인스턴스를 넣어주는 것이 더 편리하다.(꺼낼 때 캐스팅 할 필요X)
+
+사용법
+
 여러 타입의 자료형, 인스턴스를 한번에 push, enqueue(add, offer <-> poll) 할 때 사용할 수 있다.
 
     Stack<Object[]> boardStack = new Stack<>();
@@ -657,4 +678,3 @@ String은 insert의 기능을 하는 메소드가 없다.(문자/문자열로 �
 	curX = (int) curPosition[0];
 	curY = (int) curPosition[1];
 	movedRoute = (StringBuilder) curPosition[2];
-	

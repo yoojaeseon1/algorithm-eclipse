@@ -32,8 +32,9 @@ if문 또는 상위의 else if문의 조건에서 걸러진 것을 참고해서 
 
 
 ---
+#### 변수명
 
-#### 적당한 변수의 길이
+##### 적당한 변수의 길이
 
 변수 이름의 길이가 평균적으로 10~16일 때 프로그램을 디버깅하기 위해서 들이는 노력을 최소화 할 수 있고
 
@@ -41,21 +42,29 @@ if문 또는 상위의 else if문의 조건에서 걸러진 것을 참고해서 
 
 결론 : 길이가 8~20 이면 적절하다.(약간 길어보여도 의미가 명확하도록 이름 짓자)
 
+##### 변수 작명 관례
 
-###### 너무 긴 이름 
+max, min : 경계를 포함하는 최대/최소값
+
+first, last : 경계를 포함하는 범위
+
+begin, end : 경계를 포함/배제하는 범위(begin이상 end미만 일 때)
+
+
+##### 너무 긴 이름 
 
 numberOfPeopleOnTheUsOlympicTeam 
 numberOfSeatsInTheStadium 
 maximunNumberOfPointsInMordernOlympics
 
 
-###### 너무 짧은 이름 
+##### 너무 짧은 이름 
 
 n, np, ntm 
 n, ns, nsisd 
 m, mp, max, points
 
-###### 적당한 이름 
+##### 적당한 이름 
 
 numTeamMembers, teamMemberCount 
 numSeatsInStadium, seatCount 
@@ -63,14 +72,14 @@ teamPointsMax, pointsRecord
 
 --- 
 
-#### 변수명 키워드로 사용할 만한 것들
+##### 변수명 키워드로 사용할 만한 것들
 
 left / right
 before / after
 
 ---
 
-#### num, size, input과 같은 변수명은 지양하자
+##### num, size, input과 같은 변수명은 지양하자
 
 num : 정수/실수의 자료형이라면 당연히 숫자(number)의 의미를 포함하므로 적어주지 않는게 좋다.
 
