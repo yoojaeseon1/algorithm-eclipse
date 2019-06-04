@@ -2,13 +2,6 @@ package backjoon;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.StringTokenizer;
 
 public class Main {
 
@@ -16,50 +9,50 @@ public class Main {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		StringTokenizer st = new StringTokenizer(br.readLine());
+		int N = Integer.parseInt(br.readLine());
+		int goodWordCount = 0;
+		for (int wordCount = 0; wordCount < N; wordCount++) {
 
-		final int N = Integer.parseInt(st.nextToken());
-		final int M = Integer.parseInt(st.nextToken());
+			StringBuilder currentWord = new StringBuilder(br.readLine());
 
-		String[] DNAs = new String[N]; // 자체가 약어일 때 변수명 짓는 방법 알아보자
+			int first, last = 0;
+			boolean[] visitedCheck = new boolean[currentWord.length()];
 
-		for (int di = 0; di < N; di++) {
-			DNAs[di] = br.readLine();
-		}
-
-
-		int hamDistanceSum = 0;
-		StringBuilder resultDNA = new StringBuilder();
-
-		for (int charI = 0; charI < M; charI++) {
-			Map<Character, Integer> DNAMap = new HashMap<>();
-			for (int DNAsI = 0; DNAsI < N; DNAsI++) {
-				char currentChar = DNAs[DNAsI].charAt(charI);
-				if (DNAMap.containsKey(currentChar))
-					DNAMap.put(currentChar, DNAMap.get(currentChar) + 1);
-				else
-					DNAMap.put(currentChar, 1);
+			first = 0;
+			visitedCheck[0] = true;
+			for (int wi = 1; wi < currentWord.length(); wi++) {
+				if (currentWord.charAt(first) == currentWord.charAt(wi)) {
+					last = wi;
+					visitedCheck[last] = true;
+					break;
+				}
 			}
-			List<Integer> hammingList = new ArrayList<>(DNAMap.values());
-			int maxHammingValue = 0;
-			for (int hi = 0; hi < hammingList.size(); hi++) {
-				maxHammingValue = Math.max(maxHammingValue, hammingList.get(hi));
+			int nextFirst;
+			boolean goodCheck = true;
+			for (int wi = 1; wi < currentWord.length(); wi++) {
+				if (!visitedCheck[wi]) {
+					nextFirst = wi;
+					for (int wj = wi + 1; wj < currentWord.length(); wj++) {
+						if (!visitedCheck[wj] && (currentWord.charAt(wj) == currentWord.charAt(nextFirst))) {
+							if (last > nextFirst && last < wj) {
+								goodCheck = false;
+								break;
+							} else {
+								first = nextFirst;
+								last = wj;
+								visitedCheck[first] = true;
+								visitedCheck[last] = true;
+								break;
+							}
+						}
+					}
+					if (!goodCheck)
+						break;
+				}
 			}
-			List<Character> maxDNAList = new ArrayList<>();
-
-			Iterator DNAIter = DNAMap.keySet().iterator();
-
-			while (DNAIter.hasNext()) {
-				char currentDNA = (char) DNAIter.next();
-				if (DNAMap.get(currentDNA) == maxHammingValue)
-					maxDNAList.add(currentDNA);
-			}
-			Collections.sort(maxDNAList);
 			
-			resultDNA.append(maxDNAList.get(0));
-			hamDistanceSum += (N - DNAMap.get(maxDNAList.get(0)));
+			if(goodCheck) goodWordCount++;
 		}
-		System.out.println(resultDNA);
-		System.out.println(hamDistanceSum);
+		System.out.println(goodWordCount);
 	}
 }
