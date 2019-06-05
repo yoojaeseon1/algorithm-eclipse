@@ -11,7 +11,7 @@ public class DigitToHangle {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		// StringBuilder inputNum = new StringBuilder(br.readLine());
-		String inputNum = "212000000001";
+		String inputNum = "10000";
 		int reversedIndex = 0;
 		char currentDigit;
 		StringBuilder result = new StringBuilder();

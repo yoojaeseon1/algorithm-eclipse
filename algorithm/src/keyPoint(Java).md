@@ -33,17 +33,17 @@
 
 #### BFS/DFS 영역 구하는 문제
 
-1 : enqueue/push 되지 않고 방문하지 않은 영역
+0 : enqueue/push 되지 않고 방문하지 않은 영역
 
-2 : enqueue/push 했지만 방문하진 않은 영역
+1 : enqueue/push 했지만 방문하진 않은 영역
 
-3 : 방문 한 영역 
+2 : 방문 한 영역 
 
 field의 값을 위와 같이 초기화 하고
 
-dequeue(queue.poll())/pop 할 때 : 3으로 초기화(방문)와 방문한 영역의 count
+dequeue(queue.poll())/pop 할 때 : 2로 초기화(방문)와 방문한 영역의 count
 
-주위 영역을 enqueue(add(e) or offer(e))/push 할 때 : 2로 초기화
+주위 영역을 enqueue(add(e) or offer(e))/push 할 때 : 1로 초기화
 
 ##### Queue 선언/메소드
 
@@ -51,7 +51,7 @@ Queue<Integer> queue = new LinkedList<>();
 
 queue.add() // enqueue(include exception)
 
-queue.offer() // enqueue(except exception)
+queue.offer() // enqueue(exclude exception)
 
 queue.poll() // dequeue
 
