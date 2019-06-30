@@ -1,11 +1,11 @@
-package backjoon;
+package backjoon.greedy;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main {
-
+public class Q2828 {
+	
 	public static void main(String[] args) throws Exception {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -29,7 +29,6 @@ public class Main {
 					minRange--;
 					moveCount++;
 				}
-//				minRange = appleLocation;
 				maxRange = maxRange - moveCount;
 				
 			} else if(appleLocation > maxRange) {
@@ -38,10 +37,10 @@ public class Main {
 					moveCount++;
 				}
 				minRange = minRange + moveCount;
-//				maxRange = appleLocation;
 			}
 			minMoveCount += moveCount;
 		}
 		System.out.println(minMoveCount);
 	}
+
 }
