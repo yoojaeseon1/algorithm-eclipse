@@ -1,3 +1,3 @@
-#### new ë©”ë‰´ êµ¬ì„±í•˜ê¸°
+#### new ¸Þ´º ±¸¼ºÇÏ±â
 
-Window - Customize Perspective > Shortcuts > ì›í•˜ëŠ” ë©”ë‰´ ì²´í¬ > OK
+Window - Customize Perspective > Shortcuts > ¿øÇÏ´Â ¸Þ´º Ã¼Å© > OK
