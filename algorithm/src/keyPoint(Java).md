@@ -1,20 +1,20 @@
-¹éÁØ¿¡¼­ ÀÔ·Â ¿©·¯°³ ¹ÞÀ» ¶§´Â ÇÑÁÙ ÀÔ·Â¹ÞÀ» ¶§¸¶´Ù Ã³¸®ÇÏÁö¸»°í(ÃÊ±âÈ­´Â ÇÏ°í ¿¬»êÀ» ³ªÁß¿¡ ÇÏÀÚ´Â ÀÇ¹Ì)
+ë°±ì¤€ì—ì„œ ìž…ë ¥ ì—¬ëŸ¬ê°œ ë°›ì„ ë•ŒëŠ” í•œì¤„ ìž…ë ¥ë°›ì„ ë•Œë§ˆë‹¤ ì²˜ë¦¬í•˜ì§€ë§ê³ (ì´ˆê¸°í™”ëŠ” í•˜ê³  ì—°ì‚°ì„ ë‚˜ì¤‘ì— í•˜ìžëŠ” ì˜ë¯¸)
 
-¹è¿­·Î ´Ù ¹ÞÀº´ÙÀ½ Ã³¸®ÇÏÀÚ(ÃÊ±âÈ­¸¸)
+ë°°ì—´ë¡œ ë‹¤ ë°›ì€ë‹¤ìŒ ì²˜ë¦¬í•˜ìž(ì´ˆê¸°í™”ë§Œ)
 
-Ãâ·Â °ªÀÌ º¯¼öÀÇ ÀÚ·áÇü ¹üÀ§¸¦ ¹þ¾î³ª´ÂÁö È®ÀÎÇÏÀÚ
-
----
-
-º¯¼ö¸íÀÇ ±æÀÌ´Â 8~20Á¤µµ°¡ Àû´çÇÏ´Ù(³Ê¹« Âª¾Æµµ º°·Î)
+ì¶œë ¥ ê°’ì´ ë³€ìˆ˜ì˜ ìžë£Œí˜• ë²”ìœ„ë¥¼ ë²—ì–´ë‚˜ëŠ”ì§€ í™•ì¸í•˜ìž
 
 ---
 
-#### Å½»ö¹®Á¦
+ë³€ìˆ˜ëª…ì˜ ê¸¸ì´ëŠ” 8~20ì •ë„ê°€ ì ë‹¹í•˜ë‹¤(ë„ˆë¬´ ì§§ì•„ë„ ë³„ë¡œ)
 
-ÀüÃ¼ÀûÀ¸·Î Å½»öÇØ¾ß ÇÏ´Â ¹®Á¦(ex) list.contains() ¸Þ¼­µå »ç¿ëÇØ¾ß ÇÏ´Â ¹®Á¦ )´Â  list ´ë½Å mapÀ» »ç¿ëÇÏ¸é ½Ã°£ÃÊ°ú°¡ ¹ß»ýÇÏÁö ¾ÊÀ» ¼ö ÀÖ´Ù.
+---
 
-¾ËÆÄºª ÇÏ³ª¸¦ Æ÷ÇÔÇÏ´ÂÁö Å½»öÇØ¾ß ÇÏ´Â °æ¿ì
+#### íƒìƒ‰ë¬¸ì œ
+
+ì „ì²´ì ìœ¼ë¡œ íƒìƒ‰í•´ì•¼ í•˜ëŠ” ë¬¸ì œ(ex) list.contains() ë©”ì„œë“œ ì‚¬ìš©í•´ì•¼ í•˜ëŠ” ë¬¸ì œ )ëŠ”  list ëŒ€ì‹  mapì„ ì‚¬ìš©í•˜ë©´ ì‹œê°„ì´ˆê³¼ê°€ ë°œìƒí•˜ì§€ ì•Šì„ ìˆ˜ ìžˆë‹¤.
+
+ì•ŒíŒŒë²³ í•˜ë‚˜ë¥¼ í¬í•¨í•˜ëŠ”ì§€ íƒìƒ‰í•´ì•¼ í•˜ëŠ” ê²½ìš°
 
 	boolean[] alphabet = new boolean[26];
 	alphabet[alpha-'A'] = true;
@@ -22,30 +22,30 @@
 		executed statement
 	}
 
-À§¿Í °°ÀÌ ¹è¿­ÀÇ ÀÎµ¦½º¸¦ ¾Æ½ºÅ°ÄÚµå °ªÀ¸·Î Á¢±ÙÇÏÀÚ.
+ìœ„ì™€ ê°™ì´ ë°°ì—´ì˜ ì¸ë±ìŠ¤ë¥¼ ì•„ìŠ¤í‚¤ì½”ë“œ ê°’ìœ¼ë¡œ ì ‘ê·¼í•˜ìž.
 
-¾Æ½ºÅ°ÄÚµå
+ì•„ìŠ¤í‚¤ì½”ë“œ
 
-¾ËÆÄºª ´ë¹®ÀÚ(A~Z) : 65 ~ 90
-¾ËÆÄºª ¼Ò¹®ÀÚ(a~z) : 97 ~ 122
+ì•ŒíŒŒë²³ ëŒ€ë¬¸ìž(A~Z) : 65 ~ 90
+ì•ŒíŒŒë²³ ì†Œë¬¸ìž(a~z) : 97 ~ 122
 
 ---
 
-#### BFS/DFS ¿µ¿ª ±¸ÇÏ´Â ¹®Á¦
+#### BFS/DFS ì˜ì—­ êµ¬í•˜ëŠ” ë¬¸ì œ
 
-0 : enqueue/push µÇÁö ¾Ê°í ¹æ¹®ÇÏÁö ¾ÊÀº ¿µ¿ª
+0 : enqueue/push ë˜ì§€ ì•Šê³  ë°©ë¬¸í•˜ì§€ ì•Šì€ ì˜ì—­
 
-1 : enqueue/push ÇßÁö¸¸ ¹æ¹®ÇÏÁø ¾ÊÀº ¿µ¿ª
+1 : enqueue/push í–ˆì§€ë§Œ ë°©ë¬¸í•˜ì§„ ì•Šì€ ì˜ì—­
 
-2 : ¹æ¹® ÇÑ ¿µ¿ª 
+2 : ë°©ë¬¸ í•œ ì˜ì—­ 
 
-fieldÀÇ °ªÀ» À§¿Í °°ÀÌ ÃÊ±âÈ­ ÇÏ°í
+fieldì˜ ê°’ì„ ìœ„ì™€ ê°™ì´ ì´ˆê¸°í™” í•˜ê³ 
 
-dequeue(queue.poll())/pop ÇÒ ¶§ : 2·Î ÃÊ±âÈ­(¹æ¹®)¿Í ¹æ¹®ÇÑ ¿µ¿ªÀÇ count
+dequeue(queue.poll())/pop í•  ë•Œ : 2ë¡œ ì´ˆê¸°í™”(ë°©ë¬¸)ì™€ ë°©ë¬¸í•œ ì˜ì—­ì˜ count
 
-ÁÖÀ§ ¿µ¿ªÀ» enqueue(add(e) or offer(e))/push ÇÒ ¶§ : 1·Î ÃÊ±âÈ­
+ì£¼ìœ„ ì˜ì—­ì„ enqueue(add(e) or offer(e))/push í•  ë•Œ : 1ë¡œ ì´ˆê¸°í™”
 
-##### Queue ¼±¾ð/¸Þ¼Òµå
+##### Queue ì„ ì–¸/ë©”ì†Œë“œ
 
 Queue<Integer> queue = new LinkedList<>();
 
@@ -57,90 +57,90 @@ queue.poll() // dequeue
 
 ---
 
-¹è¿­°ú listÁß¿¡¼­ ¹è¿­À» »ç¿ëÇØµµ ¹«°üÇÏ´Ù¸é ¹è¿­À» »ç¿ëÇÏ´Â°ÍÀÌ ¼öÇà½Ã°£ÀÌ Àû°Ô ³ª¿Â´Ù.(Á¤·Ä ÇÒ ¶§, °ÅÀÇ 1/3 ¼öÁØ)
+ë°°ì—´ê³¼ listì¤‘ì—ì„œ ë°°ì—´ì„ ì‚¬ìš©í•´ë„ ë¬´ê´€í•˜ë‹¤ë©´ ë°°ì—´ì„ ì‚¬ìš©í•˜ëŠ”ê²ƒì´ ìˆ˜í–‰ì‹œê°„ì´ ì ê²Œ ë‚˜ì˜¨ë‹¤.(ì •ë ¬ í•  ë•Œ, ê±°ì˜ 1/3 ìˆ˜ì¤€)
 
-¹è¿­ : Arrays.sort(array);
+ë°°ì—´ : Arrays.sort(array);
 
 list : Collections.sort(list);
 
 ---
-#### ¾Æ½ºÅ°ÄÚµå ÀÚÁÖ ¾²´Â °Íµé
+#### ì•„ìŠ¤í‚¤ì½”ë“œ ìžì£¼ ì“°ëŠ” ê²ƒë“¤
 
-¼ýÀÚ(0~9) : 48~57
+ìˆ«ìž(0~9) : 48~57
 
-¾ËÆÄºª´ë¹®ÀÚ(A~Z) : 65~90
+ì•ŒíŒŒë²³ëŒ€ë¬¸ìž(A~Z) : 65~90
 
-¾ËÆÄºª ¼Ò¹®ÀÚ(a~z) : 97~122
+ì•ŒíŒŒë²³ ì†Œë¬¸ìž(a~z) : 97~122
 
-A~B(B>A) ¹üÀ§ ¾ÈÀÇ °³¼ö : µÑ´Ù Æ÷ÇÔÇÏ¸é (B-A)+1, ÇÏ³ª¸¸ Æ÷ÇÔÇÏ¸é B-A, µÑ´Ù Æ÷ÇÔ ¾ÈÇÏ¸é (B-A)-1
+A~B(B>A) ë²”ìœ„ ì•ˆì˜ ê°œìˆ˜ : ë‘˜ë‹¤ í¬í•¨í•˜ë©´ (B-A)+1, í•˜ë‚˜ë§Œ í¬í•¨í•˜ë©´ B-A, ë‘˜ë‹¤ í¬í•¨ ì•ˆí•˜ë©´ (B-A)-1
 
 ---
 
-StringBuffer : multi-thread¿¡¼­ »ç¿ë(jdk 1.5ºÎÅÍ) (µ¿±âÈ­ Áö¿ø)
+StringBuffer : multi-threadì—ì„œ ì‚¬ìš©(jdk 1.5ë¶€í„°) (ë™ê¸°í™” ì§€ì›)
 
-StringBuilder : single-thread¿¡¼­ »ç¿ë(µ¿±âÈ­ Áö¿øX, ½Ì±Û½º·¹µå¿¡¼­´Â ¼º´ÉÀÌ ´õ ÁÁ´Ù.)
+StringBuilder : single-threadì—ì„œ ì‚¬ìš©(ë™ê¸°í™” ì§€ì›X, ì‹±ê¸€ìŠ¤ë ˆë“œì—ì„œëŠ” ì„±ëŠ¥ì´ ë” ì¢‹ë‹¤.)
 
-String´ë½Å StringBuilder »ç¿ë
+StringëŒ€ì‹  StringBuilder ì‚¬ìš©
 
-Scanner(System.in) : single-thread¿¡¼­ »ç¿ë(µ¿±âÈ­ Áö¿øX, ½Ì±Û½º·¹µå¿¡¼­´Â ¼º´ÉÀÌ ´õ ÁÁ´Ù.)
+Scanner(System.in) : single-threadì—ì„œ ì‚¬ìš©(ë™ê¸°í™” ì§€ì›X, ì‹±ê¸€ìŠ¤ë ˆë“œì—ì„œëŠ” ì„±ëŠ¥ì´ ë” ì¢‹ë‹¤.)
 
-BufferedReader(new InputStreamReader()) : multi-thread¿¡¼­ »ç¿ë(jdk 1.5ºÎÅÍ) (µ¿±âÈ­ Áö¿ø)
+BufferedReader(new InputStreamReader()) : multi-threadì—ì„œ ì‚¬ìš©(jdk 1.5ë¶€í„°) (ë™ê¸°í™” ì§€ì›)
 
 ---
 
 StringTokenizer st = new StringTokenizer(String, delim);
 
-delimÀ» ±âÁØÀ¸·Î splitÇÑ´Ù.(delimeter : ±¸ºÐ±âÈ£)
+delimì„ ê¸°ì¤€ìœ¼ë¡œ splití•œë‹¤.(delimeter : êµ¬ë¶„ê¸°í˜¸)
 
-st.nextToken() : Ã³À½¼³Á¤ÇÑ delimÀ» ±âÁØÀ¸·Î ³ª´²Áø StringÀ» return
+st.nextToken() : ì²˜ìŒì„¤ì •í•œ delimì„ ê¸°ì¤€ìœ¼ë¡œ ë‚˜ëˆ ì§„ Stringì„ return
 
-st.nextToken(delim)À» ÅëÇØ delimÀ» ¹Ù²Ù¸é splitÀÇ ±âÁØÀÌ ´Ù½Ã ¹Ù²ï´Ù.
+st.nextToken(delim)ì„ í†µí•´ delimì„ ë°”ê¾¸ë©´ splitì˜ ê¸°ì¤€ì´ ë‹¤ì‹œ ë°”ë€ë‹¤.
 
-StringTokenizer °´Ã¼¿¡´Â nextToken()ÇßÀ»¶§ÀÇ delim±âÁØÀ¸·Î ³ª´²Áø Ã¹¹øÂ° StringÀ» Á¦¿ÜÇÑ ÀüÃ¼ StringÀÌ ÀúÀåµÇ¾îÀÖ´Ù.
+StringTokenizer ê°ì²´ì—ëŠ” nextToken()í–ˆì„ë•Œì˜ delimê¸°ì¤€ìœ¼ë¡œ ë‚˜ëˆ ì§„ ì²«ë²ˆì§¸ Stringì„ ì œì™¸í•œ ì „ì²´ Stringì´ ì €ìž¥ë˜ì–´ìžˆë‹¤.
 
 ex) 
 
 	String temp =  "this$1is$1string";
 
-StringTokenizer st = new StringTokenizer(temp, delim); >> delimÀÇ default °ª : " "
+StringTokenizer st = new StringTokenizer(temp, delim); >> delimì˜ default ê°’ : " "
 
-delimÀ» ¼³Á¤ÇÑ ÀÌÈÄ Àç ¼³Á¤ ÇÏÁö ¾ÊÀ¸¸é °è¼Ó ±× delimÀ¸·Î Àû¿ëµÅ tokenÀÌ »ý¼ºµÈ´Ù.
-(ÀÎ½ºÅÏ½º »ý¼ºÇÒ ¶§, st.nextToken(String delim)ÇÒ ¶§ ¸ðµÎ ¸¶Âù°¡Áö)
+delimì„ ì„¤ì •í•œ ì´í›„ ìž¬ ì„¤ì • í•˜ì§€ ì•Šìœ¼ë©´ ê³„ì† ê·¸ delimìœ¼ë¡œ ì ìš©ë¼ tokenì´ ìƒì„±ëœë‹¤.
+(ì¸ìŠ¤í„´ìŠ¤ ìƒì„±í•  ë•Œ, st.nextToken(String delim)í•  ë•Œ ëª¨ë‘ ë§ˆì°¬ê°€ì§€)
 
-nextToken(delim)½ÇÇà ½Ã ³²¾ÆÀÖ´Â ¹®ÀÚ¿­ÀÇ ½ÃÀÛ¿¡´Â ÇØ´ç delimÀÌ ¸Ç ¾Õ¿¡ Æ÷ÇÔµÇ¾îÀÖ´Ù.
+nextToken(delim)ì‹¤í–‰ ì‹œ ë‚¨ì•„ìžˆëŠ” ë¬¸ìžì—´ì˜ ì‹œìž‘ì—ëŠ” í•´ë‹¹ delimì´ ë§¨ ì•žì— í¬í•¨ë˜ì–´ìžˆë‹¤.
 
 	String temp = "$1is$1string$1shaha";
 		
 		StringTokenizer st = new StringTokenizer(temp, "$");
 		
-		System.out.println(st.nextToken());  // ¹ÝÈ¯°ª :"1is", ³²¾ÆÀÖ´Â ¹®ÀÚ¿­ : "$1string$1shaha"
-		System.out.println(st.nextToken("s")); // ¹ÝÈ¯°ª : "$1", ³²¾ÆÀÖ´Â ¹®ÀÚ¿­ : "string$1shaha"
-		System.out.println(st.nextToken()); // ¹ÝÈ¯°ª : tring$1, ³²¾ÆÀÖ´Â ¹®ÀÚ¿­ : "shaha"
-		System.out.println(st.nextToken()); // delimÀÌ "s"·Î Àû¿ëµÇ¼­ haha¸¦ Ãâ·ÂÇÑ´Ù.
+		System.out.println(st.nextToken());  // ë°˜í™˜ê°’ :"1is", ë‚¨ì•„ìžˆëŠ” ë¬¸ìžì—´ : "$1string$1shaha"
+		System.out.println(st.nextToken("s")); // ë°˜í™˜ê°’ : "$1", ë‚¨ì•„ìžˆëŠ” ë¬¸ìžì—´ : "string$1shaha"
+		System.out.println(st.nextToken()); // ë°˜í™˜ê°’ : tring$1, ë‚¨ì•„ìžˆëŠ” ë¬¸ìžì—´ : "shaha"
+		System.out.println(st.nextToken()); // delimì´ "s"ë¡œ ì ìš©ë˜ì„œ hahaë¥¼ ì¶œë ¥í•œë‹¤.
 		
-ÇÏ³ªÀÇ delimÀ¸·Î °è¼Ó nextTokenÀ» ¹ÝÈ¯ ½ÃÅ³ ¶§´Â Å©°Ô ½Å°æ ¾µ ÇÊ¿ä¾øÀÌ ÇØ´ç delimÀ¸·Î ¹®ÀÚ¿­ÀÌ ³ª¿öÁ® tokenÀÌ µÈ´Ù°í »ý°¢ÇÏÀÚ.
+í•˜ë‚˜ì˜ delimìœ¼ë¡œ ê³„ì† nextTokenì„ ë°˜í™˜ ì‹œí‚¬ ë•ŒëŠ” í¬ê²Œ ì‹ ê²½ ì“¸ í•„ìš”ì—†ì´ í•´ë‹¹ delimìœ¼ë¡œ ë¬¸ìžì—´ì´ ë‚˜ì›Œì ¸ tokenì´ ëœë‹¤ê³  ìƒê°í•˜ìž.
 
 ---
 
-±âº»Çüº¯¼ö(int, float, double, char, boolean...)¿¡ ´ëÇÑ ·¡ÆÛÅ¬·¡½º(Integer, Float, Double, Character, Boolean...) °¡ Á¸ÀçÇÑ´Ù.
+ê¸°ë³¸í˜•ë³€ìˆ˜(int, float, double, char, boolean...)ì— ëŒ€í•œ ëž˜í¼í´ëž˜ìŠ¤(Integer, Float, Double, Character, Boolean...) ê°€ ì¡´ìž¬í•œë‹¤.
 
-±âº»ÇüÀÇ °æ¿ì µû·Î ÃÊ±âÈ­¸¦ ÇÏÁö ¾Ê¾Æµµ 0 ¶Ç´Â ''¶Ç´Â "" ¶Ç´Â false ÀÇ °ªÀÌ ÃÊ±âÈ­ µÇ¾îÀÖ´Ù.
+ê¸°ë³¸í˜•ì˜ ê²½ìš° ë”°ë¡œ ì´ˆê¸°í™”ë¥¼ í•˜ì§€ ì•Šì•„ë„ 0 ë˜ëŠ” ''ë˜ëŠ” "" ë˜ëŠ” false ì˜ ê°’ì´ ì´ˆê¸°í™” ë˜ì–´ìžˆë‹¤.
 
-Integer wrapper = new Integer(10);  -> Integer wrapper = 10; //¿ÀÅä¹Ú½Ì(autoboxing)
+Integer wrapper = new Integer(10);  -> Integer wrapper = 10; //ì˜¤í† ë°•ì‹±(autoboxing)
 
-int primitive = wrapper.intValue();  -> int primitive = wrapper;        //¾ð¹Ú½Ì(unboxing)
+int primitive = wrapper.intValue();  -> int primitive = wrapper;        //ì–¸ë°•ì‹±(unboxing)
 
-°´Ã¼¿Í º¯¼ö¸¦ µû·Î º¯È¯ÇÏÁö ¾Ê°í ½±°Ô ÃÊ±âÈ­ ÇÒ ¼ö ÀÖµµ·Ï µ½´Â´Ù.
-
----
-
-try¹®¿¡¼­ ¼±¾ð, ÃÊ±âÈ­µÈ Å¬·¡½º, º¯¼ö´Â ¹Û¿¡¼­ »ç¿ëÇÒ ¼ö ¾ø´Ù(try¹®ÀÇ ·ÎÄÃÅ¬·¡½º/º¯¼ö)
-
-¹Û¿¡¼­ ¼±¾ðµÈ Àü¿ªº¯¼ö¸¦ °¡Á®¿Í¼­ ¾µ ¼ö ÀÖ´Ù.
+ê°ì²´ì™€ ë³€ìˆ˜ë¥¼ ë”°ë¡œ ë³€í™˜í•˜ì§€ ì•Šê³  ì‰½ê²Œ ì´ˆê¸°í™” í•  ìˆ˜ ìžˆë„ë¡ ë•ëŠ”ë‹¤.
 
 ---
 
-Queue¼±¾ð
+tryë¬¸ì—ì„œ ì„ ì–¸, ì´ˆê¸°í™”ëœ í´ëž˜ìŠ¤, ë³€ìˆ˜ëŠ” ë°–ì—ì„œ ì‚¬ìš©í•  ìˆ˜ ì—†ë‹¤(tryë¬¸ì˜ ë¡œì»¬í´ëž˜ìŠ¤/ë³€ìˆ˜)
+
+ë°–ì—ì„œ ì„ ì–¸ëœ ì „ì—­ë³€ìˆ˜ë¥¼ ê°€ì ¸ì™€ì„œ ì“¸ ìˆ˜ ìžˆë‹¤.
+
+---
+
+Queueì„ ì–¸
 
 Queue<T> q = new LinkedList<T>();
 
@@ -153,44 +153,44 @@ search bottom element: peek()
 
 ---
 
-String.replace()´Â ÀÎ½ºÅÏ½ºÀÇ °ªÀ» ¹Ù²ÙÁö ¾Ê°í ´ëÃ¼µÈ StringÀ» ¹ÝÈ¯ÇÏ¹Ç·Î
+String.replace()ëŠ” ì¸ìŠ¤í„´ìŠ¤ì˜ ê°’ì„ ë°”ê¾¸ì§€ ì•Šê³  ëŒ€ì²´ëœ Stringì„ ë°˜í™˜í•˜ë¯€ë¡œ
 
 str = str.replace("a", "b");
 
-¿Í °°Àº ¹æ½ÄÀ¸·Î ½á¾ßµÈ´Ù.
+ì™€ ê°™ì€ ë°©ì‹ìœ¼ë¡œ ì¨ì•¼ëœë‹¤.
 
-replace¶û replaceAll µÑ´Ù ÇØ´çÇÏ´Â ¹®ÀÚ¿­À» ¸ðµÎ ´ëÃ¼½ÃÅ²´Ù.
+replaceëž‘ replaceAll ë‘˜ë‹¤ í•´ë‹¹í•˜ëŠ” ë¬¸ìžì—´ì„ ëª¨ë‘ ëŒ€ì²´ì‹œí‚¨ë‹¤.
 
-replaceFirst, replaceLast´Â ÇÏ³ª¸¸
+replaceFirst, replaceLastëŠ” í•˜ë‚˜ë§Œ
 
 ---
 
-#### ¹è¿­À» ArrayList·Î
+#### ë°°ì—´ì„ ArrayListë¡œ
 
-	String[] city = {"¼­¿ï","ºÎ»ê","´ë±¸","±¤ÁÖ"};
+	String[] city = {"ì„œìš¸","ë¶€ì‚°","ëŒ€êµ¬","ê´‘ì£¼"};
 	List<String> list = new ArrayList<String>();
 	Collections.addAll(list, city);
 
-¹è¿­ÀÌ ·¡ÆÛÅ¬·¡½ºÀÇ ¹è¿­ÀÏ °æ¿ì¸¸ »ç¿ë°¡´ÉÇÏ´Ù.
+ë°°ì—´ì´ ëž˜í¼í´ëž˜ìŠ¤ì˜ ë°°ì—´ì¼ ê²½ìš°ë§Œ ì‚¬ìš©ê°€ëŠ¥í•˜ë‹¤.
 
 ---
 
-#### ArrayList¸¦ ¹è¿­·Î
+#### ArrayListë¥¼ ë°°ì—´ë¡œ
 
 String[] result2 = result.toArray(new String[result.size()]);
 
-¹è¿­ÀÌ ·¡ÆÛÅ¬·¡½ºÀÇ ¹è¿­ÀÏ °æ¿ì¸¸ »ç¿ë°¡´ÉÇÏ´Ù.
+ë°°ì—´ì´ ëž˜í¼í´ëž˜ìŠ¤ì˜ ë°°ì—´ì¼ ê²½ìš°ë§Œ ì‚¬ìš©ê°€ëŠ¥í•˜ë‹¤.
 
 ---
 
-¹è¿­°ú listÁß¿¡¼­ ¹è¿­À» »ç¿ëÇØµµ ¹«°üÇÏ´Ù¸é ¹è¿­À» »ç¿ëÇÏ´Â°ÍÀÌ ¼öÇà½Ã°£ÀÌ Àû°Ô ³ª¿Â´Ù.(Á¤·Ä ÇÒ ¶§, °ÅÀÇ 1/3 ¼öÁØ)
+ë°°ì—´ê³¼ listì¤‘ì—ì„œ ë°°ì—´ì„ ì‚¬ìš©í•´ë„ ë¬´ê´€í•˜ë‹¤ë©´ ë°°ì—´ì„ ì‚¬ìš©í•˜ëŠ”ê²ƒì´ ìˆ˜í–‰ì‹œê°„ì´ ì ê²Œ ë‚˜ì˜¨ë‹¤.(ì •ë ¬ í•  ë•Œ, ê±°ì˜ 1/3 ìˆ˜ì¤€)
 
 
-#### 2Â÷¿ø ¹è¿­ÀÇ Á¤·Ä
+#### 2ì°¨ì› ë°°ì—´ì˜ ì •ë ¬
 
-##### ¹è¿­
+##### ë°°ì—´
 
-ex) Ã¹ ¹øÂ° ÀÎµ¦½º ¿À¸§Â÷¼ø -> °°À¸¸é µÎ ¹øÂ° ÀÎµ¦½º ¿À¸§Â÷¼ø 
+ex) ì²« ë²ˆì§¸ ì¸ë±ìŠ¤ ì˜¤ë¦„ì°¨ìˆœ -> ê°™ìœ¼ë©´ ë‘ ë²ˆì§¸ ì¸ë±ìŠ¤ ì˜¤ë¦„ì°¨ìˆœ 
 
 		Arrays.sort(coordiArr, new Comparator<int[]>() {
 
@@ -205,59 +205,59 @@ ex) Ã¹ ¹øÂ° ÀÎµ¦½º ¿À¸§Â÷¼ø -> °°À¸¸é µÎ ¹øÂ° ÀÎµ¦½º ¿À¸§Â÷¼ø
 			}
 		});
 
-Integer.compare(o1,o2); // ¿À¸§Â÷¼ø(°¡Àå ÀÛÀº °ÍÀÌ 1µî)
-Integer.compare(o2,o1); // ³»¸²Â÷¼ø(°¡Àå Å« °ÍÀÌ 1µî)
+Integer.compare(o1,o2); // ì˜¤ë¦„ì°¨ìˆœ(ê°€ìž¥ ìž‘ì€ ê²ƒì´ 1ë“±)
+Integer.compare(o2,o1); // ë‚´ë¦¼ì°¨ìˆœ(ê°€ìž¥ í° ê²ƒì´ 1ë“±)
 
 ##### list
 
-·¡ÆÛ Å¬·¡½ºÀÇ ¹è¿­·Î ¹Þ¾Æ¼­ Collections.sortÇØÁÖ¸é µ¿ÀÏÇÏ°Ô Á¤·ÄµÈ´Ù.
+ëž˜í¼ í´ëž˜ìŠ¤ì˜ ë°°ì—´ë¡œ ë°›ì•„ì„œ Collections.sortí•´ì£¼ë©´ ë™ì¼í•˜ê²Œ ì •ë ¬ëœë‹¤.
 
-#### Comparator ÀÎÅÍÆäÀÌ½º
+#### Comparator ì¸í„°íŽ˜ì´ìŠ¤
 
-Comparator ÀÎÅÍÆäÀÌ½ºÀÇ compare(Object o1, Object o2){} ¸¦ ±¸ÇöÇÏ¿© »ç¿ëÇÑ´Ù.
+Comparator ì¸í„°íŽ˜ì´ìŠ¤ì˜ compare(Object o1, Object o2){} ë¥¼ êµ¬í˜„í•˜ì—¬ ì‚¬ìš©í•œë‹¤.
 
-¹è¿­°ú listÀÇ Á¤·Ä¿¡¼­ ¸ðµÎ »ç¿ëÇÒ ¼ö ÀÖ´Ù.
+ë°°ì—´ê³¼ listì˜ ì •ë ¬ì—ì„œ ëª¨ë‘ ì‚¬ìš©í•  ìˆ˜ ìžˆë‹¤.
 
-´Ü¼øÈ÷ ¿À¸§Â÷¼ø, ³»¸²Â÷¼øÀÌ ¾Æ´Ï¶ó Á¤·ÄÇÏ´Â ±âÁØÀÌ Á¤ÇØÁ® ÀÖÀ» °æ¿ì »ç¿ëÇÏ¸é µÈ´Ù.
+ë‹¨ìˆœížˆ ì˜¤ë¦„ì°¨ìˆœ, ë‚´ë¦¼ì°¨ìˆœì´ ì•„ë‹ˆë¼ ì •ë ¬í•˜ëŠ” ê¸°ì¤€ì´ ì •í•´ì ¸ ìžˆì„ ê²½ìš° ì‚¬ìš©í•˜ë©´ ëœë‹¤.
 
-1È¸¼ºÀ¸·Î »ç¿ëÇÒ °æ¿ì¿¡´Â ÀÍ¸í Å¬·¡½º·Î ¹Ù·Î ÀÎÀÚ¿¡ ³Ö¾î¼­ »ç¿ëÇÏ¸é µÈ´Ù.
+1íšŒì„±ìœ¼ë¡œ ì‚¬ìš©í•  ê²½ìš°ì—ëŠ” ìµëª… í´ëž˜ìŠ¤ë¡œ ë°”ë¡œ ì¸ìžì— ë„£ì–´ì„œ ì‚¬ìš©í•˜ë©´ ëœë‹¤.
 
-compare(Object o1, Object o2)¿¡¼­ÀÇ ¸®ÅÏ °ª
+compare(Object o1, Object o2)ì—ì„œì˜ ë¦¬í„´ ê°’
 
-	// ¿À¸§Â÷¼ø
+	// ì˜¤ë¦„ì°¨ìˆœ
 
 	if(o1 > o2) return 1 ;
 	else if(o1 == o2) return 0;
 	else return -1;
 	
-	// ³»¸²Â÷¼ø
+	// ë‚´ë¦¼ì°¨ìˆœ
 
 	if(o1 > o2) return -1;
 	else if(o1 == o2) return 0;
 	else return -1;
 	
-StringÀÇ °æ¿ì »çÀü¼ø, ¹®ÀÚ¿­ÀÇ ±æÀÌ, ¹®ÀÚÀÌÁö¸¸ ¼ýÀÚÀÇ Å©±â·Î Á¤·ÄÇÏ´Â °ÍÃ³·³ ´Ù¾çÇÏ°Ô ±¸ÇöÇÒ ¼ö ÀÖ´Ù.
+Stringì˜ ê²½ìš° ì‚¬ì „ìˆœ, ë¬¸ìžì—´ì˜ ê¸¸ì´, ë¬¸ìžì´ì§€ë§Œ ìˆ«ìžì˜ í¬ê¸°ë¡œ ì •ë ¬í•˜ëŠ” ê²ƒì²˜ëŸ¼ ë‹¤ì–‘í•˜ê²Œ êµ¬í˜„í•  ìˆ˜ ìžˆë‹¤.
 
-- listÀÇ ³»¸²Â÷¼ø Á¤·Ä Âü°í(Collections.sort ´ë½Å Arrays.sort¸¦ »ç¿ëÇÑ´Ù.)
+- listì˜ ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬ ì°¸ê³ (Collections.sort ëŒ€ì‹  Arrays.sortë¥¼ ì‚¬ìš©í•œë‹¤.)
 
-´Ü¼øÈ÷ »çÀü¼øÀ¸·Î ºñ±³ÇÒ ¶§´Â 
+ë‹¨ìˆœížˆ ì‚¬ì „ìˆœìœ¼ë¡œ ë¹„êµí•  ë•ŒëŠ” 
 
 	String a = "haha";
 	String b = "hoho";
 
-	// ¸®ÅÏ °ªÀ¸·Î
+	// ë¦¬í„´ ê°’ìœ¼ë¡œ
 	
-	o1.compareTo(o1); ¿À¸§Â÷¼ø
-	o2.compareTo(o2); ³»¸²Â÷¼ø
+	o1.compareTo(o1); ì˜¤ë¦„ì°¨ìˆœ
+	o2.compareTo(o2); ë‚´ë¦¼ì°¨ìˆœ
 	
 
-##### ¿À¸§Â÷¼ø
+##### ì˜¤ë¦„ì°¨ìˆœ
 
-±âº»ÀûÀ¸·Î ¸ðµç ¸Þ¼ÒµåÀÇ default°¡ ¿À¸§Â÷¼øÀÌ´Ù. ³»¸²Â÷¼øÀÏ °æ¿ì¿¡¸¸ ½Å°æ ½áÁÖ¸é µÈ´Ù.
+ê¸°ë³¸ì ìœ¼ë¡œ ëª¨ë“  ë©”ì†Œë“œì˜ defaultê°€ ì˜¤ë¦„ì°¨ìˆœì´ë‹¤. ë‚´ë¦¼ì°¨ìˆœì¼ ê²½ìš°ì—ë§Œ ì‹ ê²½ ì¨ì£¼ë©´ ëœë‹¤.
 
-##### ³»¸²Â÷¼ø
+##### ë‚´ë¦¼ì°¨ìˆœ
 
-Comparator ÀÎÅÍÆäÀÌ½º¸¦ ±¸Çö ÇÒ °æ¿ì¿¡´Â ±âº»ÇüÀÌ ¾Æ´Ñ ·¡ÆÛÅ¬·¡½ºÀÇ ¹è¿­À» »ç¿ëÇØ¾ß ÇÑ´Ù.(ÇÑ ¹ø¸¸ »ç¿ëÇÒ °æ¿ì ÀÍ¸íÅ¬·¡½º·Î ¹Ù·Î Arrays.sortÇÔ¼ö¿¡ ÀÎÀÚ·Î ³ÖÀ¸¸é µÈ´Ù.)
+Comparator ì¸í„°íŽ˜ì´ìŠ¤ë¥¼ êµ¬í˜„ í•  ê²½ìš°ì—ëŠ” ê¸°ë³¸í˜•ì´ ì•„ë‹Œ ëž˜í¼í´ëž˜ìŠ¤ì˜ ë°°ì—´ì„ ì‚¬ìš©í•´ì•¼ í•œë‹¤.(í•œ ë²ˆë§Œ ì‚¬ìš©í•  ê²½ìš° ìµëª…í´ëž˜ìŠ¤ë¡œ ë°”ë¡œ Arrays.sortí•¨ìˆ˜ì— ì¸ìžë¡œ ë„£ìœ¼ë©´ ëœë‹¤.)
 
 	class Descending implements Comparator<Integer>{
 
@@ -274,13 +274,13 @@ Comparator ÀÎÅÍÆäÀÌ½º¸¦ ±¸Çö ÇÒ °æ¿ì¿¡´Â ±âº»ÇüÀÌ ¾Æ´Ñ ·¡ÆÛÅ¬·¡½ºÀÇ ¹è¿­À» »ç¿ëÇ
 		}
 	}
 
-¸ÞÀÎ ¸Þ¼Òµå	
+ë©”ì¸ ë©”ì†Œë“œ	
 	
-	Integer arr = {1,3,6,4,3,2}; // Comparator ÀÎÅÍÆäÀÌ½º¿¡¼­ ±âº»Çü Å¸ÀÔÀ¸·Î´Â Á¤·ÄÀÌ ¾ÈµÇ¹Ç·Î ·¡ÆÛÅ¬·¡½ºÀÇ ÀÎ½ºÅÏ½º¸¦ »ý¼ºÇØ¾ßÇÑ´Ù.
+	Integer arr = {1,3,6,4,3,2}; // Comparator ì¸í„°íŽ˜ì´ìŠ¤ì—ì„œ ê¸°ë³¸í˜• íƒ€ìž…ìœ¼ë¡œëŠ” ì •ë ¬ì´ ì•ˆë˜ë¯€ë¡œ ëž˜í¼í´ëž˜ìŠ¤ì˜ ì¸ìŠ¤í„´ìŠ¤ë¥¼ ìƒì„±í•´ì•¼í•œë‹¤.
 
 	Arrays.sort(arr, new Descending());
 	
-	// ¶Ç´Â
+	// ë˜ëŠ”
 	
 	Arrays.sort(arr, new Comparator<Integer>(){
 		
@@ -291,68 +291,68 @@ Comparator ÀÎÅÍÆäÀÌ½º¸¦ ±¸Çö ÇÒ °æ¿ì¿¡´Â ±âº»ÇüÀÌ ¾Æ´Ñ ·¡ÆÛÅ¬·¡½ºÀÇ ¹è¿­À» »ç¿ëÇ
 			else return 1;
 	});
 
-	// ¶Ç´Â
+	// ë˜ëŠ”
 
 	Arrays.sort(arr, Collections.reverseOrder()); 
-	// ¼Óµµ Â÷ÀÌ´Â °ÅÀÇ ¾øÀ¸´Ï ÀÌ°Å ¾²´Â°Ô ÈÎ¾À °£ÆíÇÏ´Ù.(±âº» ÀÚ·áÇü ¹è¿­µµ °¡´É, ComparatorÀÎÅÍÆäÀÌ½º¸¦ ±¸ÇöÇÑ °ÍÀÌ ¾Æ´Ï´Ï±î)
+	// ì†ë„ ì°¨ì´ëŠ” ê±°ì˜ ì—†ìœ¼ë‹ˆ ì´ê±° ì“°ëŠ”ê²Œ í›¨ì”¬ ê°„íŽ¸í•˜ë‹¤.(ê¸°ë³¸ ìžë£Œí˜• ë°°ì—´ë„ ê°€ëŠ¥, Comparatorì¸í„°íŽ˜ì´ìŠ¤ë¥¼ êµ¬í˜„í•œ ê²ƒì´ ì•„ë‹ˆë‹ˆê¹Œ)
 	
-	// ¶Ç´Â
+	// ë˜ëŠ”
 	
 		Arrays.sort(arr, new Comparator<Integer>(){
 		
 		@Override
 		public int compare(Integer o1, Integer o2) {
 			
-			return Integer.compare(o2,o1); // ÀÎÀÚ¿¡ intÇüÀ¸·Î µé¾î°¡µµ ¾Ë¾Æ¼­ ¿ÀÅä¹Ú½ÌÇØÁØ´Ù.(¸Þ¼ÒµåÀÇ ÀÎÀÚ´Â ¿ø·¡ intÇüÀÌ´Ù.)
+			return Integer.compare(o2,o1); // ì¸ìžì— intí˜•ìœ¼ë¡œ ë“¤ì–´ê°€ë„ ì•Œì•„ì„œ ì˜¤í† ë°•ì‹±í•´ì¤€ë‹¤.(ë©”ì†Œë“œì˜ ì¸ìžëŠ” ì›ëž˜ intí˜•ì´ë‹¤.)
 	});
 	
 
-#### ListÀÇ  Á¤·Ä(¶÷´Ù½Ä »ç¿ë)
+#### Listì˜  ì •ë ¬(ëžŒë‹¤ì‹ ì‚¬ìš©)
 
-##### ¿À¸§Â÷¼ø
+##### ì˜¤ë¦„ì°¨ìˆœ
 
-¸ðµç ¸Þ¼­µåÀÇ default°¡ ¿À¸§Â÷¼øÀÌ¹Ç·Î ³»¸²Â÷¼øÀÏ °æ¿ì¸¸ ½Å°æ¾²¸é µÈ´Ù.
+ëª¨ë“  ë©”ì„œë“œì˜ defaultê°€ ì˜¤ë¦„ì°¨ìˆœì´ë¯€ë¡œ ë‚´ë¦¼ì°¨ìˆœì¼ ê²½ìš°ë§Œ ì‹ ê²½ì“°ë©´ ëœë‹¤.
 
-##### ³»¸²Â÷¼ø
+##### ë‚´ë¦¼ì°¨ìˆœ
 
 	List<Integer> list = new ArrayList<Integer>();
 
-	Collections.sort(list, (o1, o2)->o2-o1); // Ã¹ ¹øÂ° ÀÎÀÚ¸¸ ³ÖÀ¸¸é ¿À¸§Â÷¼ø Á¤·Ä
+	Collections.sort(list, (o1, o2)->o2-o1); // ì²« ë²ˆì§¸ ì¸ìžë§Œ ë„£ìœ¼ë©´ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
 
 	
-	// ¹®ÀÚ¿­ Á¤·Ä
+	// ë¬¸ìžì—´ ì •ë ¬
 
-	Collections.sort(nList, (o1,o2)->Integer.parseInt(o1)-Integer.parseInt(o2)); // ¹®ÀÚ¿­À» ¼ýÀÚ ¼ø¼­´ë·Î  ¿À¸§Â÷¼ø Á¤·Ä
+	Collections.sort(nList, (o1,o2)->Integer.parseInt(o1)-Integer.parseInt(o2)); // ë¬¸ìžì—´ì„ ìˆ«ìž ìˆœì„œëŒ€ë¡œ  ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
 	
-	Collections.sort(nList, (o1,o2)->Integer.parseInt(o2)-Integer.parseInt(o1)); // ¹®ÀÚ¿­À» ¼ýÀÚ ¼ø¼­´ë·Î  ³»¸²Â÷¼ø Á¤·Ä
+	Collections.sort(nList, (o1,o2)->Integer.parseInt(o2)-Integer.parseInt(o1)); // ë¬¸ìžì—´ì„ ìˆ«ìž ìˆœì„œëŒ€ë¡œ  ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬
 	
-	Collections.sort(nList, (o1,o2)->o1.compareTo(o2)); // »çÀü ¼ø¼­´ë·Î ¿À¸§Â÷¼ø Á¤·Ä (ex)123 > 1000 : ¹®ÀÚ ¼ø¼­´ë·Î¸é µÎ¹ø Â° ÀÎµ¦½º¿¡ ¿À´Â ¼ö°¡ 123ÀÌ ´õ Å©´Ï±î)
+	Collections.sort(nList, (o1,o2)->o1.compareTo(o2)); // ì‚¬ì „ ìˆœì„œëŒ€ë¡œ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬ (ex)123 > 1000 : ë¬¸ìž ìˆœì„œëŒ€ë¡œë©´ ë‘ë²ˆ ì§¸ ì¸ë±ìŠ¤ì— ì˜¤ëŠ” ìˆ˜ê°€ 123ì´ ë” í¬ë‹ˆê¹Œ)
 	
-	Collections.sort(nList, (o1,o2)->o2.compareTo(o1)); // »çÀü ¼ø¼­´ë·Î ³»¸²Â÷¼ø Á¤·Ä (ex)123 > 1000 : ¹®ÀÚ ¼ø¼­´ë·Î¸é µÎ¹ø Â° ÀÎµ¦½º¿¡ ¿À´Â ¼ö°¡ 123ÀÌ ´õ Å©´Ï±î)
+	Collections.sort(nList, (o1,o2)->o2.compareTo(o1)); // ì‚¬ì „ ìˆœì„œëŒ€ë¡œ ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬ (ex)123 > 1000 : ë¬¸ìž ìˆœì„œëŒ€ë¡œë©´ ë‘ë²ˆ ì§¸ ì¸ë±ìŠ¤ì— ì˜¤ëŠ” ìˆ˜ê°€ 123ì´ ë” í¬ë‹ˆê¹Œ)
 	
-Collections.reverse(list)´Â Á¤·ÄÀÌ ¾Æ´Ï¶ó ÀÎµ¦½º¸¦ ¹Ý´ë·Î Àç ¹è¿­ ÇØÁØ´Ù.
+Collections.reverse(list)ëŠ” ì •ë ¬ì´ ì•„ë‹ˆë¼ ì¸ë±ìŠ¤ë¥¼ ë°˜ëŒ€ë¡œ ìž¬ ë°°ì—´ í•´ì¤€ë‹¤.
 
 ---
 
-#### String ¹è¿­À» Á¤·ÄÇÏ´Â °Í°ú
+#### String ë°°ì—´ì„ ì •ë ¬í•˜ëŠ” ê²ƒê³¼
 
-int ¹è¿­À» Á¤·ÄÇÏ´Â °ÍÀº °á°ú°¡ ´Ù¸£´Ù.
+int ë°°ì—´ì„ ì •ë ¬í•˜ëŠ” ê²ƒì€ ê²°ê³¼ê°€ ë‹¤ë¥´ë‹¤.
 
 11 103 132 19 102
 
-¼ýÀÚ :  [11, 19, 102, 103, 132]
+ìˆ«ìž :  [11, 19, 102, 103, 132]
 
-¹®ÀÚ :  ["102", "103", "11", "132", "19"]
+ë¬¸ìž :  ["102", "103", "11", "132", "19"]
 
 ---
 
-#### ÀÎ½ºÅÏ½º¿Í ¹è¿­ÀÇ copy
+#### ì¸ìŠ¤í„´ìŠ¤ì™€ ë°°ì—´ì˜ copy
 
-##### ÀÎ½ºÅÏ½ºÀÇ copy
+##### ì¸ìŠ¤í„´ìŠ¤ì˜ copy
 
 ###### shallow copy
 
-ÀÎ½ºÅÏ½º¸¦ copy ÇÒ °æ¿ì shallow copy°¡ µÇ¾î º¹»çÀÇ ´ë»óÀÌ µÈ ÀÎ½ºÅÏ½ºÀÇ ÇÊµå °ªÀÌ ¹Ù²î¸é º¹»çÇÑ ÀÎ½ºÅÏ½ºÀÇ ÇÊµå °ªµµ ¹Ù²ï´Ù.
+ì¸ìŠ¤í„´ìŠ¤ë¥¼ copy í•  ê²½ìš° shallow copyê°€ ë˜ì–´ ë³µì‚¬ì˜ ëŒ€ìƒì´ ëœ ì¸ìŠ¤í„´ìŠ¤ì˜ í•„ë“œ ê°’ì´ ë°”ë€Œë©´ ë³µì‚¬í•œ ì¸ìŠ¤í„´ìŠ¤ì˜ í•„ë“œ ê°’ë„ ë°”ë€ë‹¤.
 
 ex)
 
@@ -367,7 +367,7 @@ ex)
 	
 ###### deep copy
 
-ÇÏÁö¸¸ StringÀ» Æ÷ÇÔÇÑ ·¡ÆÛÅ¬·¡½ºÀÇ ÀÎ½ºÅÏ½º¿Í ±âº»Çü º¯¼ö´Â deep copy°¡ µÈ´Ù.
+í•˜ì§€ë§Œ Stringì„ í¬í•¨í•œ ëž˜í¼í´ëž˜ìŠ¤ì˜ ì¸ìŠ¤í„´ìŠ¤ì™€ ê¸°ë³¸í˜• ë³€ìˆ˜ëŠ” deep copyê°€ ëœë‹¤.
 
 ex)
 
@@ -380,20 +380,20 @@ ex)
  
 ---
 
-##### ¹è¿­ÀÇ copy
+##### ë°°ì—´ì˜ copy
 
-deep copy (System.arraycopy()·Î ÀÎÇÑ ºÎÇÏ¸¦ ÁÙÀÌ´Â °ÍÀÌ ÁÁÀ¸¹Ç·Î )
-- ÀÔ·Â¹ÞÀº ¹è¿­À» ¼öÁ¤ÇÒ ÀÏÀÌ ¾øÀ» °æ¿ì 
-- source array¸¦ copy ÀÌÈÄ¿¡ »ç¿ëÇÏÁö ¾ÊÀ» ¶§
+deep copy (System.arraycopy()ë¡œ ì¸í•œ ë¶€í•˜ë¥¼ ì¤„ì´ëŠ” ê²ƒì´ ì¢‹ìœ¼ë¯€ë¡œ )
+- ìž…ë ¥ë°›ì€ ë°°ì—´ì„ ìˆ˜ì •í•  ì¼ì´ ì—†ì„ ê²½ìš° 
+- source arrayë¥¼ copy ì´í›„ì— ì‚¬ìš©í•˜ì§€ ì•Šì„ ë•Œ
 
 shallow copy
-- source array¸¦ copy ÀÌÈÄ¿¡ ¼öÁ¤ÇÒ ÀÏÀÌ ÀÖÀ» °æ¿ì(destination arrayµµ °°ÀÌ ¼öÁ¤µÇ´Â °ÍÀ» ¹æÁöÇÏ±â À§ÇØ)
+- source arrayë¥¼ copy ì´í›„ì— ìˆ˜ì •í•  ì¼ì´ ìžˆì„ ê²½ìš°(destination arrayë„ ê°™ì´ ìˆ˜ì •ë˜ëŠ” ê²ƒì„ ë°©ì§€í•˜ê¸° ìœ„í•´)
 
 ###### shallow copy
 
 	int[] original = {1,2,3,4,5};
-	int[] coiped = original // shallow copy°¡ µÇ¾î originalÀÇ °ªÀÌ ¼öÁ¤µÇ¸é °°Àº ÀÎµ¦½ºÀÇ copiedÀÇ °ªµµ ¹Ù²ï´Ù.
-								 // copiedÀÇ °ªÀÌ ¼öÁ¤µÇ¾îµµ originalÀÇ °ªÀÌ ¹Ù²ï´Ù.(°°Àº ÁÖ¼Ò°ªÀ» »ç¿ëÇÏ±â ¶§¹®¿¡)
+	int[] coiped = original // shallow copyê°€ ë˜ì–´ originalì˜ ê°’ì´ ìˆ˜ì •ë˜ë©´ ê°™ì€ ì¸ë±ìŠ¤ì˜ copiedì˜ ê°’ë„ ë°”ë€ë‹¤.
+								 // copiedì˜ ê°’ì´ ìˆ˜ì •ë˜ì–´ë„ originalì˜ ê°’ì´ ë°”ë€ë‹¤.(ê°™ì€ ì£¼ì†Œê°’ì„ ì‚¬ìš©í•˜ê¸° ë•Œë¬¸ì—)
 								 
 	Stack<int[]> testStack = new Stack<>();
 		
@@ -408,9 +408,9 @@ shallow copy
 		
 	test2[0] = 5;
 		
-	System.out.println(testStack.pop()[0]); // pushµÉ ¶§ shallow copyµÇ¼­ µé¾î°¡±â ¶§¹®¿¡ pushµÈ ¹è¿­µµ ¿µÇâÀ» ¹Þ´Â´Ù.
+	System.out.println(testStack.pop()[0]); // pushë  ë•Œ shallow copyë˜ì„œ ë“¤ì–´ê°€ê¸° ë•Œë¬¸ì— pushëœ ë°°ì—´ë„ ì˜í–¥ì„ ë°›ëŠ”ë‹¤.
 	
-ÀÎÀÚ·Î µé¾î°¡´Â ¸ðµç °æ¿ì¿¡  shallow copyµÈ´Ù.
+ì¸ìžë¡œ ë“¤ì–´ê°€ëŠ” ëª¨ë“  ê²½ìš°ì—  shallow copyëœë‹¤.
 
 		boolean[] source = new boolean[26];
 		
@@ -422,7 +422,7 @@ shallow copy
 		
 		System.out.println(test.getVisited()[5]); // output : 5
 		
-º¹»çÇØ¼­ »ç¿ëÇÏ·Á¸é ÇÊµå¸¦ »ç¿ëÇÑ »ý¼ºÀÚ¿¡¼­ System.arrayCopy()¸Þ¼Òµå¸¦ »ç¿ëÇØ¾ß ÇÑ´Ù.
+ë³µì‚¬í•´ì„œ ì‚¬ìš©í•˜ë ¤ë©´ í•„ë“œë¥¼ ì‚¬ìš©í•œ ìƒì„±ìžì—ì„œ System.arrayCopy()ë©”ì†Œë“œë¥¼ ì‚¬ìš©í•´ì•¼ í•œë‹¤.
 	
 ###### deep copy
 
@@ -431,11 +431,11 @@ shallow copy
 	
 	System.arraycopy(original,0,copied,0,original.length); 
 	
-	// deep copy°¡ µÇ¾î originalÀÇ °ªÀÌ ¼öÁ¤µÇ¾îµµ copiedÀÇ °ª¿¡´Â ¾Æ¹«·± ¿µÇâÀÌ ¾ø´Ù.
+	// deep copyê°€ ë˜ì–´ originalì˜ ê°’ì´ ìˆ˜ì •ë˜ì–´ë„ copiedì˜ ê°’ì—ëŠ” ì•„ë¬´ëŸ° ì˜í–¥ì´ ì—†ë‹¤.
 	
-###### 2Â÷¿ø ¹è¿­ deep copy
+###### 2ì°¨ì› ë°°ì—´ deep copy
 
-¿©·¯¹ø ¾µ°Å¸é ÀÌ·¸°Ô ¸¸µé¾î¼­ ¾²°í ¾Æ´Ï¸é main¹®¿¡ ¶È°°ÀÌ ÀÛ¼ºÇÏÀÚ
+ì—¬ëŸ¬ë²ˆ ì“¸ê±°ë©´ ì´ë ‡ê²Œ ë§Œë“¤ì–´ì„œ ì“°ê³  ì•„ë‹ˆë©´ mainë¬¸ì— ë˜‘ê°™ì´ ìž‘ì„±í•˜ìž
 
 	static int[][] copyArray(int[][] original) {
 
@@ -450,33 +450,33 @@ shallow copy
 	}
  
 ---
-	// list°¡ ¾Æ´Ñ 
+	// listê°€ ì•„ë‹Œ 
 
 
-#### ¹«ÇÑÇÑ ¼ýÀÚ¸¦ Ç¥ÇöÇÒ ¶§´Â 
+#### ë¬´í•œí•œ ìˆ«ìžë¥¼ í‘œí˜„í•  ë•ŒëŠ” 
 
-BingInteger, BigDecimal À» »ç¿ëÇÏÀÚ
+BingInteger, BigDecimal ì„ ì‚¬ìš©í•˜ìž
 
 	BigInteger a = new BigInteger(String);
 
 	BigInteger b = new BigInteger(String);
 
-	a = a.add(b); // a ¿Í b¸¦ ´õÇÑ´Ù.
+	a = a.add(b); // a ì™€ bë¥¼ ë”í•œë‹¤.
 
 
 ---
 
 
-input.readLineÇÒ¶§ ÀÔ·Â°ªÀÇ ³¡Àº
+input.readLineí• ë•Œ ìž…ë ¥ê°’ì˜ ëì€
 
-length == 0 À¸·Î Á¶°ÇÀ» ÇÏ¸é µÈ´Ù.
+length == 0 ìœ¼ë¡œ ì¡°ê±´ì„ í•˜ë©´ ëœë‹¤.
 
-StringBuilder.append(String a) // a¸¦ ¸®ÅÏÇÑ´Ù.
+StringBuilder.append(String a) // aë¥¼ ë¦¬í„´í•œë‹¤.
 
 
 ---
 
-#### °¡º¯ Å©±â 2Â÷¿ø¹è¿­ »ý¼ºÇÏ´Â ¹ý
+#### ê°€ë³€ í¬ê¸° 2ì°¨ì›ë°°ì—´ ìƒì„±í•˜ëŠ” ë²•
 
 
 	int[][] array5 = new int[3][];
@@ -489,13 +489,13 @@ StringBuilder.append(String a) // a¸¦ ¸®ÅÏÇÑ´Ù.
 
 ---
 
-#### ¸ÞÅ¸¹®ÀÚ(+,-,*,/ µîµî Á¤±ÔÇ¥Çö½Ä¿¡ »ç¿ëµÇ´Â ¹®ÀÚ)¸¦ stringÀ¸·Î ÀÎ½ÄÇÏ°Ô ÇÏ·Á¸é ¾Õ¿¡ \\¸¦ Ãß°¡ÇØÁà¾ß ÇÑ´Ù)
+#### ë©”íƒ€ë¬¸ìž(+,-,*,/ ë“±ë“± ì •ê·œí‘œí˜„ì‹ì— ì‚¬ìš©ë˜ëŠ” ë¬¸ìž)ë¥¼ stringìœ¼ë¡œ ì¸ì‹í•˜ê²Œ í•˜ë ¤ë©´ ì•žì— \\ë¥¼ ì¶”ê°€í•´ì¤˜ì•¼ í•œë‹¤)
 
 ex) 
 
 	String[] a = b.split("\\*");
 	
-±×³É "+"¸¸ ÀÎÀÚ·Î ³ÖÀ¸¸é PatternSyntaxExceptionÀ» ¹ÝÈ¯ÇÑ´Ù.
+ê·¸ëƒ¥ "+"ë§Œ ì¸ìžë¡œ ë„£ìœ¼ë©´ PatternSyntaxExceptionì„ ë°˜í™˜í•œë‹¤.
 
 ---
 
@@ -519,7 +519,7 @@ ex)
 		@Override
 		public int compare(Character o1, Character o2) {
 
-			if (map.get(o1) >= map.get(o2)) {  // map.get(o1) <= map.get(o2) ÀÏ °æ¿ì ¿À¸§Â÷¼øÁ¤·Ä
+			if (map.get(o1) >= map.get(o2)) {  // map.get(o1) <= map.get(o2) ì¼ ê²½ìš° ì˜¤ë¦„ì°¨ìˆœì •ë ¬
 				return -1;
 			} else {
 				return 1;
@@ -529,104 +529,104 @@ ex)
 	}
 
 ---
-#### mapÀ» key¿Í value·Î ±¸ºÐÇØ¼­ ArrayList¿¡ ³Ö´Â ¹æ¹ý
+#### mapì„ keyì™€ valueë¡œ êµ¬ë¶„í•´ì„œ ArrayListì— ë„£ëŠ” ë°©ë²•
 
 		ArrayList<Character> keys = new ArrayList<>(sortedMap.keySet());
 		ArrayList<Integer> values = new ArrayList<>(sortedMap.values());
 
-mapÀÇ key ¶Ç´Â value·Î Á¤·ÄÇÑ ÈÄ¿¡ À§¿Í °°ÀÌ ÇÏ¸é Á¤·ÄÇÑ ¼ø¼­´ë·Î ArrayList¿¡ Ãß°¡µÈ´Ù.
+mapì˜ key ë˜ëŠ” valueë¡œ ì •ë ¬í•œ í›„ì— ìœ„ì™€ ê°™ì´ í•˜ë©´ ì •ë ¬í•œ ìˆœì„œëŒ€ë¡œ ArrayListì— ì¶”ê°€ëœë‹¤.
 
 ---
 
-#### StringBuilder/StringBuffer¿¡¼­ substringÀ» »Ì¾Æ »õ·Î¿î StringBuilder/StringBuffer¿¡ ¿Å±æ ¶§´Â
+#### StringBuilder/StringBufferì—ì„œ substringì„ ë½‘ì•„ ìƒˆë¡œìš´ StringBuilder/StringBufferì— ì˜®ê¸¸ ë•ŒëŠ”
 
-CharSequenceÀ» ¹ÝÈ¯ÇÏ´Â subSequence(int startIndex, int lastIndex) ¸Þ¼Òµå¸¦ »ç¿ëÇØ¼­ appendÇÏÀÚ
-(substringÀ» ¾²¸é Èü¿µ¿ª¿¡ ½ºÆ®¸µÀÌ °è¼Ó ¿Ã¶ó°¡´Ï±î ¸Þ¸ð¸® °ü¸®¿¡ ¾ÈÁÁ´Ù.)
+CharSequenceì„ ë°˜í™˜í•˜ëŠ” subSequence(int startIndex, int lastIndex) ë©”ì†Œë“œë¥¼ ì‚¬ìš©í•´ì„œ appendí•˜ìž
+(substringì„ ì“°ë©´ íž™ì˜ì—­ì— ìŠ¤íŠ¸ë§ì´ ê³„ì† ì˜¬ë¼ê°€ë‹ˆê¹Œ ë©”ëª¨ë¦¬ ê´€ë¦¬ì— ì•ˆì¢‹ë‹¤.)
 
-StringBuilder.append¿¡ charÇü º¯¼ö¸¦ ÀÎÀÚ·Î ³ÖÀ» ¼ö ÀÖ´Ù.(¾ÈµÇ´Â ÁÙ ¾Ë¾Ò´Âµ¥..)
+StringBuilder.appendì— charí˜• ë³€ìˆ˜ë¥¼ ì¸ìžë¡œ ë„£ì„ ìˆ˜ ìžˆë‹¤.(ì•ˆë˜ëŠ” ì¤„ ì•Œì•˜ëŠ”ë°..)
 
 ---
 
-#### StringBuilder/StringBuffer°¡ °°ÀºÁö ºñ±³ÇÒ ¶§´Â ÀÎ½ºÅÏ½º.equals(ÀÎ½ºÅÏ½º) ÇÏ¸é ¾ÈµÇ°í
+#### StringBuilder/StringBufferê°€ ê°™ì€ì§€ ë¹„êµí•  ë•ŒëŠ” ì¸ìŠ¤í„´ìŠ¤.equals(ì¸ìŠ¤í„´ìŠ¤) í•˜ë©´ ì•ˆë˜ê³ 
 
-ÀÎ½ºÅÏ½º1.toString().equals(ÀÎ½ºÅÏ½º2.toString()); À» ÇØ¾ßÇÑ´Ù.
+ì¸ìŠ¤í„´ìŠ¤1.toString().equals(ì¸ìŠ¤í„´ìŠ¤2.toString()); ì„ í•´ì•¼í•œë‹¤.
 
-ÀÎ½ºÅÏ½º1.equals(ÀÎ½ºÅÏ½º2); ·Î´Â StringBuilder/StringBuffer ¿¡ µé¾îÀÖ´Â °ªÀÌ °°ÀºÁö È®ÀÎ ÇÒ ¼ö ¾ø´Ù.
+ì¸ìŠ¤í„´ìŠ¤1.equals(ì¸ìŠ¤í„´ìŠ¤2); ë¡œëŠ” StringBuilder/StringBuffer ì— ë“¤ì–´ìžˆëŠ” ê°’ì´ ê°™ì€ì§€ í™•ì¸ í•  ìˆ˜ ì—†ë‹¤.
 
 ex)
 
 	StringBuilder str1 = new StrigBuilder("haha");
 	StringBuilder str2 = new StrigBuilder("haha");
 
-	// °°ÀºÁö È®ÀÎÇÒ ¶§
+	// ê°™ì€ì§€ í™•ì¸í•  ë•Œ
 
 	if(str1.toString().equals(str2.toString())) {
 		System.out.println("equals");
 	}
 
 ---
-#### StringBuilder/StringBuffer¿¡´Â ÀÖ°í String¿¡´Â ¾ø´Â ¸Þ¼Òµå
+#### StringBuilder/StringBufferì—ëŠ” ìžˆê³  Stringì—ëŠ” ì—†ëŠ” ë©”ì†Œë“œ
 
-.reverse(); : ÇØ´ç ¹®ÀÚ¿­ÀÇ ÀÎµ¦½º¸¦ °Å²Ù·Î ÇÑ ¹®ÀÚ¿­·Î ¸¸µç´Ù.
+.reverse(); : í•´ë‹¹ ë¬¸ìžì—´ì˜ ì¸ë±ìŠ¤ë¥¼ ê±°ê¾¸ë¡œ í•œ ë¬¸ìžì—´ë¡œ ë§Œë“ ë‹¤.
 
 
-#### String¿¡´Â ÀÖ°í  StringBuilder/StringBuffer¿¡´Â ¾ø´Â ¸Þ¼Òµå
+#### Stringì—ëŠ” ìžˆê³   StringBuilder/StringBufferì—ëŠ” ì—†ëŠ” ë©”ì†Œë“œ
 
-.split() : ÀÎÀÚ·Î ÀÔ·ÂÇÑ Á¤±ÔÇ¥Çö½Ä¿¡ µû¶ó ¹®ÀÚ¿­À» ºÐ¸®ÇØ¼­ String[]·Î ¹ÝÈ¯ÇÑ´Ù.
+.split() : ì¸ìžë¡œ ìž…ë ¥í•œ ì •ê·œí‘œí˜„ì‹ì— ë”°ë¼ ë¬¸ìžì—´ì„ ë¶„ë¦¬í•´ì„œ String[]ë¡œ ë°˜í™˜í•œë‹¤.
 
 ---
 
 #### StringBuilder/StringBuffer.insert(index)
 
-ÇØ´ç index¿¡ Ãß°¡ÇÏ°í ±× µÚ·Î ¿À´Â ¹®ÀÚ¿­À» ÇÑÄ­¾¿ ¹Ð¾îÁØ´Ù.(ÇØ´ç ÀÎµ¦½º¿¡ ´ëÃ¼ ÇØÁÖ´Â °ÍÀÌ ¾Æ´Ï´Ù.)
+í•´ë‹¹ indexì— ì¶”ê°€í•˜ê³  ê·¸ ë’¤ë¡œ ì˜¤ëŠ” ë¬¸ìžì—´ì„ í•œì¹¸ì”© ë°€ì–´ì¤€ë‹¤.(í•´ë‹¹ ì¸ë±ìŠ¤ì— ëŒ€ì²´ í•´ì£¼ëŠ” ê²ƒì´ ì•„ë‹ˆë‹¤.)
 
-StringÀº insertÀÇ ±â´ÉÀ» ÇÏ´Â ¸Þ¼Òµå°¡ ¾ø´Ù.(¹®ÀÚ/¹®ÀÚ¿­·Î Á¢±ÙÇØ¼­ ´ëÃ¼ ÇØÁÖ´Â replace¸Þ¼Òµå°¡ ÀÖ´Ù.(replace´Â StringBuilder/StringBufferµµ ÀÖ´Ù.))
+Stringì€ insertì˜ ê¸°ëŠ¥ì„ í•˜ëŠ” ë©”ì†Œë“œê°€ ì—†ë‹¤.(ë¬¸ìž/ë¬¸ìžì—´ë¡œ ì ‘ê·¼í•´ì„œ ëŒ€ì²´ í•´ì£¼ëŠ” replaceë©”ì†Œë“œê°€ ìžˆë‹¤.(replaceëŠ” StringBuilder/StringBufferë„ ìžˆë‹¤.))
 
 ---
 
-#### String°ú CharÀÇ ºó ¹®ÀÚ¿­/¹®ÀÚÀÇ ÃÊ±âÈ­
+#### Stringê³¼ Charì˜ ë¹ˆ ë¬¸ìžì—´/ë¬¸ìžì˜ ì´ˆê¸°í™”
 
-StringÀº ºó ¹®ÀÚ¿­À» ÃÊ±âÈ­ ÇÒ ¼ö ÀÖÁö¸¸
+Stringì€ ë¹ˆ ë¬¸ìžì—´ì„ ì´ˆê¸°í™” í•  ìˆ˜ ìžˆì§€ë§Œ
 
-Char´Â ºó ¹®ÀÚ¸¦ ÃÊ±âÈ­ ÇÒ ¼ö ¾ø´Ù.
+CharëŠ” ë¹ˆ ë¬¸ìžë¥¼ ì´ˆê¸°í™” í•  ìˆ˜ ì—†ë‹¤.
 
-ºó ¹®ÀÚ¸¦ »ç¿ëÇØ¾ß ÇÒ ¶§´Â StringÀ» »ç¿ëÇÏ´Â °ÍÀÌ Æí¸®ÇÏ´Ù.
+ë¹ˆ ë¬¸ìžë¥¼ ì‚¬ìš©í•´ì•¼ í•  ë•ŒëŠ” Stringì„ ì‚¬ìš©í•˜ëŠ” ê²ƒì´ íŽ¸ë¦¬í•˜ë‹¤.
 
 ex)
 
-	String initString = ""; // °¡´É
+	String initString = ""; // ê°€ëŠ¥
 	
-	Char initChar = '' // ¿¡·¯ ¹ß»ý
+	Char initChar = '' // ì—ëŸ¬ ë°œìƒ
 
 
 ---
 
-#### listÀÇ Áßº¹µÈ ¿ø¼Ò Á¦°Å
+#### listì˜ ì¤‘ë³µëœ ì›ì†Œ ì œê±°
 
 	List<String> wordsList = new ArrayList<>();
 	
-	Set<String> wordsSet = new Hashset<>(strList); // ÀÎÀÚ·Î ¹è¿­À» Arrays.asList(¹è¿­)·Î ÀÔ·ÂÇØµµ µÈ´Ù.
+	Set<String> wordsSet = new Hashset<>(strList); // ì¸ìžë¡œ ë°°ì—´ì„ Arrays.asList(ë°°ì—´)ë¡œ ìž…ë ¥í•´ë„ ëœë‹¤.
 	
 	wordsList = new ArrayList<>(wordsSet);
 	
 ---
 
-#### main¹® ¾È¿¡¼­ÀÇ ÃÊ±âÈ­
+#### mainë¬¸ ì•ˆì—ì„œì˜ ì´ˆê¸°í™”
 
-- ±âº»Çü º¯¼öÀÇ ¹è¿­Àº ÀÚµ¿À¸·Î ÃÊ±âÈ­°¡ µÈ´Ù.(0,false µî)
+- ê¸°ë³¸í˜• ë³€ìˆ˜ì˜ ë°°ì—´ì€ ìžë™ìœ¼ë¡œ ì´ˆê¸°í™”ê°€ ëœë‹¤.(0,false ë“±)
 
-- ±âº»Çü º¯¼ö´Â ÃÊ±âÈ­¸¦ ÇØÁà¾ß µÈ´Ù.
+- ê¸°ë³¸í˜• ë³€ìˆ˜ëŠ” ì´ˆê¸°í™”ë¥¼ í•´ì¤˜ì•¼ ëœë‹¤.
 
 ---
 
-#### map¿¡¼­ key»Ì¾Æ ¹Ýº¹¹® µ¹¸®´Â ¹æ¹ý
+#### mapì—ì„œ keyë½‘ì•„ ë°˜ë³µë¬¸ ëŒë¦¬ëŠ” ë°©ë²•
 
 		Set<Character> keySet = nameMap.keySet();
 
 		Iterator keyIter = keySet.iterator();
 		
 		while (keyIter.hasNext()) {
-			// keyÀÇ ÀÚ·áÇü ¶Ç´Â Å¬·¡½º·Î castingÇØÁÖ¸é µÈ´Ù.(next() ¸Þ¼Òµå´Â Object °´Ã¼¸¦ ¹ÝÈ¯ÇÑ´Ù.)
+			// keyì˜ ìžë£Œí˜• ë˜ëŠ” í´ëž˜ìŠ¤ë¡œ castingí•´ì£¼ë©´ ëœë‹¤.(next() ë©”ì†Œë“œëŠ” Object ê°ì²´ë¥¼ ë°˜í™˜í•œë‹¤.)
 			char key = (char) keyIter.next();  
 			
 			if (nameMap.get(key) >= 5) {
@@ -634,7 +634,7 @@ ex)
 			}
 		}
 		
-#### map¿¡¼­ key¿Í value¸¦ µ¿½Ã¿¡ »Ì¾Æ ¹Ýº¹¹® µ¹¸®´Â ¹æ¹ý
+#### mapì—ì„œ keyì™€ valueë¥¼ ë™ì‹œì— ë½‘ì•„ ë°˜ë³µë¬¸ ëŒë¦¬ëŠ” ë°©ë²•
 
 	Set<Character> entrySet = nameMap.entrySet();
 
@@ -654,13 +654,13 @@ ex)
 	
 	}
 	
-#### Object Å¸ÀÔ ¹è¿­ÀÇ È°¿ë ¹æ¹ý 
+#### Object íƒ€ìž… ë°°ì—´ì˜ í™œìš© ë°©ë²• 
 
-Object¹è¿­º¸´Ù´Â ÇØ´ç ÀÚ·áÇü,ÀÎ½ºÅÏ½º¸¦ ÇÊµå·Î °¡Áö´Â Å¬·¡½º¸¦ ¸¸µé¾î ±× ÀÎ½ºÅÏ½º¸¦ ³Ö¾îÁÖ´Â °ÍÀÌ ´õ Æí¸®ÇÏ´Ù.(²¨³¾ ¶§ Ä³½ºÆÃ ÇÒ ÇÊ¿äX)
+Objectë°°ì—´ë³´ë‹¤ëŠ” í•´ë‹¹ ìžë£Œí˜•,ì¸ìŠ¤í„´ìŠ¤ë¥¼ í•„ë“œë¡œ ê°€ì§€ëŠ” í´ëž˜ìŠ¤ë¥¼ ë§Œë“¤ì–´ ê·¸ ì¸ìŠ¤í„´ìŠ¤ë¥¼ ë„£ì–´ì£¼ëŠ” ê²ƒì´ ë” íŽ¸ë¦¬í•˜ë‹¤.(êº¼ë‚¼ ë•Œ ìºìŠ¤íŒ… í•  í•„ìš”X)
 
-»ç¿ë¹ý
+ì‚¬ìš©ë²•
 
-¿©·¯ Å¸ÀÔÀÇ ÀÚ·áÇü, ÀÎ½ºÅÏ½º¸¦ ÇÑ¹ø¿¡ push, enqueue(add, offer <-> poll) ÇÒ ¶§ »ç¿ëÇÒ ¼ö ÀÖ´Ù.
+ì—¬ëŸ¬ íƒ€ìž…ì˜ ìžë£Œí˜•, ì¸ìŠ¤í„´ìŠ¤ë¥¼ í•œë²ˆì— push, enqueue(add, offer <-> poll) í•  ë•Œ ì‚¬ìš©í•  ìˆ˜ ìžˆë‹¤.
 
     Stack<Object[]> boardStack = new Stack<>();
 
@@ -672,7 +672,7 @@ Object¹è¿­º¸´Ù´Â ÇØ´ç ÀÚ·áÇü,ÀÎ½ºÅÏ½º¸¦ ÇÊµå·Î °¡Áö´Â Å¬·¡½º¸¦ ¸¸µé¾î ±× ÀÎ½ºÅÏ½
 	curPosition[2] = movedRoute;
 	boardStack.push(curPosition);
 	
-	// °¢°¢ ´Ù¿îÄ³½ºÆÃ ÇØ¾ß ÇØ´ç ÀÎ½ºÅÏ½ºÀÇ ¸Þ¼Òµå¸¦ »ç¿ëÇÒ ¼ö ÀÖ´Ù.(¾ÈÇÏ¸é overridingµÇÁö ¾ÊÀº Ojbect Å¸ÀÔÀÇ  ¸Þ¼Òµå¸¸ »ç¿ë°¡´É)
+	// ê°ê° ë‹¤ìš´ìºìŠ¤íŒ… í•´ì•¼ í•´ë‹¹ ì¸ìŠ¤í„´ìŠ¤ì˜ ë©”ì†Œë“œë¥¼ ì‚¬ìš©í•  ìˆ˜ ìžˆë‹¤.(ì•ˆí•˜ë©´ overridingë˜ì§€ ì•Šì€ Ojbect íƒ€ìž…ì˜  ë©”ì†Œë“œë§Œ ì‚¬ìš©ê°€ëŠ¥)
 	
 	curPosition = boardStack.pop();
 	curX = (int) curPosition[0];

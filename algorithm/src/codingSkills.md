@@ -1,70 +1,70 @@
-#### if¹®
+#### ifë¬¸
 
-##### º¯ÇÏÁö ¾Ê°í °íÁ¤µÇ¾î ÀÖ´Â Á¶°ÇÀ» ¸ÕÀú ¾²ÀÚ
+##### ë³€í•˜ì§€ ì•Šê³  ê³ ì •ë˜ì–´ ìžˆëŠ” ì¡°ê±´ì„ ë¨¼ì € ì“°ìž
 
 ex)
 
 	if(A > arr[i] && A < arr2[i]) System.out.println("correct!!");
 	
 
-##### if- else if¹® ÀÛ¼ºÇÒ ¶§ 
+##### if- else ifë¬¸ ìž‘ì„±í•  ë•Œ 
 
-if¹® ¶Ç´Â »óÀ§ÀÇ else if¹®ÀÇ Á¶°Ç¿¡¼­ °É·¯Áø °ÍÀ» Âü°íÇØ¼­ else ifÀÇ Á¶°Ç¹®À» ÀÛ¼ºÇÏÀÚ
+ifë¬¸ ë˜ëŠ” ìƒìœ„ì˜ else ifë¬¸ì˜ ì¡°ê±´ì—ì„œ ê±¸ëŸ¬ì§„ ê²ƒì„ ì°¸ê³ í•´ì„œ else ifì˜ ì¡°ê±´ë¬¸ì„ ìž‘ì„±í•˜ìž
 
 
-##### Á¶°Ç¹®¿¡¼­ ÀÎµ¦½º¸¦ °áÁ¤ÇÏ´Â º¯¼ö(i,jµî)
+##### ì¡°ê±´ë¬¸ì—ì„œ ì¸ë±ìŠ¤ë¥¼ ê²°ì •í•˜ëŠ” ë³€ìˆ˜(i,jë“±)
 
-ÀÎµ¦½º ¹üÀ§¿¡ µé¾î¿À´ÂÁö È®ÀÎÇÏ´Â Á¶°ÇÀ» ¸ÕÀú ÀÛ¼ºÇÏÀÚ
+ì¸ë±ìŠ¤ ë²”ìœ„ì— ë“¤ì–´ì˜¤ëŠ”ì§€ í™•ì¸í•˜ëŠ” ì¡°ê±´ì„ ë¨¼ì € ìž‘ì„±í•˜ìž
 
-	while (j >= 0 && operator[j] == '<') // jÀÇ ¹üÀ§¸¦ ¸ÕÀú È®ÀÎÇÏ±â ¶§¹®¿¡ ¿¡·¯°¡ ³ªÁö ¾Ê´Â´Ù.
+	while (j >= 0 && operator[j] == '<') // jì˜ ë²”ìœ„ë¥¼ ë¨¼ì € í™•ì¸í•˜ê¸° ë•Œë¬¸ì— ì—ëŸ¬ê°€ ë‚˜ì§€ ì•ŠëŠ”ë‹¤.
 			j--;
 			
-	while (operator[j] == '<' && j >= 0)  // indexOutOfBound ¿¡·¯°¡ ³¯ ¼ö ÀÖ´Ù.
+	while (operator[j] == '<' && j >= 0)  // indexOutOfBound ì—ëŸ¬ê°€ ë‚  ìˆ˜ ìžˆë‹¤.
 			j--;
 
 ---
 
 #### map
 
-##### mapÀ» ±»ÀÌ ¾²Áö ¾Ê¾Æµµ µÇ´Â °æ¿ì
+##### mapì„ êµ³ì´ ì“°ì§€ ì•Šì•„ë„ ë˜ëŠ” ê²½ìš°
 
-1. ¾ËÆÄºª(a~z, A~Z), ¼ýÀÚ(0~9) µî ¾Æ½ºÅ°ÄÚµå °ªÀ¸·Î ÀÎµ¦½º¿¡ Á¢±Ù °¡´ÉÇÏ¸é map ´ë½Å ¹è¿­À» »ç¿ëÇÏÀÚ
+1. ì•ŒíŒŒë²³(a~z, A~Z), ìˆ«ìž(0~9) ë“± ì•„ìŠ¤í‚¤ì½”ë“œ ê°’ìœ¼ë¡œ ì¸ë±ìŠ¤ì— ì ‘ê·¼ ê°€ëŠ¥í•˜ë©´ map ëŒ€ì‹  ë°°ì—´ì„ ì‚¬ìš©í•˜ìž
 
 
 ---
-#### º¯¼ö¸í
+#### ë³€ìˆ˜ëª…
 
-##### Àû´çÇÑ º¯¼öÀÇ ±æÀÌ
+##### ì ë‹¹í•œ ë³€ìˆ˜ì˜ ê¸¸ì´
 
-º¯¼ö ÀÌ¸§ÀÇ ±æÀÌ°¡ Æò±ÕÀûÀ¸·Î 10~16ÀÏ ¶§ ÇÁ·Î±×·¥À» µð¹ö±ëÇÏ±â À§ÇØ¼­ µéÀÌ´Â ³ë·ÂÀ» ÃÖ¼ÒÈ­ ÇÒ ¼ö ÀÖ°í
+ë³€ìˆ˜ ì´ë¦„ì˜ ê¸¸ì´ê°€ í‰ê· ì ìœ¼ë¡œ 10~16ì¼ ë•Œ í”„ë¡œê·¸ëž¨ì„ ë””ë²„ê¹…í•˜ê¸° ìœ„í•´ì„œ ë“¤ì´ëŠ” ë…¸ë ¥ì„ ìµœì†Œí™” í•  ìˆ˜ ìžˆê³ 
 
-º¯¼öÀÇ Æò±Õ ±æÀÌ°¡ 8~20ÀÎ ÇÁ·Î±×·¥Àº µð¹ö±ëÇÏ±â°¡ ½±´Ù.
+ë³€ìˆ˜ì˜ í‰ê·  ê¸¸ì´ê°€ 8~20ì¸ í”„ë¡œê·¸ëž¨ì€ ë””ë²„ê¹…í•˜ê¸°ê°€ ì‰½ë‹¤.
 
-°á·Ð : ±æÀÌ°¡ 8~20 ÀÌ¸é ÀûÀýÇÏ´Ù.(¾à°£ ±æ¾îº¸¿©µµ ÀÇ¹Ì°¡ ¸íÈ®ÇÏµµ·Ï ÀÌ¸§ ÁþÀÚ)
+ê²°ë¡  : ê¸¸ì´ê°€ 8~20 ì´ë©´ ì ì ˆí•˜ë‹¤.(ì•½ê°„ ê¸¸ì–´ë³´ì—¬ë„ ì˜ë¯¸ê°€ ëª…í™•í•˜ë„ë¡ ì´ë¦„ ì§“ìž)
 
-##### º¯¼ö ÀÛ¸í °ü·Ê
+##### ë³€ìˆ˜ ìž‘ëª… ê´€ë¡€
 
-max, min : °æ°è¸¦ Æ÷ÇÔÇÏ´Â ÃÖ´ë/ÃÖ¼Ò°ª
+max, min : ê²½ê³„ë¥¼ í¬í•¨í•˜ëŠ” ìµœëŒ€/ìµœì†Œê°’
 
-first, last : °æ°è¸¦ Æ÷ÇÔÇÏ´Â ¹üÀ§
+first, last : ê²½ê³„ë¥¼ í¬í•¨í•˜ëŠ” ë²”ìœ„
 
-begin, end : °æ°è¸¦ Æ÷ÇÔ/¹èÁ¦ÇÏ´Â ¹üÀ§(beginÀÌ»ó end¹Ì¸¸ ÀÏ ¶§)
+begin, end : ê²½ê³„ë¥¼ í¬í•¨/ë°°ì œí•˜ëŠ” ë²”ìœ„(beginì´ìƒ endë¯¸ë§Œ ì¼ ë•Œ)
 
 
-##### ³Ê¹« ±ä ÀÌ¸§ 
+##### ë„ˆë¬´ ê¸´ ì´ë¦„ 
 
 numberOfPeopleOnTheUsOlympicTeam 
 numberOfSeatsInTheStadium 
 maximunNumberOfPointsInMordernOlympics
 
 
-##### ³Ê¹« ÂªÀº ÀÌ¸§ 
+##### ë„ˆë¬´ ì§§ì€ ì´ë¦„ 
 
 n, np, ntm 
 n, ns, nsisd 
 m, mp, max, points
 
-##### Àû´çÇÑ ÀÌ¸§ 
+##### ì ë‹¹í•œ ì´ë¦„ 
 
 numTeamMembers, teamMemberCount 
 numSeatsInStadium, seatCount 
@@ -72,58 +72,58 @@ teamPointsMax, pointsRecord
 
 --- 
 
-##### º¯¼ö¸í Å°¿öµå·Î »ç¿ëÇÒ ¸¸ÇÑ °Íµé
+##### ë³€ìˆ˜ëª… í‚¤ì›Œë“œë¡œ ì‚¬ìš©í•  ë§Œí•œ ê²ƒë“¤
 
 left / right
 before / after
 
 ---
 
-##### num, size, input°ú °°Àº º¯¼ö¸íÀº Áö¾çÇÏÀÚ
+##### num, size, inputê³¼ ê°™ì€ ë³€ìˆ˜ëª…ì€ ì§€ì–‘í•˜ìž
 
-num : Á¤¼ö/½Ç¼öÀÇ ÀÚ·áÇüÀÌ¶ó¸é ´ç¿¬È÷ ¼ýÀÚ(number)ÀÇ ÀÇ¹Ì¸¦ Æ÷ÇÔÇÏ¹Ç·Î Àû¾îÁÖÁö ¾Ê´Â°Ô ÁÁ´Ù.
+num : ì •ìˆ˜/ì‹¤ìˆ˜ì˜ ìžë£Œí˜•ì´ë¼ë©´ ë‹¹ì—°ížˆ ìˆ«ìž(number)ì˜ ì˜ë¯¸ë¥¼ í¬í•¨í•˜ë¯€ë¡œ ì ì–´ì£¼ì§€ ì•ŠëŠ”ê²Œ ì¢‹ë‹¤.
 
-size : ¹«¾ùÀÇ sizeÀÎÁö ¸íÈ®ÇÏ°Ô ½áÁà¾ß ÇÑ´Ù.
+size : ë¬´ì—‡ì˜ sizeì¸ì§€ ëª…í™•í•˜ê²Œ ì¨ì¤˜ì•¼ í•œë‹¤.
 
-input : Ç¥ÁØ ÀÔ·ÂÀ¸·Î ¹Þ´Â ÀÎ½ºÅÏ½º¶ó¸é ÀÔ·Â(input)ÀÇ ÀÇ¹Ì¸¦ ÀÌ¹Ì Æ÷ÇÔÇÏ¹Ç·Î Àû¾îÁÖÁö ¾Ê´Â°Ô ÁÁ´Ù
+input : í‘œì¤€ ìž…ë ¥ìœ¼ë¡œ ë°›ëŠ” ì¸ìŠ¤í„´ìŠ¤ë¼ë©´ ìž…ë ¥(input)ì˜ ì˜ë¯¸ë¥¼ ì´ë¯¸ í¬í•¨í•˜ë¯€ë¡œ ì ì–´ì£¼ì§€ ì•ŠëŠ”ê²Œ ì¢‹ë‹¤
 
-XXXArray : ¹è¿­ÀÌ¶ó°í ½áÁÖÁö ¾Ê¾Æµµ ¹è¿­ÀÌ¶ó´Â °ÍÀ» ¾Ë°í ÀÖ´Ù.
+XXXArray : ë°°ì—´ì´ë¼ê³  ì¨ì£¼ì§€ ì•Šì•„ë„ ë°°ì—´ì´ë¼ëŠ” ê²ƒì„ ì•Œê³  ìžˆë‹¤.
 
 ex) fieldArray[](X) >>> field[](O)
 
 ---
 	
-#### ·çÇÁ¹Ýº¹ÀÚ(i, j, iter, itµî) ´õ ¸íÈ®ÇÏ°Ô ÀÌ¸§Áþ´Â ¹æ¹ý
+#### ë£¨í”„ë°˜ë³µìž(i, j, iter, itë“±) ë” ëª…í™•í•˜ê²Œ ì´ë¦„ì§“ëŠ” ë°©ë²•
 
-¹Ýº¹ÀÚ¸¦ ´Ü¼øÈ÷ i,j,iter°¡ ¾Æ´Ï¶ó ¾î¶² ¹è¿­ÀÇ ÀÎµ¦½ºÀÎÁö¸¦ ³ªÅ¸³»´Â °ÍÀÌ ÁÁ´Ù.(ci,mi,ui)
+ë°˜ë³µìžë¥¼ ë‹¨ìˆœížˆ i,j,iterê°€ ì•„ë‹ˆë¼ ì–´ë–¤ ë°°ì—´ì˜ ì¸ë±ìŠ¤ì¸ì§€ë¥¼ ë‚˜íƒ€ë‚´ëŠ” ê²ƒì´ ì¢‹ë‹¤.(ci,mi,ui)
 
 	int[] club = new int[5];
 	int[] member = new int[5];
 	int[] user = new int[5];
 	
-club[ci], memeber[mi], user[ui] ¶Ç´Â club[club_i], memeber[member_i], user[user_i] 
+club[ci], memeber[mi], user[ui] ë˜ëŠ” club[club_i], memeber[member_i], user[user_i] 
 
- Ã³·³ ¹Ýº¹ÀÚÀÇ ÀÌ¸§À» ¾Ë¾Æº¸±â ½±°Ô ÀÛ¼ºÇÏÀÚ.
+ ì²˜ëŸ¼ ë°˜ë³µìžì˜ ì´ë¦„ì„ ì•Œì•„ë³´ê¸° ì‰½ê²Œ ìž‘ì„±í•˜ìž.
 
 ---
 	
-#### ¸Þ¼Òµå¿¡¼­ º¯¼ö(ÀÎ½ºÅÏ½º)ÀÇ ¼±¾ð À§Ä¡
+#### ë©”ì†Œë“œì—ì„œ ë³€ìˆ˜(ì¸ìŠ¤í„´ìŠ¤)ì˜ ì„ ì–¸ ìœ„ì¹˜
 
-»ç¿ëÇÏ´Â ½ºÄÚÇÁ ¹Ù·Î À§¿¡ ¼±¾ð&ÃÊ±âÈ­ ÇÑ´Ù.(¸Ç À§¿¡ ÇÑ²¨¹ø¿¡ ¼±¾ðÇÏÁö ¸»°í ÇÊ¿äÇÒ ¶§ ¼±¾ð!!)
+ì‚¬ìš©í•˜ëŠ” ìŠ¤ì½”í”„ ë°”ë¡œ ìœ„ì— ì„ ì–¸&ì´ˆê¸°í™” í•œë‹¤.(ë§¨ ìœ„ì— í•œêº¼ë²ˆì— ì„ ì–¸í•˜ì§€ ë§ê³  í•„ìš”í•  ë•Œ ì„ ì–¸!!)
 
-º¯¼ö¸¦ ÇØ´ç ½ºÄÚÇÁ(if,for,while)³»¿¡¼­¸¸ ¾²µµ·Ï Á¦ÇÑÇÑ´Ù.(¸Þ¸ð¸® °ü¸® Ãø¸é¿¡¼­)
+ë³€ìˆ˜ë¥¼ í•´ë‹¹ ìŠ¤ì½”í”„(if,for,while)ë‚´ì—ì„œë§Œ ì“°ë„ë¡ ì œí•œí•œë‹¤.(ë©”ëª¨ë¦¬ ê´€ë¦¬ ì¸¡ë©´ì—ì„œ)
 
 ---
 
-#### »ó¼ö´Â ´ë¹®ÀÚ·Î
+#### ìƒìˆ˜ëŠ” ëŒ€ë¬¸ìžë¡œ
 
-´Ü¾î¸¦ ÀÌÀ» °æ¿ì _·Î ¿¬°áÇÑ´Ù.(Ä«¸áÄÉÀÌ½ºX)
+ë‹¨ì–´ë¥¼ ì´ì„ ê²½ìš° _ë¡œ ì—°ê²°í•œë‹¤.(ì¹´ë©œì¼€ì´ìŠ¤X)
 
-final Å°¿öµå¸¦ Ãß°¡ÇÑ´Ù.
+final í‚¤ì›Œë“œë¥¼ ì¶”ê°€í•œë‹¤.
 
 ex) 
 
-	final int N = 5; // ¾ÕÀ¸·Î ¼öÁ¤ÇÒ ÀÏÀÌ ¾øÀ» °æ¿ì
+	final int N = 5; // ì•žìœ¼ë¡œ ìˆ˜ì •í•  ì¼ì´ ì—†ì„ ê²½ìš°
 	
 ---
 
