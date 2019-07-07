@@ -74,3 +74,46 @@ ex) 회의실 배정 문제 : 현재 상황에서 가장 빨리 배정할 수 �
 ##### Arrays.sort() 메소드보다 QuickSort를 구현해서 정렬하는 것이 더 빠르다.
 
 ex) K번째 수 문제
+
+---
+
+#### Floyd WarShall
+
+그래프에서 모든 꼭지점 사이의 최단 경로를 찾는 알고리즘
+
+초기화 하는 배열에는 startStop과 endStop사이의 경로가 없을 경우(값이 0일 경우)에 경로 값으로 나올 수 있는 최대 값을 넣어준다.(최소 비용을 구하기 때문에)
+
+그리고 출력할 때는 최대 비용이면 0으로 출력하도록 조건을 넣어 출력한다.
+
+		for (int throughStop = 1; throughStop < feesOfRoute.length; throughStop++) {
+
+			for (int startStop = 1; startStop < feesOfRoute.length; startStop++) {
+
+				for (int endStop = 1; endStop < feesOfRoute[startStop].length; endStop++) {
+					if (startStop != endStop)
+						feesOfRoute[startStop][endStop] = Math.min(feesOfRoute[startStop][endStop],
+								feesOfRoute[startStop][throughStop] + feesOfRoute[throughStop][endStop]);
+				}
+			}
+		}
+		
+ex) 1->4 사이의 최단 경로
+	
+	feesOfRoute[startStop][throughStop] + feesOfRoute[throughStop][endStop]
+
+
+startStop -> throughStop -> endStop의 경로에서 최단 경로(최소 비용)을 찾는 것이다.
+
+startStop -> throughStop은 각각 startStop-> endStop(throughStop)
+
+	feesOfRoute[startStop][throughStop] + feesOfRoute[throughStop][endStop]
+
+throughStop -> endStop은 각각 startStop(throughStop) -> endStop
+
+	feesOfRoute[startStop][throughStop] + feesOfRoute[throughStop][endStop]
+
+ 으로 루프 내에서 최단 경로가 구해진 값을 더하기 때문에 두 값
+ 
+	feesOfRoute[startStop][throughStop] + feesOfRoute[throughStop][endStop] 
+ 
+ 만 더해주면 된다.

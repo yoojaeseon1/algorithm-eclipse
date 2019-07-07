@@ -1,11 +1,11 @@
-package backjoon;
+package backjoon.floydWarshall;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main {
-
+public class Q11404 {
+	
 	public static void main(String[] args) throws Exception {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -42,16 +42,9 @@ public class Main {
 			for (int startStop = 1; startStop < feesOfRoute.length; startStop++) {
 
 				for (int endStop = 1; endStop < feesOfRoute[startStop].length; endStop++) {
-					// System.out.println("start to end : " +
-					// feesOfRoute[startStop][endStop]);
-					// System.out.println("through stop : " +
-					// (feesOfRoute[startStop][throughStop] +
-					// feesOfRoute[throughStop][endStop]));
-					// System.out.println("-------------");
 					if (startStop != endStop)
 						feesOfRoute[startStop][endStop] = Math.min(feesOfRoute[startStop][endStop],
 								feesOfRoute[startStop][throughStop] + feesOfRoute[throughStop][endStop]);
-					// System.out.println(feesOfRoute[startStop][endStop]);
 				}
 			}
 		}
@@ -72,4 +65,5 @@ public class Main {
 		}
 
 	}
+
 }
