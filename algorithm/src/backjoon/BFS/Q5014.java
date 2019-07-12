@@ -1,4 +1,4 @@
-package backjoon;
+package backjoon.BFS;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -6,8 +6,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Main {
-
+public class Q5014 {
+	
 	public static void main(String[] args) throws Exception {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -55,4 +55,5 @@ public class Main {
 		else
 			System.out.println("use the stairs");
 	}
+
 }

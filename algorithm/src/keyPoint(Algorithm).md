@@ -13,6 +13,15 @@
 - 전부 탐색할 때는 방문한 노드, 푸시/인큐된 노드를 따로 체크를 해줘야 한다.
 : 방문하지 않았지만 푸시/인큐 되었다면 푸시/인큐 하면 안되기 때문에
 
+- 방문여부 체크, 답인지 체크는 pop/enqueue한 현재 위치에서 확인하자.
+
+			curPosition = fieldQueue.poll();
+			
+			if (curPosition == g || curPosition == g) {
+				isUsableElev = true;
+				break;
+			}
+
 ---
 
 #### Backtraking
