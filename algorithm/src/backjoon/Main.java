@@ -9,42 +9,42 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
-		int caseCount = Integer.parseInt(br.readLine());
-		
-		StringTokenizer st;
-		
-		for(int cases = 0; cases < caseCount; cases++) {
-			
-			int caseLength = Integer.parseInt(br.readLine());
-			
-			int[][] stickers = new int[2][caseLength];
-			
-			st = new StringTokenizer(br.readLine());
-			for(int si = 0; si < stickers[0].length; si++) {
-				stickers[0][si] = Integer.parseInt(st.nextToken());
-			}
-			st = new StringTokenizer(br.readLine());
-			for(int si = 0; si < stickers[0].length; si++) {
-				stickers[1][si] = Integer.parseInt(st.nextToken());
-			}
 
-			int[][] selectedStickers = new int[2][caseLength];
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		
+		int n = Integer.parseInt(st.nextToken());
+		int m = Integer.parseInt(st.nextToken());
+		
+		int[][] field = new int[n+1][m+1];
+		
+		for(int fi = 1; fi < field.length ; fi++) {
 			
-			selectedStickers[0][0] = stickers[0][0];
-			selectedStickers[1][0] = stickers[1][0];
-			selectedStickers[0][1] = stickers[0][1] + stickers[1][0];
-			selectedStickers[1][1] = stickers[1][1] + stickers[0][0];
-			
-			for(int si = 2; si < selectedStickers[0].length; si++){
-				
-				selectedStickers[0][si] += (stickers[0][si] + Math.max(selectedStickers[1][si-1],selectedStickers[1][si-2]));
-				selectedStickers[1][si] += (stickers[1][si] + Math.max(selectedStickers[0][si-1],selectedStickers[0][si-2]));
+			st = new StringTokenizer(br.readLine());
+			for(int fj = 1; fj < field[fi].length; fj++) {
+				field[fi][fj] = Integer.parseInt(st.nextToken());
 			}
+		}
+		
+		int k = Integer.parseInt(br.readLine());
+		
+		for(int caseCount = 1; caseCount <= k; caseCount++) {
 			
+			st = new StringTokenizer(br.readLine());
 			
-			System.out.println(Math.max(selectedStickers[0][selectedStickers[0].length-1], selectedStickers[1][selectedStickers[1].length-1]));
+			int i = Integer.parseInt(st.nextToken());
+			int j = Integer.parseInt(st.nextToken());
+			int x = Integer.parseInt(st.nextToken());
+			int y = Integer.parseInt(st.nextToken());
 			
+			int sumOfCoordi = 0;
+			
+			for(int iCount = i; iCount <= x; iCount++) {
+				
+				for(int jCount = j; jCount <= y; jCount++) {
+					sumOfCoordi += field[iCount][jCount];
+				}
+			}	
+			System.out.println(sumOfCoordi);
 		}
 	}
 }
