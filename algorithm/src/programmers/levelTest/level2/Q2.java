@@ -1,8 +1,7 @@
-package programmers;
+package programmers.levelTest.level2;
 
-public class Solution {
-
-
+public class Q2 {
+	
 	public static void main(String[] args) {
 		
 		int[] arr = {2,6,8,14};
@@ -36,6 +35,7 @@ public class Solution {
 	}
 	
 	public static int gcd(int small, int big) {
+		
 		int answer = 0;
 		
 		for(int i = 1; i <= small; i++) {
@@ -44,5 +44,5 @@ public class Solution {
 		
 		return answer;
 	}
-	
+
 }

@@ -134,3 +134,15 @@ throughStop -> endStop은 각각 startStop(throughStop) -> endStop
 	feesOfRoute[startStop][throughStop] + feesOfRoute[throughStop][endStop] 
  
  만 더해주면 된다.
+ 
+#### combination
+
+
+ 
+#### 최대공약수 / 최소공배수
+ 
+3개 이상의 수의 최대공약수 / 최소공배수는
+
+두 수의 최대공약수 / 최소공배수를 구한 값과 나머지 값의 최대공약수 / 최소공배수를 구하면 된다.
+ 
+ 

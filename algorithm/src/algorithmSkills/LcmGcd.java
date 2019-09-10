@@ -1,13 +1,18 @@
-package programmers;
+package algorithmSkills;
 
-public class Solution {
-
-
+public class LcmGcd {
+	
+	
 	public static void main(String[] args) {
 		
-		int[] arr = {2,6,8,14};
+		int[] arr = {6,12,18};
+		
+		
 		
 		System.out.println(solution(arr));
+		
+		
+//		System.out.println(gcd(arr));
 
 	}
 	
@@ -17,6 +22,8 @@ public class Solution {
 	      
 	      return answer;
 	  }
+	
+	//lcm(multiple numbers)
 	
 	public static int lcm(int[] num) {
 		
@@ -35,14 +42,34 @@ public class Solution {
 		
 	}
 	
+	// gcd(two numbers)
+	
 	public static int gcd(int small, int big) {
+		
 		int answer = 0;
 		
 		for(int i = 1; i <= small; i++) {
 			if(small % i == 0 && big % i == 0) answer = i;
 		}
-		
+//		System.out.println("gcd : " + answer);
 		return answer;
 	}
 	
+	// gcd(multiple numbers)
+	
+	public static int gcd(int[] nums) {
+		
+		int answer = nums[0];
+		
+		for(int ni = 1; ni < nums.length; ni++) {
+			
+			answer = gcd(answer, nums[ni]);
+			
+		}
+		
+		System.out.println("gcd : " + answer);
+		return answer;
+
+	}
+
 }

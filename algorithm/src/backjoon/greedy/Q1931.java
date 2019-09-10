@@ -37,19 +37,22 @@ public class Q1931 {
 			}
 		});
 		
-		int earlist = 0;
-		int selected = 0;
+		for(int si = 0; si < schedule.length; si++) {
+			
+			System.out.println(schedule[si][0] + ", " + schedule[si][1]);
+		}
+		
+		int earlistStartTime = 0;
+		int selectedCount = 0;
 		for(int i = 0; i < schedule.length; i++) {
 			startTime = schedule[i][0];
 			endTime = schedule[i][1];
-			if(earlist <= startTime) {
-				earlist = endTime;
-				selected++;
+			if(earlistStartTime <= startTime) {
+				earlistStartTime = endTime;
+				selectedCount++;
 			}
 		}
-		
-		System.out.println(selected);
-
+		System.out.println(selectedCount);
 	}
 
 }
