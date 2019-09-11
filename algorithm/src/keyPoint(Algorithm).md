@@ -137,6 +137,17 @@ throughStop -> endStop은 각각 startStop(throughStop) -> endStop
  
 #### combination
 
+	doCombination(int[] source, int n, int r, int[] selectedIndice, int selectedIndex);
+	
+source : 원소를 선택할 배열
+
+n : source 배열의 크기(전체 원소의 개수)
+
+r : 선택할 원소의 개수(r <= n)
+
+selectedIndice : 선택된 source의 index 들어갈 배열
+
+seletedIndex : selectedIndice의 index, source에서 원소가 선택될 때마다 selectedIndex에 초기화 되고 1씩 증가 시켜준다.
 
  
 #### 최대공약수 / 최소공배수

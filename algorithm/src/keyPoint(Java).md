@@ -386,11 +386,13 @@ ex)
 
 ##### 배열의 copy
 
-deep copy (System.arraycopy()로 인한 부하를 줄이는 것이 좋으므로 )
+shallow copy (System.arraycopy()로 인한 부하를 줄이는 것이 좋으므로 )
+- source와 destination이 참조하는 주소값이 같다.
 - 입력받은 배열을 수정할 일이 없을 경우 
 - source array를 copy 이후에 사용하지 않을 때
 
-shallow copy
+deep copy
+- source와 destination이 독립
 - source array를 copy 이후에 수정할 일이 있을 경우(destination array도 같이 수정되는 것을 방지하기 위해)
 
 ###### shallow copy

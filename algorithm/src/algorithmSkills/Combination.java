@@ -5,34 +5,39 @@ public class Combination {
 	public static void main(String[] args) {
 		
 		Combination ex = new Combination();
-		int[] arr = {1,2,3};
-		int n = arr.length;
+		int[] source = {1,2,3,4,5};
+		int n = source.length;
 		int r = 2;
-		int[] combArr = new int[n];
+		int[] selectedIndice = new int[n];
 
-		ex.doCombination(combArr, n, r, 0, 0, arr); // n = 3, r = 2
+		ex.doCombination(source, selectedIndice, n, r, 0, 0); // n = 3, r = 2
 	}
 
-	public void doCombination(int[] combArr, int n, int r, int index, int target, int[] arr) {
+	public void doCombination( int[] source, int[] selectedIndice, int n, int r, int selectedIndex, int target) {
 //		System.out.println("=> " + n + " " + r + " " + index + " " + target);
 
-		// r ==0 이란 것은 뽑을 원소를 다 뽑았다는 뜻.
+		// r ==0 means already selectd enough elements
 		if (r == 0) {
 //			System.out.println(Arrays.toString(combArr));
-			for (int i = 0; i < index; i++)
-				System.out.print(arr[combArr[i]] + " ");
+			for (int si = 0; si < selectedIndex; si++)
+				System.out.print(source[selectedIndice[si]] + " ");
 
 			System.out.println();
 
 		} else if (target == n) {
-
+			
+			System.out.println("target : " + target);
+			System.out.println("n : " + n);
 			return;
 
 		} else {
-			combArr[index] = target;
-			doCombination(combArr, n, r - 1, index + 1, target + 1, arr);
+			selectedIndice[selectedIndex] = target;
+			
+			// select a element in source array
+			doCombination(source, selectedIndice, n, r - 1, selectedIndex + 1, target + 1);
 
-			doCombination(combArr, n, r, index, target + 1, arr);
+			// not select and plus one index of source array 
+			doCombination(source, selectedIndice, n, r, selectedIndex, target + 1);
 		}
 	}
 }
