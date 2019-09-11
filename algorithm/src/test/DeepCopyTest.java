@@ -1,5 +1,8 @@
 package test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DeepCopyTest {
 
 	public static void main(String[] args) {
@@ -20,16 +23,25 @@ public class DeepCopyTest {
 //
 //		System.out.println(source[1]);
 		
-		boolean[] source = new boolean[26];
+//		boolean[] source = new boolean[26];
+//		
+//		DeepCopy test = new DeepCopy(1, source);
+//		
+//		System.out.println(test.getVisited()[5]);
+//		
+//		source[5] = true;
+//		
+//		System.out.println(test.getVisited()[5]);
+//
 		
-		DeepCopy test = new DeepCopy(1, source);
+		List<Integer> sourceList = new ArrayList<>();
 		
-		System.out.println(test.getVisited()[5]);
+		sourceList.add(1);
+		sourceList.add(2);
+		sourceList.add(3);
+		sourceList.add(4);
 		
-		source[5] = true;
-		
-		System.out.println(test.getVisited()[5]);
-		
+//		List<Integer> destList =List 
 		
 
 	}

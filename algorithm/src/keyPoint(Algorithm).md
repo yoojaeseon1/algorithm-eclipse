@@ -148,6 +148,7 @@ r : 선택할 원소의 개수(r <= n)
 selectedIndice : 선택된 source의 index 들어갈 배열
 
 seletedIndex : selectedIndice의 index, source에서 원소가 선택될 때마다 selectedIndex에 초기화 되고 1씩 증가 시켜준다.
+			   (선택되지 않으면 source의 다음 인덱스(target)를 선택하므로 값을 증가시키지 않는다.)
 
  
 #### 최대공약수 / 최소공배수
