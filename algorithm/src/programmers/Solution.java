@@ -1,106 +1,75 @@
 package programmers;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigInteger;
 
 public class Solution {
 
-	static List<List<Integer>> combiList;
-	
+	static int MOD = 20170805;
+
 	public static void main(String[] args) {
 
-		// boolean[] source = {true,true,false};
-		//
-		// Position test = new Position(5, source);
-		//
-		// source[1] = false;
-
-//		int[] numbers = { 1, 1, 1, 1, 1 };
-//
-//		System.out.println(solution(numbers, 3));
 		
-		int[] source = {1,1,1,1,1};
-		int[] selectedIndices = new int[source.length];
+		int[][] cityMap = new int[3][3];
 		
-		int n = source.length;
-		int r = 3;
-		
-		System.out.println(solution(source, 3));
-		
-//		doCombination(source, n, r, selectedIndices, 0,0);
+		System.out.println(solution(1, 2, cityMap));
 
 	}
 
-	public static int solution(int[] numbers, int target) {
-		int answer = 0;
-		
-		combiList = new ArrayList<>();
-		
-		int[] selectedIndices = new int[numbers.length];
-		
-		for(int ni = 1; ni <= numbers.length; ni++) {
-			
-			doCombination(numbers, numbers.length, ni, selectedIndices, 0, 0);
-			
-		}
-		
-		for(int ci = 0; ci < combiList.size(); ci++) {
-			for(int cj = 0; cj < combiList.get(ci).size(); cj++) {
-//				System.out.print(combiList.get(ci).get(cj) + " ");
+	  public static int solution(int m, int n, int[][] cityMap) {      
+		  
+		  int answer = 0;
+		  
+		  
+		  long[][][] routeCountMap = new long[m][n][2];
+		  
+		  routeCountMap[0][0][0] = 1;
+		  routeCountMap[0][0][1] = 1;
+		  
+			for (int rj = 1; rj < routeCountMap[0].length; rj++) {
+				if (cityMap[0][rj] == 0) {
+					routeCountMap[0][rj][0] = 1;
+					routeCountMap[0][rj][1] = 1;
+				} else if(cityMap[0][rj] == 1)
+					break; // after this (0,0)
+				else {
+					routeCountMap[0][rj][0] = 1;
+				}
 			}
-//			System.out.println();
-		}
-//		System.out.println("haha");
-		
-		
-//		doCombination(numbers, numbers.length, 3, selectedIndices, 0, 0);
-		
-		int sumOfNumbers = 0;
-		
-		for(int ni = 0; ni < numbers.length; ni++) {
-			sumOfNumbers += numbers[ni];
-		}
-		
-		
-		for(int ci = 0; ci < combiList.size(); ci++) {
-			int minucedSum = sumOfNumbers;
-			for(int cj = 0; cj < combiList.get(ci).size(); cj++) {
-				minucedSum -= (numbers[combiList.get(ci).get(cj)] * 2);
-			}
-//			System.out.println("ci : " + ci);
-//			System.out.println("minuced sum : " + minucedSum);
-			if(target == minucedSum) {
-				answer++;
+		  
+			for (int ri = 1; ri < routeCountMap.length; ri++) {
+				if (cityMap[ri][0] == 0) {
+					routeCountMap[ri][0][0] = 1;
+					routeCountMap[ri][0][1] = 1;
+				} else if(cityMap[ri][0] == 1) 
+					break;
+				else {
+					routeCountMap[ri][0][1] = 1;
+				}
 			}
 			
-		}
-		return answer;
-	}
-	
-	public static void doCombination(int[] source, int n, int r, int[] selectedIndices, int selectedIndex,  int target) {
-		
-		if(r == 0) {
-			
-			List<Integer> currentCombiList = new ArrayList<>();
-			for(int si = 0; si < selectedIndex; si++) {
-				currentCombiList.add(selectedIndices[si]);
-
+		for(int ci = 1; ci < routeCountMap.length; ci++) {
+			for(int cj = 1; cj < routeCountMap[ci].length; cj++) {
+				
+				if(cityMap[ci][cj] == 0) {
+					routeCountMap[ci][cj][0] = routeCountMap[ci][cj-1][0] + routeCountMap[ci-1][cj][1];
+					routeCountMap[ci][cj][0] %= MOD;
+					routeCountMap[ci][cj][1] = routeCountMap[ci][cj-1][0] + routeCountMap[ci-1][cj][1];
+					routeCountMap[ci][cj][1] %= MOD;
+				} else if(cityMap[ci][cj] == 1) {
+					routeCountMap[ci][cj][0] = 0;
+					routeCountMap[ci][cj][1] = 0;
+				} else {
+					routeCountMap[ci][cj][0] = routeCountMap[ci][cj-1][0];
+					routeCountMap[ci][cj][0] %= MOD;
+					routeCountMap[ci][cj][1] = routeCountMap[ci-1][cj][1];
+					routeCountMap[ci][cj][1] %= MOD;
+				}
 			}
-
-			combiList.add(currentCombiList);
-			
-		} else if(n == target) return;
-		else {
-			
-			selectedIndices[selectedIndex] = target;
-//			System.out.println("do combi");
-			doCombination(source, n, r-1, selectedIndices, selectedIndex+1, target+1);
-			
-			doCombination(source, n, r, selectedIndices, selectedIndex, target+1);
-
 		}
-	
-	}
+		
+		answer = (int)routeCountMap[m-1][n-1][0]; 
+		  
+		  return answer;
+	  }
 
 }
-

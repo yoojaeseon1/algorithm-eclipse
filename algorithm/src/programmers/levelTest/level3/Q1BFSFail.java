@@ -13,17 +13,18 @@ public class Q1BFSFail {
 
 	public static void main(String[] args) {
 
-		int[][] cityMap = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+//		int[][] cityMap = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
 //		int[][] cityMap = {{0, 2, 0, 0, 0, 2}, {0, 0, 2, 0, 1, 0}, {1, 0, 0, 2, 2, 0}};
 //		int[][] cityMap = {{0, 2, 2, 0}, {2, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
-//		int[][] cityMap = new int[10][10]; // output : 48620
+		int[][] cityMap = new int[10][10]; // output : 48620
 //		int[][] cityMap = new int[11][11]; // output : 184756(time over)
 		
 		
 		
-		System.out.println(solution(3,3,cityMap));
+//		System.out.println(solution(3,3,cityMap));
 //		System.out.println(solution(3,6,cityMap));
 //		System.out.println(solution(4,4,cityMap));
+		System.out.println(solution(10,10,cityMap)); 
 //		System.out.println(solution(11,11,cityMap)); 
 
 	}
@@ -63,9 +64,6 @@ public class Q1BFSFail {
 
 	public static int enqueuePosition(int currentN, int currentM) {
 
-//		System.out.println("currentN : " + currentN);
-//		System.out.println("currentM : " + currentM);
-//		System.out.println("------------");
 		int[] nextPosition = new int[2];
 		if (currentN == modifiedMap[0].length - 1 && currentM == modifiedMap.length - 1) {
 			return 1;
