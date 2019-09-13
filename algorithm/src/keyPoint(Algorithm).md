@@ -24,6 +24,23 @@
 
 ---
 
+##### DFS(재귀)
+
+	재귀로 DFS를 짤 때
+	
+	같은 메소드에서 재귀가 여러번 실행 될 때는 visited의 조건을 같게 해줘야 하기 때문에
+	
+	visited(push 체크)를 체크해준후 메소드를 실행하고 다름 루프가 돌기 전에 원래(방문하지 않은)상태로 초기화 해줘야 한다.
+	
+			for(int wi = 0; wi < visitSequence.length; wi++) {
+			if(checkEqualWord(source, words[wi]) && visitSequence[wi] == 0) {
+			
+				visitSequence[wi] = visitCount + 1; // visited 푸시한 것으로 체크
+				dfs(words[wi], visitSequence, visitCount+1);
+				visitSequence[wi] = 0; // 다음 루프로 넘어가기 전에 푸시하지 않은 것으로 원상복귀
+			}
+		}
+
 #### Backtraking
 
 핵심 : 탐색하지 않는 조건을 만들어서 탐색 횟수를 줄이는 것

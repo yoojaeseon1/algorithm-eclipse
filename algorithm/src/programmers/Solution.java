@@ -1,75 +1,92 @@
 package programmers;
 
-import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 public class Solution {
 
-	static int MOD = 20170805;
-
 	public static void main(String[] args) {
-
 		
-		int[][] cityMap = new int[3][3];
+//		String[][] tickets = {{"ICN", "JFK"}, {"HND", "IAD"}, {"JFK", "HND"}};
+		String[][] tickets = {{"ICN", "SFO"}, {"ICN", "ATL"}, {"SFO","ATL"}, {"ATL", "ICN"}, {"ATL","SFO"}};
 		
-		System.out.println(solution(1, 2, cityMap));
+		String[] answer = solution(tickets);
+		
+		for(int ai = 0; ai < answer.length; ai++) {
+			System.out.println(answer[ai]);
+		}
 
 	}
 
-	  public static int solution(int m, int n, int[][] cityMap) {      
-		  
-		  int answer = 0;
-		  
-		  
-		  long[][][] routeCountMap = new long[m][n][2];
-		  
-		  routeCountMap[0][0][0] = 1;
-		  routeCountMap[0][0][1] = 1;
-		  
-			for (int rj = 1; rj < routeCountMap[0].length; rj++) {
-				if (cityMap[0][rj] == 0) {
-					routeCountMap[0][rj][0] = 1;
-					routeCountMap[0][rj][1] = 1;
-				} else if(cityMap[0][rj] == 1)
-					break; // after this (0,0)
-				else {
-					routeCountMap[0][rj][0] = 1;
-				}
-			}
-		  
-			for (int ri = 1; ri < routeCountMap.length; ri++) {
-				if (cityMap[ri][0] == 0) {
-					routeCountMap[ri][0][0] = 1;
-					routeCountMap[ri][0][1] = 1;
-				} else if(cityMap[ri][0] == 1) 
-					break;
-				else {
-					routeCountMap[ri][0][1] = 1;
-				}
-			}
-			
-		for(int ci = 1; ci < routeCountMap.length; ci++) {
-			for(int cj = 1; cj < routeCountMap[ci].length; cj++) {
-				
-				if(cityMap[ci][cj] == 0) {
-					routeCountMap[ci][cj][0] = routeCountMap[ci][cj-1][0] + routeCountMap[ci-1][cj][1];
-					routeCountMap[ci][cj][0] %= MOD;
-					routeCountMap[ci][cj][1] = routeCountMap[ci][cj-1][0] + routeCountMap[ci-1][cj][1];
-					routeCountMap[ci][cj][1] %= MOD;
-				} else if(cityMap[ci][cj] == 1) {
-					routeCountMap[ci][cj][0] = 0;
-					routeCountMap[ci][cj][1] = 0;
-				} else {
-					routeCountMap[ci][cj][0] = routeCountMap[ci][cj-1][0];
-					routeCountMap[ci][cj][0] %= MOD;
-					routeCountMap[ci][cj][1] = routeCountMap[ci-1][cj][1];
-					routeCountMap[ci][cj][1] %= MOD;
-				}
+	public static String[] solution(String[][] tickets) {
+
+		String[] answer = new String[tickets.length+1];
+		int answerIndex = 0;
+
+		List<String[]> sameStartList = new ArrayList<>();
+
+		String start = "ICN";
+		answer[answerIndex++] = start;
+
+		for (int ti = 0; ti < tickets.length; ti++) {
+			if (start.equals(tickets[ti][0])) {
+//				System.out.println("arrived : " + tickets[ti][1]);
+				String[] enqueuedArray = {tickets[ti][1], Integer.toString(ti)};
+				sameStartList.add(enqueuedArray);
 			}
 		}
-		
-		answer = (int)routeCountMap[m-1][n-1][0]; 
-		  
-		  return answer;
-	  }
 
+		Queue<String> searchQueue = new LinkedList<>();
+
+		if (sameStartList.size() == 1 ) {
+			searchQueue.add(sameStartList.get(0)[0]);
+			tickets[Integer.parseInt(sameStartList.get(0)[1])][0] = "";
+		} else if (sameStartList.size() > 1) {
+			Collections.sort(sameStartList, new ListSorting());
+			searchQueue.add(sameStartList.get(0)[0]);
+			tickets[Integer.parseInt(sameStartList.get(0)[1])][0] = "";
+		}
+
+
+		while (!searchQueue.isEmpty()) {
+
+			sameStartList.clear();
+			start = searchQueue.poll();
+//			System.out.println("start : " + start);
+			answer[answerIndex++] = start;
+
+			for (int ti = 0; ti < tickets.length; ti++) {
+				if (start.equals(tickets[ti][0])) {
+					String[] enqueuedArray = {tickets[ti][1], Integer.toString(ti)};
+					sameStartList.add(enqueuedArray);
+				}
+				
+			}
+			
+			if (sameStartList.size() == 1 ) {
+				searchQueue.add(sameStartList.get(0)[0]);
+				tickets[Integer.parseInt(sameStartList.get(0)[1])][0] = "";
+			} else if (sameStartList.size() > 1) {
+				Collections.sort(sameStartList, new ListSorting());
+				searchQueue.add(sameStartList.get(0)[0]);
+				tickets[Integer.parseInt(sameStartList.get(0)[1])][0] = "";
+			}
+			
+		}
+
+		return answer;
+	}
+}
+
+class ListSorting implements Comparator<String[]>{
+
+	@Override
+	public int compare(String[] o1, String[] o2) {
+		
+		return o1[0].compareTo(o2[0]);
+	}	
 }
