@@ -5,8 +5,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 public class Solution {
-
-	// static List<Integer> permuList;
+	
 	static Set<Integer> permuSet;
 
 	public static void main(String[] args) {
@@ -26,7 +25,6 @@ public class Solution {
 
 		// permuList = new ArrayList<>();
 		permuSet = new HashSet<>();
-
 		for (int ni = 1; ni <= numbers.length(); ni++) {
 
 			boolean[] visited = new boolean[numbers.length()];
@@ -84,10 +82,11 @@ public class Solution {
 				permuStr.append(source.charAt(selectedIndices[si]));
 			}
 			// System.out.println(permuStr);
-			// int permuNum = Integer.parseInt(permuStr.toString());
+			 int permuNum = Integer.parseInt(permuStr.toString());
 			// if (checkIsPrime(permuNum))
-			permuSet.add(Integer.parseInt(permuStr.toString()));
-
+//			maxNum = Math.max(maxNum, permuNum);
+			permuSet.add(permuNum);
+			
 			return;
 		}
 		for (int vi = 0; vi < n; vi++) {
@@ -135,4 +134,5 @@ public class Solution {
 
 		return answer;
 	}
+
 }
