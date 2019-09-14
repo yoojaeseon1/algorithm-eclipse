@@ -2,6 +2,8 @@ package programmers.levelTest.level3;
 
 public class Q1 {
 	
+	// 보행자 천국
+	
 	static int MOD = 20170805;
 
 	public static void main(String[] args) {

@@ -1,11 +1,11 @@
-package programmers;
+package programmers.BFSDFS;
 
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-public class Solution {
-
+public class SearchingPrime {
+	
 	// static List<Integer> permuList;
 	static Set<Integer> permuSet;
 
@@ -135,4 +135,5 @@ public class Solution {
 
 		return answer;
 	}
+
 }

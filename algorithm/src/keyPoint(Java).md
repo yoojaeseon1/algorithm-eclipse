@@ -684,3 +684,53 @@ Object배열보다는 해당 자료형,인스턴스를 필드로 가지는 클�
 	curX = (int) curPosition[0];
 	curY = (int) curPosition[1];
 	movedRoute = (StringBuilder) curPosition[2];
+	
+	
+#### index 가지고 장난치기
+
+##### 배열
+
+모듈러 연산자(%)
+	
+	int[] input = {1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,6,7,8,9,0};
+	int[] pattern = {1,1,2,2,3,3,4,4,5,5};
+	
+와 같은 패턴일 때 input과 pattern이 같은 index에서 값이 같은지 확인하기 위해서는
+	
+	for(int ii = 0; ii < input.length; ii++){
+	
+		if(input[ii] == pattern[ii%pattern.length]) answer++;
+	}
+	
+과 같이 패턴의 길이로 모듈러 연산을 해주면 input의 해당 인덱스의 값과 일치하는지 확인할 수 있다.
+
+	
+
+##### 문자열
+
+substring
+
+기준 index를 가지고 원하는 문자열 뽑아내기
+
+0부터 기준 index까지
+
+	substring(0, index+1);
+	
+기준 index부터 끝까지
+
+	substring(index);
+	
+#### Iterator 
+
+		Iterator keyIter = keySet.iterator();
+		
+		while (keyIter.hasNext()) {
+			// key의 자료형 또는 클래스로 casting해주면 된다.(next() 메소드는 Object 객체를 반환한다.)
+			char key = (char) keyIter.next();  
+			
+			if (nameMap.get(key) >= 5) {
+				entryList.add(key);
+			}
+		}
+		
+map(key 또는 value), set 의 원소를 하나씩 확인할 수 있다.

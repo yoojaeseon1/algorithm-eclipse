@@ -13,7 +13,7 @@ public class Combination {
 		ex.doCombination(source, n, r, selectedIndice, 0, 0); // n = 3, r = 2
 	}
 
-	public void doCombination( int[] source, int n, int r, int[] selectedIndice, int selectedIndex, int target) {
+	public void doCombination( int[] source, int n, int r, int[] selectedIndice, int selectedIndex, int targetIndex) {
 //		System.out.println("=> " + n + " " + r + " " + index + " " + target);
 
 		// r ==0 means already selectd enough elements
@@ -24,20 +24,20 @@ public class Combination {
 
 			System.out.println();
 
-		} else if (target == n) {
+		} else if (targetIndex == n) {
 			
-			System.out.println("target : " + target);
+			System.out.println("target : " + targetIndex);
 			System.out.println("n : " + n);
 			return;
 
 		} else {
-			selectedIndice[selectedIndex] = target;
+			selectedIndice[selectedIndex] = targetIndex;
 			
 			// select a element in source array
-			doCombination(source,  n, r - 1, selectedIndice, selectedIndex + 1, target + 1);
+			doCombination(source,  n, r - 1, selectedIndice, selectedIndex + 1, targetIndex + 1);
 
 			// not select and plus one index of source array(target)
-			doCombination(source, n, r, selectedIndice, selectedIndex, target + 1);
+			doCombination(source, n, r, selectedIndice, selectedIndex, targetIndex + 1);
 		}
 	}
 }
