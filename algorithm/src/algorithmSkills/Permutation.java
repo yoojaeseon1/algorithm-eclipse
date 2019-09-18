@@ -16,7 +16,8 @@ public class Permutation {
 	public static void doPermutation(int[] source, int n, int r, int[] selectedIndices, int selectedIndex,
 			boolean[] visited) {
 
-		if (r == selectedIndex) {
+//		if (r == selectedIndex) {
+		if(r == 0){
 			StringBuilder permuStr = new StringBuilder();
 			for (int si = 0; si < selectedIndex; si++) {
 				permuStr.append(source[selectedIndices[si]]);
@@ -28,7 +29,8 @@ public class Permutation {
 			if (!visited[vi]) {
 				visited[vi] = true;
 				selectedIndices[selectedIndex] = vi;
-				doPermutation(source, n, r, selectedIndices, selectedIndex + 1, visited);
+//				doPermutation(source, n, r , selectedIndices, selectedIndex + 1, visited);
+				doPermutation(source, n, r - 1, selectedIndices, selectedIndex + 1, visited);
 				visited[vi] = false;
 				selectedIndices[selectedIndex] = 0;
 			}

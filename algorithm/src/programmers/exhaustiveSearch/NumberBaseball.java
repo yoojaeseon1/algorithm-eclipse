@@ -1,27 +1,29 @@
-package programmers;
+package programmers.exhaustiveSearch;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution {
-
+public class NumberBaseball {
+	
 	public static void main(String[] args) {
-
+		
 		int[][] baseball = {{123, 1, 1}, {356, 1, 0}, {327, 2, 0}, {489, 0, 1}};
 		System.out.println(solution(baseball));
-
+		
 	}
-
+	
+	
+	
 	public static int solution(int[][] baseball) {
 		int answer = 0;
 
 		List<String> caseList = new ArrayList<>();
 
-		for (int first = 1; first < 10; first++) {
+		for (int third = 1; third < 10; third++) {
 			for (int second = 1; second < 10; second++) {
-				for (int third = 1; third < 10; third++) {
+				for (int first = 1; first < 10; first++) {
 					if (first != second && second != third && first != third) {
-						caseList.add(Integer.toString(first * 100 + second * 10 + third));
+						caseList.add(Integer.toString(third * 100 + second * 10 + first));
 						// System.out.println(caseList.get(caseList.size()-1));
 					}
 				}
@@ -42,7 +44,7 @@ public class Solution {
 			}
 
 			if (baseball.length == caseCorrectCount++) {
-//				System.out.println(currentSource);
+				System.out.println(currentSource);
 				answer++;
 			}
 

@@ -1,10 +1,10 @@
-package backjoon;
+package backjoon.array;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class Main {
-
+public class Q2847 {
+	
 	public static void main(String[] args) throws Exception {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -34,4 +34,5 @@ public class Main {
 		System.out.println(decreaseCount);
 
 	}
+
 }
