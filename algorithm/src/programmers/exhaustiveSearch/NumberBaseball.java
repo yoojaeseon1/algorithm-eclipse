@@ -34,7 +34,7 @@ public class NumberBaseball {
 
 			String currentSource = caseList.get(ci);
 			int caseCorrectCount = 0;
-			for (int bi = 0; bi < baseball.length && caseCorrectCount <= baseball.length; bi++) {
+				for (int bi = 0; bi < baseball.length; bi++) {
 				String currentCompared = Integer.toString(baseball[bi][0]);
 				int strikeCount = getStrikeCount(currentSource, currentCompared);
 				int ballCount = getBallCount(currentSource, currentCompared);
