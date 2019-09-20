@@ -8,8 +8,8 @@ public class Solution {
 //		 int red = 2;
 //		 int brown = 8;
 //		 int red = 1;
-		int brown = 24;
-		int red = 24;
+		int brown = 16;
+		int red = 9;
 
 		int[] answer = solution(brown, red);
 
@@ -41,13 +41,15 @@ public class Solution {
 					// redColumn /= 2;
 					redRow++;
 //					redColumn--;
-					while (redColumn * redRow != red)
+					while (redColumn * redRow != red && redColumn * redRow >= 1)
 						redColumn--;
 				}
 			}
-
-			answer[0] = redColumn + 2;
-			answer[1] = redRow + 2;
+			
+//			answer[0] = redColumn + 2;
+//			answer[1] = redRow + 2;
+			answer[0] = Math.max(redColumn + 2, redRow+2);
+			answer[1] = Math.min(redColumn + 2, redRow+2);
 
 		}
 

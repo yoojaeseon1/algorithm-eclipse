@@ -5,6 +5,7 @@ import java.util.List;
 
 // using combination
 
+// https://programmers.co.kr/learn/courses/30/lessons/43165
 
 public class TargetNumber {
 	
@@ -32,11 +33,6 @@ public class TargetNumber {
 			
 		}
 		
-		for(int ci = 0; ci < combiList.size(); ci++) {
-			for(int cj = 0; cj < combiList.get(ci).size(); cj++) {
-			}
-		}
-		
 		int sumOfNumbers = 0;
 		
 		for(int ni = 0; ni < numbers.length; ni++) {
@@ -52,7 +48,6 @@ public class TargetNumber {
 			if(target == minucedSum) {
 				answer++;
 			}
-			
 		}
 		return answer;
 	}

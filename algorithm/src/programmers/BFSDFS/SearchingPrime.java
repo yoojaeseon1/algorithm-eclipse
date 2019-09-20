@@ -4,27 +4,20 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+// https://programmers.co.kr/learn/courses/30/lessons/42839
+
 public class SearchingPrime {
 	
-	// static List<Integer> permuList;
 	static Set<Integer> permuSet;
 
 	public static void main(String[] args) {
 
 		 System.out.println(solution("17"));
-//		System.out.println(solution("11110"));
-
-		// for(int pi = 0; pi < permuList.size(); pi++) {
-		// System.out.println(permuList.get(pi));
-		// }
-
-		// System.out.println(Integer.parseInt("011"));
 
 	}
 
 	public static int solution(String numbers) {
 
-		// permuList = new ArrayList<>();
 		permuSet = new HashSet<>();
 
 		for (int ni = 1; ni <= numbers.length(); ni++) {
@@ -34,14 +27,12 @@ public class SearchingPrime {
 			doPermutation(numbers, numbers.length(), ni, selectedIndices, 0, visited);
 		}
 
-		Iterator permuIter = permuSet.iterator();
+		Iterator<Integer> permuIter = permuSet.iterator();
 		int maxNum = 0;
 		while (permuIter.hasNext()) {
 			int currentNum = (int) permuIter.next();
-			// System.out.println(currentNum);
 			maxNum = Math.max(maxNum, currentNum);
 		}
-//		System.out.println(maxNum);
 
 		int[] prime = makePrimeArray(maxNum);
 		int answer = 0;
@@ -52,26 +43,6 @@ public class SearchingPrime {
 				answer++;
 		}
 
-		// List<Integer> answerList = new ArrayList<>();
-		// Map<Integer, Integer> answerMap = new HashMap<>();
-
-		// for (int pi = 0; pi < permuList.size(); pi++) {
-		//
-		// int currentNumber = permuList.get(pi);
-		// // System.out.println("currentNumber : " + currentNumber);
-		// if (checkIsPrime(currentNumber) &&
-		// !answerList.contains(currentNumber)) {
-		// // if(checkIsPrime(currentNumber) &&
-		// // !answerMap.containsKey(currentNumber)) {
-		// System.out.println("prime : " + currentNumber);
-		// answerList.add(currentNumber);
-		// // answerMap.put(currentNumber, 0);
-		// }
-		// }
-
-		// return permuList.size();
-		// return answerMap.size();
-		// return permuSet.size();
 		return answer;
 	}
 
@@ -83,11 +54,7 @@ public class SearchingPrime {
 			for (int si = 0; si < selectedIndex; si++) {
 				permuStr.append(source.charAt(selectedIndices[si]));
 			}
-			// System.out.println(permuStr);
-			// int permuNum = Integer.parseInt(permuStr.toString());
-			// if (checkIsPrime(permuNum))
 			permuSet.add(Integer.parseInt(permuStr.toString()));
-
 			return;
 		}
 		for (int vi = 0; vi < n; vi++) {
@@ -108,9 +75,9 @@ public class SearchingPrime {
 		else if (num <= 1 || num % 2 == 0)
 			return false;
 		else {
-
-			for (int checkNum = num / 2; checkNum > 1; checkNum--) {
-				if (num % checkNum == 0)
+			
+			for(int checkNum = 3; checkNum <= num / 2; checkNum++) {
+				if(num % checkNum == 0)
 					return false;
 			}
 			return true;

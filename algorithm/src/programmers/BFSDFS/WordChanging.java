@@ -1,7 +1,5 @@
 package programmers.BFSDFS;
 
-import programmers.Solution;
-
 public class WordChanging {
 	
 	static String target;
@@ -25,14 +23,14 @@ public class WordChanging {
 		
 		
 		int[] visitSequence = new int[words.length];
-		dfs(begin, visitSequence, 0);
+		doDFS(begin, visitSequence, 0);
 		
 		
 		if(minRouteCount == Integer.MAX_VALUE) return 0;
 		else return minRouteCount;
 	}
 
-	public static void dfs(String source, int[] visitSequence, int visitCount) {		
+	public static void doDFS(String source, int[] visitSequence, int visitCount) {		
 		
 		if(target.equals(source)) {
 			minRouteCount = Math.min(minRouteCount, visitCount);
@@ -43,7 +41,7 @@ public class WordChanging {
 		for(int wi = 0; wi < visitSequence.length; wi++) {
 			if(checkEqualWord(source, words[wi]) && visitSequence[wi] == 0) {
 				visitSequence[wi] = visitCount + 1;
-				dfs(words[wi], visitSequence, visitCount+1);
+				doDFS(words[wi], visitSequence, visitCount+1);
 				visitSequence[wi] = 0;
 			}
 		}
@@ -64,7 +62,5 @@ public class WordChanging {
 			return true;
 		else
 			return false;
-
 	}
-
 }
