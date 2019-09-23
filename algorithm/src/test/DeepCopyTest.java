@@ -34,15 +34,23 @@ public class DeepCopyTest {
 //		System.out.println(test.getVisited()[5]);
 //
 		
-		List<Integer> sourceList = new ArrayList<>();
-		
-		sourceList.add(1);
-		sourceList.add(2);
-		sourceList.add(3);
-		sourceList.add(4);
+//		List<Integer> sourceList = new ArrayList<>();
+//		
+//		sourceList.add(1);
+//		sourceList.add(2);
+//		sourceList.add(3);
+//		sourceList.add(4);
 		
 //		List<Integer> destList =List 
 		
+		
+		int[] source = {1,2,3,4};
+		int[] dest = {1,2,3,4};
+		
+		dest[0] = 5;
+		
+		System.out.println(source[0]);
+		System.out.println(dest[0]);
 
 	}
 
