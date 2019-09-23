@@ -1,10 +1,10 @@
-package programmers;
+package programmers.BFSDFS;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Solution {
-
+public class Network {
+	
 	public static void main(String[] args) {
 
 		int n = 3;

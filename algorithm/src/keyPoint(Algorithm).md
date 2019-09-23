@@ -8,19 +8,25 @@
 
 ---
 
-#### DFS,BFS
+#### BFS / DFS
 
-- 전부 탐색할 때는 방문한 노드, 푸시/인큐된 노드를 따로 체크를 해줘야 한다.
-: 방문하지 않았지만 푸시/인큐 되었다면 푸시/인큐 하면 안되기 때문에
+- 탐색 할 때는 enqueue/push 된 노드만 체크하면 된다.
+: enqueue/push = 방문예정이기 때문에 visited의 의미도 가지고 있는 것이므로
+한번 enqueue/push 된 노드를 다시 enqueue/push 하지 않으면 된다.(visited 따로 체크 불필요)
 
-- 방문여부 체크, 답인지 체크는 pop/enqueue한 현재 위치에서 확인하자.
-
-			curPosition = fieldQueue.poll();
-			
-			if (curPosition == g || curPosition == g) {
-				isUsableElev = true;
-				break;
-			}
+						for (int di = 0; di < dx.length; di++) {
+							if (currentX + dx[di] >= 0 && currentX + dx[di] < n && currentY + dy[di] >= 0
+									&& currentY + dy[di] < n) {
+								if (field[currentY + dy[di]][currentX + dx[di]]
+										&& !isEnqueued[currentY + dy[di]][currentX + dx[di]]) {
+									int[] enqueuedPosition = new int[2];
+									enqueuedPosition[0] = currentX + dx[di];
+									enqueuedPosition[1] = currentY + dy[di];
+									searchingQueue.add(enqueuedPosition);
+									isEnqueued[currentY + dy[di]][currentX + dx[di]] = true;
+								}
+							}
+						}
 
 ---
 
