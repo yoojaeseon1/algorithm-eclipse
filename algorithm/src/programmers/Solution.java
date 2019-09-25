@@ -1,50 +1,23 @@
 package programmers;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Arrays;
 
 public class Solution {
 
 	public static void main(String[] args) {
 
-		int n = 3;
-		 int[][] computers = { { 1, 1, 0 }, { 1, 1, 0 }, { 0, 0, 1 } };
-//		int[][] computers = { { 1, 1, 0 }, { 1, 1, 1 }, { 0, 1, 1 } };
-
-		System.out.println(solution(n, computers));
+		int[] array = {1, 5, 2, 6, 3, 7, 4};
+		
+		int[][] commands = {{2, 5, 3}, {4, 4, 1}, {1, 7, 3}};
+		
+		solution(array, commands);
 
 	}
 
-	public static int solution(int n, int[][] computers) {
-		int networkCount = 0;
+	public static int[] solution(int[] array, int[][] commands) {
+		
+        int[] answer = new int[commands.length];
 
-		boolean[] isEnqueued = new boolean[n];
-
-		Queue<Integer> searchingQueue = new LinkedList<>();
-
-		for (int ci = 0; ci < computers.length; ci++) {
-
-			if (!isEnqueued[ci]) {
-
-				searchingQueue.add(ci);
-				isEnqueued[ci] = true;
-				while (!searchingQueue.isEmpty()) {
-
-					int currentNode = searchingQueue.poll();
-
-					for (int cj = 0; cj < computers.length; cj++) {
-
-						if (computers[currentNode][cj] == 1 && ci != cj && !isEnqueued[cj]) {
-							searchingQueue.add(cj);
-							isEnqueued[cj] = true;
-						}
-					}
-				}
-				networkCount++;
-			}
-		}
-
-		return networkCount;
-	}
-
+        return answer;
+    }
 }
