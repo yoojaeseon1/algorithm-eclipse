@@ -13,14 +13,14 @@ public class Combination {
 		ex.doCombination(source, n, r, selectedIndice, 0, 0); // n = 3, r = 2
 	}
 
-	public void doCombination(int[] source, int n, int r, int[] selectedIndice, int selectedIndex, int targetIndex) {
+	public void doCombination(int[] source, int n, int r, int[] selectedIndices, int selectedIndex, int targetIndex) {
 		// System.out.println("=> " + n + " " + r + " " + index + " " + target);
 
 		// r ==0 means already selectd enough elements
 		if (r == 0) {
 			// System.out.println(Arrays.toString(combArr));
 			for (int si = 0; si < selectedIndex; si++)
-				System.out.print(source[selectedIndice[si]] + " ");
+				System.out.print(source[selectedIndices[si]] + " ");
 
 			System.out.println();
 
@@ -31,13 +31,13 @@ public class Combination {
 			return;
 
 		} else {
-			selectedIndice[selectedIndex] = targetIndex;
+			selectedIndices[selectedIndex] = targetIndex;
 
 			// select a element in source array
-			doCombination(source, n, r - 1, selectedIndice, selectedIndex + 1, targetIndex + 1);
+			doCombination(source, n, r - 1, selectedIndices, selectedIndex + 1, targetIndex + 1);
 
 			// not select and plus one index of source array(target)
-			doCombination(source, n, r, selectedIndice, selectedIndex, targetIndex + 1);
+			doCombination(source, n, r, selectedIndices, selectedIndex, targetIndex + 1);
 		}
 	}
 }
