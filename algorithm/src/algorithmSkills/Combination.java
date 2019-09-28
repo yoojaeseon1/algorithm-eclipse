@@ -10,7 +10,7 @@ public class Combination {
 		int r = 2;
 		int[] selectedIndice = new int[n];
 
-		ex.doCombination(source, n, r, selectedIndice, 0, 0); // n = 3, r = 2
+		ex.doCombination(source, n, r, selectedIndice, 0, 0);  // n = 5, r = 2
 	}
 
 	public void doCombination(int[] source, int n, int r, int[] selectedIndices, int selectedIndex, int targetIndex) {
