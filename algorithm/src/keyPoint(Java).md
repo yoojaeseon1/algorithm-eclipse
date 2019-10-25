@@ -761,3 +761,22 @@ substring
 		}
 		
 map(key 또는 value), set 의 원소를 하나씩 확인할 수 있다.
+
+#### method signature
+
+메서드 명과 파라미터의 순서, 타입, 개수를 의미한다.(리턴 타입과 exceptions는 메서드 시그니처가 아니다.)
+
+오버로딩 시 시그니처를 구별해 다른 메소드라는 것을 인식한다.
+
+ex)
+
+	public void funcA(int x, int y){
+		...
+	}
+	
+	public void funcA(double x, int y, int z) {
+		...
+	}
+	
+
+메소드명은 같지만 인자 리스트의 구성이 다르기 때문에  오버로딩이 되는 것이다.
