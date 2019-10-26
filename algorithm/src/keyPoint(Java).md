@@ -687,6 +687,28 @@ ex)
 	
 	}
 	
+#### TreeMap / TreeSet
+
+추가되는 element(Map은 key)가 오름차순으로 정렬된다.(Hash는 순서 없음)
+
+정렬기준을  바꾸는 방법 : 생성자의 인자로 Comparator 인터페이스를 구현하면 된다.
+
+ex)
+
+	Set<Integer> testSet = new TreeSet<>((o1,o2)-> o2.compare(o1));
+	
+	Map<String, Integer> testSet = new TreeMap<>((o1,o2)-> o2.compareTo(o1));
+
+String은 문자열 크기 순, Integer는 숫자 크기 순으로 정렬된다.(숫자와 숫자로 된 문자열은 정렬 기준이 다르다.)
+	
+#### LinkedHashMap / LinkedHashSet
+
+HashMap과 HashSet은 순서가 없지만 
+
+LinkedHashMap과 LinkedHashSet은 입력된 순서를 보장한다.(Map은 key값의 순서)
+
+사용법은 기존의 Map, Set과 동일
+	
 #### Object 타입 배열의 활용 방법 
 
 Object배열보다는 해당 자료형,인스턴스를 필드로 가지는 클래스를 만들어 그 인스턴스를 넣어주는 것이 더 편리하다.(꺼낼 때 캐스팅 할 필요X)
