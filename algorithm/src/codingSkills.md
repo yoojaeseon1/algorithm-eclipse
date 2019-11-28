@@ -1,11 +1,22 @@
-#### if문
+#### 조건문(if/else, 삼항 연산자)
 
-##### 변하지 않고 고정되어 있는 조건을 먼저 쓰자
+##### 값이 더 유동적인 조건을 먼저 쓰자
+
+- 영어의 어순으로 볼 때 읽기 편하다.
+- 조건이 모두 유동적이라면 영어의 어순으로 자연스러운 것을 택하자.
 
 ex)
 
-	if(A > arr[i] && A < arr2[i]) System.out.println("correct!!");
-	
+	if(arr[i] > A && arr2[i] < A) System.out.println("correct!!");
+
+##### if / else 블록의 순서
+
+- 부정이 아닌 긍정을 다루자  
+	- if(!debug)가 아닌 if(debug)
+#
+- 간단한 것을 먼저 처리하자(해보면서 생각해보자)
+#  
+- 더 흥미롭고, 확실한 것을 먼저 다루자(해보면서 생각해보자)  
 
 ##### if- else if문 작성할 때 
 
@@ -22,13 +33,26 @@ if문 또는 상위의 else if문의 조건에서 걸러진 것을 참고해서 
 	while (operator[j] == '<' && j >= 0)  // indexOutOfBound 에러가 날 수 있다.
 			j--;
 
+##### 삼항연산자는 매우 간단할 때만 사용하자
+
+ex)
+
+	timeStr += (hour >= 12) ? "pm" : "am";
+
+---
+
+
+#### method
+
+
 ---
 
 #### map
 
 ##### map을 굳이 쓰지 않아도 되는 경우
 
-1. 알파벳(a~z, A~Z), 숫자(0~9) 등 아스키코드 값으로 인덱스에 접근 가능하면 map 대신 배열을 사용하자
+- 알파벳(a~z, A~Z), 숫자(0~9) 등 아스키코드 값으로 인덱스에 접근 가능한 경우
+	- 배열을 사용하자
 
 
 ---
@@ -50,12 +74,20 @@ first, last : 경계를 포함하는 범위
 
 begin, end : 경계를 포함/배제하는 범위(begin이상 end미만 일 때)
 
+num* : 개수를 나타낼 때(ex) numNodes : 노드의 개수)
+
+sum* : 특정 값의 합을 나타낼 때(ex) sumSquares : 사각형들의 합)
+
+is* / has* : boolean 타입 변수를 지을 때
 
 ##### 너무 긴 이름 
 
-numberOfPeopleOnTheUsOlympicTeam 
-numberOfSeatsInTheStadium 
+numberOfPeopleOnTheUsOlympicTeam
+
+numberOfSeatsInTheStadium
+ 
 maximunNumberOfPointsInMordernOlympics
+
 
 
 ##### 너무 짧은 이름 
@@ -66,22 +98,23 @@ m, mp, max, points
 
 ##### 적당한 이름 
 
-numTeamMembers, teamMemberCount 
-numSeatsInStadium, seatCount 
+numTeamMembers, teamMemberCount
+
+numSeatsInStadium, seatCount
+
 teamPointsMax, pointsRecord
 
 --- 
 
 ##### 변수명 키워드로 사용할 만한 것들
 
-left / right
 before / after
 
 ---
 
 ##### num, size, input과 같은 변수명은 지양하자
 
-num : 정수/실수의 자료형이라면 당연히 숫자(number)의 의미를 포함하므로 적어주지 않는게 좋다.
+num : 정수/실수의 자료형이라면 당연히 숫자(number)의 의미를 포함하므로 적어주지 않는게 좋다. 단, ~~의 개수의 의미를 가질 경우라면 괜찮다.
 
 size : 무엇의 size인지 명확하게 써줘야 한다.
 

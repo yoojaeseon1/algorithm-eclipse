@@ -1,7 +1,7 @@
-package programmers;
+package programmers.stackAndQueue;
 
-public class Solution {
-
+public class Tower {
+	
 	public static void main(String[] args) {
 		
 		int[] heights = {6,9,5,7,4};
@@ -12,6 +12,9 @@ public class Solution {
 //		int[] heights = {5,1,1,1,4};
 		
 		solution(heights);
+		
+		int min_length = 1;
+		int minLength = 1;
 
 	}
 
@@ -30,8 +33,7 @@ public class Solution {
 		
 		for(int ai = 0; ai < heights.length; ai++) {
 			System.out.print(answer[ai] + " ");
-		}
-		
+		}	
 		return answer;
 	}
 }
