@@ -1,10 +1,10 @@
-package programmers;
+package programmers.stackAndQueue;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution {
-
+public class FunctionDevelopment {
+	
 	public static void main(String[] args) {
 
 		int[] progresses = { 93, 30, 55 };
@@ -49,4 +49,5 @@ public class Solution {
 
 		return answer;
 	}
+
 }
