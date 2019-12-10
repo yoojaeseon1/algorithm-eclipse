@@ -666,6 +666,8 @@ ex)
 				entryList.add(key);
 			}
 		}
+
+key를 뽑아 iterator 반복문에서 get(key)로 value값을 검색할 생각이면 애초에 entry로 뽑는 것이 효율적이다.
 		
 #### map에서 key와 value를 동시에 뽑아 반복문 돌리는 방법
 
