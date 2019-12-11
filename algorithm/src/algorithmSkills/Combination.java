@@ -8,7 +8,7 @@ public class Combination {
 		int[] source = { 1, 2, 3, 4, 5 };
 		int n = source.length;
 		int r = 2;
-		int[] selectedIndice = new int[n];
+		int[] selectedIndice = new int[r];
 
 		ex.doCombination(source, n, r, selectedIndice, 0, 0);  // n = 5, r = 2
 	}
@@ -19,9 +19,12 @@ public class Combination {
 		// r ==0 means already selectd enough elements
 		if (r == 0) {
 			// System.out.println(Arrays.toString(combArr));
-			for (int si = 0; si < selectedIndex; si++)
+			
+			System.out.println("selectedIndex : " + selectedIndex);
+			for (int si = 0; si < selectedIndex; si++) {
 				System.out.print(source[selectedIndices[si]] + " ");
-
+				
+			}
 			System.out.println();
 
 		} else if (targetIndex == n) {
