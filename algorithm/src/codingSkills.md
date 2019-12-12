@@ -21,7 +21,7 @@ ex)
 	- if(!debug)가 아닌 if(debug)
 #
 - 간단한 것을 먼저 처리하자(해보면서 생각해보자)
-#  
+ 
 - 더 흥미롭고, 확실한 것을 먼저 다루자(해보면서 생각해보자)  
 
 ##### if- else if문 작성할 때 
@@ -66,11 +66,9 @@ ex)
 
 ##### 적당한 변수의 길이
 
-변수 이름의 길이가 평균적으로 10~16일 때 프로그램을 디버깅하기 위해서 들이는 노력을 최소화 할 수 있고
+- 변수 이름의 길이가 평균적으로 10~16일 때 프로그램을 디버깅하기 위해서 들이는 노력을 최소화 할 수 있고 변수의 평균 길이가 8~20인 프로그램은 디버깅하기가 쉽다.
 
-변수의 평균 길이가 8~20인 프로그램은 디버깅하기가 쉽다.
-
-결론 : 길이가 8~20 이면 적절하다.(약간 길어보여도 의미가 명확하도록 이름 짓자)
+- 결론 : 길이가 8~20 이면 적절하다.(약간 길어보여도 의미가 명확하도록 이름 짓자)
 
 ##### 변수 naming convention
 
@@ -86,20 +84,22 @@ sum* : 특정 값의 합을 나타낼 때(ex) sumSquares : 사각형들의 합)
 
 is* / has* : boolean 타입 변수를 지을 때
 
-##### 자료구조 별 naming convention
+base* : 기준이 되는 변수(높이, 길이 등)
 
-###### map
+filled* : 채워진
 
-map<key, value> valueByKey = new Hashmap<>();
 
-##### 너무 긴 이름 
+##### 변수명 키워드로 사용할 만한 것들
+
+- before / after
+
+##### 너무 긴 이름
 
 numberOfPeopleOnTheUsOlympicTeam
 
 numberOfSeatsInTheStadium
  
 maximunNumberOfPointsInMordernOlympics
-
 
 
 ##### 너무 짧은 이름 
@@ -116,11 +116,6 @@ numSeatsInStadium, seatCount
 
 teamPointsMax, pointsRecord
 
---- 
-
-##### 변수명 키워드로 사용할 만한 것들
-
-before / after
 
 ---
 
@@ -137,6 +132,24 @@ XXXArray : 배열이라고 써주지 않아도 배열이라는 것을 알고 있
 ex) fieldArray[](X) >>> field[](O)
 
 ---
+
+#### 메소드명
+
+##### 리턴 타입 별 naming convention
+
+- boolean : has~, can~, should~
+
+##### 메소드명 키워드로 사용할 만한 것들
+
+- 변환 : convertTo~, changeTo~
+
+
+##### 자료구조 별 naming convention
+
+###### map
+
+keyToValue 또는 valueByKey 
+
 	
 #### 루프반복자(i, j, iter, it등) 더 명확하게 이름짓는 방법
 
