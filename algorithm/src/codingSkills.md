@@ -48,7 +48,24 @@ ex)
 ---
 
 
-#### method
+#### 메소드
+
+#### 메소드명
+
+##### 리턴 타입 별 naming convention
+
+- boolean : has~, can~, should~
+
+##### 메소드명 키워드로 사용할 만한 것들
+
+- 변환 : convertTo~, changeTo~
+
+
+##### 자료구조 별 naming convention
+
+###### map
+
+keyToValue 또는 valueByKey 
 
 
 ---
@@ -132,23 +149,6 @@ XXXArray : 배열이라고 써주지 않아도 배열이라는 것을 알고 있
 ex) fieldArray[](X) >>> field[](O)
 
 ---
-
-#### 메소드명
-
-##### 리턴 타입 별 naming convention
-
-- boolean : has~, can~, should~
-
-##### 메소드명 키워드로 사용할 만한 것들
-
-- 변환 : convertTo~, changeTo~
-
-
-##### 자료구조 별 naming convention
-
-###### map
-
-keyToValue 또는 valueByKey 
 
 	
 #### 루프반복자(i, j, iter, it등) 더 명확하게 이름짓는 방법
