@@ -54,7 +54,13 @@ ex)
 
 ##### 리턴 타입 별 naming convention
 
-- boolean : has~, can~, should~
+###### boolean
+
+- has~, can~, should~
+
+###### int
+
+- 카운팅 : ~count
 
 ##### 메소드명 키워드로 사용할 만한 것들
 
