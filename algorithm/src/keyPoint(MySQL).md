@@ -8,6 +8,19 @@
 	SELECT COUNT(animal_id) AS count FROM animal_ins;
 
 
+##### UPDATE
+
+UPDATE 테이블이름
+
+SET 필드이름1=데이터값1, 필드이름2=데이터값2, ...
+
+WHERE 필드이름=데이터값
+
+safe mode 해제 방법
+
+Edit -> Preferences -> SQLEditor -> 맨 밑 sate update 해제
+
+
 ##### ★★★★★ JOIN ★★★★★
 
 JOIN 할 때는 외래키를 조건으로 해야 한다.
