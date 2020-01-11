@@ -25,6 +25,7 @@ public class Permutation {
 			System.out.println(permuStr);
 			return;
 		}
+		
 		for (int vi = 0; vi < n; vi++) {
 			if (!visited[vi]) {
 				visited[vi] = true;
@@ -32,7 +33,7 @@ public class Permutation {
 //				doPermutation(source, n, r , selectedIndices, selectedIndex + 1, visited);
 				doPermutation(source, n, r - 1, selectedIndices, selectedIndex + 1, visited);
 				visited[vi] = false;
-				selectedIndices[selectedIndex] = 0;
+				selectedIndices[selectedIndex] = -1;
 			}
 		}
 	}
