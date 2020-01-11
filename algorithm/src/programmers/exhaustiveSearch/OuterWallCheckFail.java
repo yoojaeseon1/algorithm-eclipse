@@ -1,6 +1,6 @@
 package programmers.exhaustiveSearch;
 
-public class OuterWallCheck {
+public class OuterWallCheckFail {
 	
 	public static void main(String[] args) {
 
@@ -29,9 +29,9 @@ public class OuterWallCheck {
 
 	public static int solution(int n, int[] weak, int[] dist) {
 
-		OuterWallCheck.n = n;
-		OuterWallCheck.dist = dist;
-		OuterWallCheck.answer = dist.length+1;
+		OuterWallCheckFail.n = n;
+		OuterWallCheckFail.dist = dist;
+		OuterWallCheckFail.answer = dist.length+1;
 
 		int[][] rearrangedWeak = new int[weak.length][weak.length];
 
@@ -58,7 +58,7 @@ public class OuterWallCheck {
 			}
 		}
 
-		OuterWallCheck.rearrangedWeak = rearrangedWeak;
+		OuterWallCheckFail.rearrangedWeak = rearrangedWeak;
 
 		int[] selectedIndices = new int[dist.length];
 
