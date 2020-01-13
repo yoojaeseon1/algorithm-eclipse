@@ -56,20 +56,45 @@ ex)
 
 ###### boolean
 
-- has~, can~, should~
+- is*, has*, can*, should*
+
+is*는 boolean 타입 필드의 setter로도 사용되지만
+
+적절하게 네이밍 할 수 있으면 setter가 아닌 메소드에 사용해도 좋다.
 
 ###### int
 
-- 카운팅 : ~count
+- compute* : 계산할 때
+
 
 ##### 메소드명 키워드로 사용할 만한 것들
 
-- 변환 : convertTo~, changeTo~
+- convertTo~, changeTo~ : 변환
 
 
 ##### 자료구조 별 naming convention
 
-###### map
+###### List / array
+
+- *s : 추가되는 변수명이 * 일 때
+
+ex)
+
+	List<String> names = new ArrayList<>();
+	
+	String[] names = new String[5];
+
+- ListOf*s / arrayOf*s
+
+ex)
+
+	List<Name> listOfNames = new ArrayList<>();
+
+	Name[] arrayOfNames = new Name[5];
+
+namesList는 메소드 내에 namesSet과 같은 자료구조가 있어서 구분이 필요할 때 사용한다.
+
+###### Map
 
 keyToValue 또는 valueByKey 
 
@@ -105,9 +130,11 @@ num* : 개수를 나타낼 때(ex) numNodes : 노드의 개수)
 
 sum* : 특정 값의 합을 나타낼 때(ex) sumSquares : 사각형들의 합)
 
-is* / has* : boolean 타입 변수를 지을 때
+is* / has* / can* / should* : boolean 타입 변수를 지을 때
 
 base* : 기준이 되는 변수(높이, 길이 등)
+
+*Count : 카운팅되는 변수
 
 filled* : 채워진
 

@@ -1,4 +1,4 @@
-package backjoon;
+package backjoon.BFS;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
-public class Main {
+public class Q2583 {
 
 	public static void main(String[] args) throws Exception {
 
@@ -54,8 +54,7 @@ public class Main {
 					int[] beginPosition = { fj, fi };
 
 					fieldStack.push(beginPosition);
-					field[beginPosition[1]][beginPosition[0]] = 2;
-//					System.out.println("start new area");
+					field[beginPosition[1]][beginPosition[0]] = 1;
 					int areaCount = 0;
 
 					while (!fieldStack.isEmpty()) {
@@ -66,10 +65,6 @@ public class Main {
 
 						int currentX = currentPosition[0];
 						int currentY = currentPosition[1];
-						
-//						System.out.println("currentX : " + currentX);
-//						System.out.println("currentY : " + currentY);
-//						System.out.println("--------");
 
 						for (int di = 0; di < 4; di++) {
 
@@ -81,7 +76,7 @@ public class Main {
 
 									fieldStack.push(pushedPosition);
 
-									field[currentY + dy[di]][currentX + dx[di]] = 2;
+									field[currentY + dy[di]][currentX + dx[di]] = 1;
 									
 								}
 							}

@@ -14,6 +14,16 @@
 
 ---
 
+#### for문 초기화 변수 여러개 사용하기
+
+	for (int line = si, ci = 0; line < source.length - si; line++, ci++) {
+				copied[ci] = source[si][line];
+			}
+
+예시처럼 ,로 구분해 여러개의 초기화 변수를 사용하고 증감시킬 수 있다.
+
+---
+
 #### 탐색문제
 
 전체적으로 탐색해야 하는 문제(ex) list.contains() 메서드 사용해야 하는 문제 )는  list 대신 map을 사용하면 시간초과가 발생하지 않을 수 있다.
