@@ -158,11 +158,11 @@ Queue선언
 
 Queue<T> q = new LinkedList<T>();
 
-enqueue : offer()
+enqueue : offer();
 
-dequeue : poll()
+dequeue : poll();
 
-search bottom element: peek()
+search bottom element: peek();
 
 
 ---
@@ -185,15 +185,20 @@ replaceFirst, replaceLast는 하나만
 	List<String> list = new ArrayList<String>();
 	Collections.addAll(list, city);
 
-배열이 래퍼클래스의 배열일 경우만 사용가능하다.
+배열이 래퍼클래스의 배열일 경우만 사용 가능하다.
 
 ---
 
 #### ArrayList를 배열로
 
-String[] result2 = result.toArray(new String[result.size()]);
+	List<String> list = new ArrayList<String>();
 
-배열이 래퍼클래스의 배열일 경우만 사용가능하다.
+	list.add("abc");
+	list.add("def");
+
+	String[] array = list.toArray(new String[list.size()]);
+
+	// 배열이 래퍼클래스의 배열일 경우만 사용가능하다.
 
 ---
 
@@ -205,6 +210,7 @@ String[] result2 = result.toArray(new String[result.size()]);
 ##### 배열
 
 ex) 첫 번째 인덱스 오름차순 -> 같으면 두 번째 인덱스 오름차순 
+
 
 		Arrays.sort(coordiArr, new Comparator<int[]>() {
 
@@ -222,9 +228,32 @@ ex) 첫 번째 인덱스 오름차순 -> 같으면 두 번째 인덱스 오름�
 Integer.compare(o1,o2); // 오름차순(가장 작은 것이 1등)
 Integer.compare(o2,o1); // 내림차순(가장 큰 것이 1등)
 
+##### 내부 배열의 인덱스가 길 경우 정렬 방법
+
+		Collections.sort(routes, new Comparator<List<String>>(){
+
+			@Override
+			public int compare(List<String> o1, List<String> o2) {
+				
+				for(int oi = 0; oi < o1.size(); oi++) {
+					
+					int compareResult = o1.get(oi).compareTo(o2.get(oi));
+					
+					if(compareResult > 0) return 1;
+					else if(compareResult < 0) return -1;
+				
+				}
+				
+				return 0;
+			}
+
+		});
+
 ##### list
 
-래퍼 클래스의 배열로 받아서 Collections.sort해주면 동일하게 정렬된다.
+위와 같이 래퍼 클래스의 배열로 받거나 List<List<String>>을 Collections.sort해주면 동일하게 정렬된다.
+
+
 
 #### Comparator 인터페이스
 
@@ -398,6 +427,21 @@ ex)
 	System.out.println(b); // output : name
 	a = "changed name";
 	System.out.println(b); // output : name
+
+
+###### List의 deepCopy
+
+- addAll메소드를 사용하면 된다.
+
+ex)
+
+	List<String> source = new ArrayList<>();
+	source.add("abc");
+	source.add("def");
+
+	List<String> destination = new ArrayList<>();
+
+	destination.addAll(source);
  
 ---
 
@@ -471,7 +515,6 @@ deep copy
 		return copied;
 
 	}
- 
 ---
 
 #### 배열의 초기화
