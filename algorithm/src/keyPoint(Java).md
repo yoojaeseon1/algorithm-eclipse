@@ -8,12 +8,6 @@
 
 ---
 
-#### 변수명의 길이
-
-- 8자~20자정도가 적당하다(너무 짧아도 별로)
-
----
-
 #### for문 초기화 변수 여러개 사용하기
 
 	for (int line = si, ci = 0; line < source.length - si; line++, ci++) {
@@ -61,17 +55,23 @@ dequeue(queue.poll())/pop 할 때 : 2로 초기화(방문)와 방문한 영역�
 
 ##### Queue 선언/메소드
 
-Queue<Integer> queue = new LinkedList<>();
+	Queue<Integer> queue = new LinkedList<>();
 
-queue.add() // enqueue(include exception)
+	queue.add() // enqueue(include exception)
 
-queue.offer() // enqueue(exclude exception)
+	queue.offer() // enqueue(exclude exception)
 
-queue.poll() // dequeue
+	queue.poll() // dequeue
+
+	queue.peek() // check recent added element
 
 ---
 
-배열과 list중에서 배열을 사용해도 무관하다면 배열을 사용하는것이 수행시간이 적게 나온다.(정렬 할 때, 거의 1/3 수준)
+#### 배열과 list중에서 배열을 사용해도 무관하다면 배열을 사용하는것이 수행시간이 적게 나온다.(정렬 할 때, 거의 1/3 수준)
+
+크기가 정해져 있다면 배열을 사용하는 습관을 들이자.(list가 편하긴 하지만 수행시간에서 조금 차이가 있다.)
+
+배열의 인덱스 변수를 하나 따로 만들어서 초기화 할 때마다 증가시키는 것으로 list와 동일하게 사용이 가능하다.
 
 배열 : Arrays.sort(array);
 
@@ -87,6 +87,12 @@ list : Collections.sort(list);
 알파벳 소문자(a~z) : 97~122
 
 A~B(B>A) 범위 안의 개수 : 둘다 포함하면 (B-A)+1, 하나만 포함하면 B-A, 둘다 포함 안하면 (B-A)-1
+
+한글 :44032 ~ 55203
+
+한글 자음(ㄱ~ㅎ) : 12593 ~ 12622
+
+한글 모음(ㅏ~ㅣ) : 12623 ~ 12643
 
 ---
 
@@ -151,18 +157,6 @@ int primitive = wrapper.intValue();  -> int primitive = wrapper;        //언박
 try문에서 선언, 초기화된 클래스, 변수는 밖에서 사용할 수 없다(try문의 로컬클래스/변수)
 
 밖에서 선언된 전역변수를 가져와서 쓸 수 있다.
-
----
-
-Queue선언
-
-Queue<T> q = new LinkedList<T>();
-
-enqueue : offer();
-
-dequeue : poll();
-
-search bottom element: peek();
 
 
 ---
@@ -788,56 +782,6 @@ Object배열보다는 해당 자료형,인스턴스를 필드로 가지는 클�
 	curX = (int) curPosition[0];
 	curY = (int) curPosition[1];
 	movedRoute = (StringBuilder) curPosition[2];
-	
-	
-#### index 가지고 장난치기
-
-##### 배열
-
-모듈러 연산자(%)
-	
-	int[] input = {1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,6,7,8,9,0};
-	int[] pattern = {1,1,2,2,3,3,4,4,5,5};
-	
-와 같은 패턴일 때 input과 pattern이 같은 index에서 값이 같은지 확인하기 위해서는
-	
-	for(int ii = 0; ii < input.length; ii++){
-	
-		if(input[ii] == pattern[ii%pattern.length]) answer++;
-	}
-	
-과 같이 패턴의 길이로 모듈러 연산을 해주면 input의 해당 인덱스의 값과 일치하는지 확인할 수 있다.
-
-	
-
-##### 문자열
-
-substring
-
-기준 index를 가지고 원하는 문자열 뽑아내기
-
-0부터 기준 index까지
-
-	substring(0, index+1);
-	
-기준 index부터 끝까지
-
-	substring(index);
-	
-#### Iterator 
-
-		Iterator keyIter = keySet.iterator();
-		
-		while (keyIter.hasNext()) {
-			// key의 자료형 또는 클래스로 casting해주면 된다.(next() 메소드는 Object 객체를 반환한다.)
-			char key = (char) keyIter.next();  
-			
-			if (nameMap.get(key) >= 5) {
-				entryList.add(key);
-			}
-		}
-		
-map(key 또는 value), set 의 원소를 하나씩 확인할 수 있다.
 
 #### method signature
 
