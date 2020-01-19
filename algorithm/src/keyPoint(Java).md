@@ -801,3 +801,32 @@ ex)
 	
 
 메소드명은 같지만 인자 리스트의 구성이 다르기 때문에  오버로딩이 되는 것이다.
+
+
+#### PriorityQueue(우선순위 큐)
+
+
+		PriorityQueue<Integer> scovilles = new PriorityQueue<>(new Comparator<Integer>(){
+
+			@Override
+			public int compare(Integer o1, Integer o2) {
+				
+				return o2.compareTo(o1);
+			}
+			
+		});
+
+		scovilles.add(2);
+		scovilles.add(3);
+		scovilles.add(4);
+		scovilles.add(1);
+
+		System.out.println(scovilles.poll()); // output : 4
+
+와 같은 방식으로 Comparator 인터페이스를 구현해 사용 할 수 있다.
+
+어떤 순서대로 enqueue를 했더라도 내림차순 우선순위에 따라 가장 큰 수 인 4가 dequeue되었다.
+
+다른 클래스를 타입 파라미터로 넣어도 Comparator 인터페이스를 구현해 원하는 우선순위에 따라 enqueue하는 큐를 만들 수 있다.
+
+
