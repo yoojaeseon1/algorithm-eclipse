@@ -7,6 +7,20 @@
 
 	SELECT COUNT(animal_id) AS count FROM animal_ins;
 
+##### 쿼리문 문법 순서
+
+SELECT
+
+FROM
+
+WHERE
+
+GROUP BY
+
+HAVING
+
+ORDER BY
+
 
 ##### UPDATE
 
@@ -30,15 +44,16 @@ Edit -> Preferences -> SQLEditor -> 맨 밑 sate update 해제
 
 ##### ★★★★★ JOIN ★★★★★
 
+
 JOIN 할 때는 외래키를 조건으로 해야 한다.
 
-	a JOIN b ON a.기본키=b.외래키
+	SELECT * FROM a JOIN b ON a.기본키=b.외래키
 
 JOIN을 해야하는 문제는 JOIN으로 만들어지는 테이블을 SELECT로 확인 해보고
 
 쿼리에 살을 붙이는 방식으로 풀자
 
-###### LEFT JOIN
+###### LEFT JOIN(LEFT가 기준)
 
 a LEFT JOIN b ON 조건
 
@@ -52,6 +67,8 @@ a LEFT JOIN b ON 조건
 
 a는 그대로 나오고 b에서 a와 공통되지 않는 속성이 null로 반환된다.
 
+NULL값이 나올 수 있는 테이블을 오른쪽에다 두고 작성하는 습관을 들이자. 
+
 
 ###### RIGHT JOIN
 
@@ -60,6 +77,8 @@ a RIGHT JOIN b ON 조건 = b LEFT JOIN a ON 조건
 ###### INNER JOIN
 
 a INNER JOIN b ON 조건
+
+INNER는 생략 가능하다.
 
 a 와 b의 속성이 모두 일치하는 튜플만 반환한다.(NULL 값이 나올 수 있는 튜플은 반환하지 않는다.) 
 
@@ -76,11 +95,25 @@ id == NULL / id != NULL  (X)
 
 id IS NULL / id IS NOT NULL(O)
 
+	SELECT animal_type, COUNT(animal_type) FROM animal_ins WHERE animal_type="CAT" OR animal_type="DOG" GROUP BY animal_type ORDER BY animal_type;
+
+WHERE 절에서 사용하는 조건의 문자열은 대,소문자를 구분하지 않는다.("CAT" = "Cat", "DOG" = Dog)
+
 ##### ORDER BY
+
+ASC : 오름차순
+
+DESC : 내림차순
+
+차순을 명시하지 않으면 ASC가 Default으로 선택된다. 
+
+	SELECT ins.animal_id, ins.name FROM animal_ins ins JOIN animal_outs outs ON ins.animal_id = outs.animal_id ORDER BY outs.datetime - ins.datetime DESC LIMIT 2;
+
+조건을 단순히 칼럼명만 쓰는 것이 아니라 위와 같이 쓸 수도 있다.
 
 ##### 정렬 조건 여러개 사용하기
 
-	SELECT animal_id, name, datetime FROM animal_ins ORDER BY name, datetime desc;
+	SELECT animal_id, name, datetime FROM animal_ins ORDER BY name, datetime DESC;
 
 작성하는 순서가 정렬되는 우선순위다.
 
@@ -113,6 +146,12 @@ GROUP BY와 같은 논리로 작동한다(중복을 제거하는 것과 같은 �
 
 	SELECT COUNT(DISTINCT name) AS count FROM animal_ins WHERE name IS NOT NULL;
 
+	// 중복이 제거된 이름의 개수를 출력한다.
+
+	SELECT DISTINCT name AS count FROM animal_ins WHERE name IS NOT NULL;
+
+	// 중복이 제거된 이름을 전부 출력한다.
+
 중복되는 name을 제외하고 카운트를 한다.
 
 ##### 출력되는 튜플의 개수 제한하기
@@ -142,7 +181,9 @@ IFNULL(값1,값2) : 값1이 NULL 이면 값2로 대치하고 그렇지 않으면
 
 	SELECT animal_type, IFNULL(name, 'No name'), sex_upon_intake FROM animal_ins ORDER BY animal_id;
 
-IN
+"No name"은 대소문자를 구별해서 출력해줘야 한다.
+
+##### IN
 
 WHERE id IN(레코드1, 레코드2,...,레코드N)
 
@@ -151,6 +192,8 @@ id가 해당 레코드 중에 일치하는 값이 있는 튜플만 반환한다.
 WHERE id NOT IN(레코드1, 레코드2,...,레코드N)
 
 id가 해당 레코드에 포함되지 않는 튜플만 반환한다.
+
+IN / NOT IN 모두 레코드의 대소문자를 구별하지 않는다.
 
 ##### LIKE
 
@@ -165,6 +208,15 @@ yoo로 시작하는 id
 yoo로 끝나는 id
 
 	WHERE id LIKE '%yoo'
+
+LIKE 오른쪽에 들어가는 조건은 대소문자를 구별하지 않는다.
+
+##### BETWEEN
+
+	SELECT HOUR(datetime), COUNT(datetime) FROM animal_outs WHERE HOUR(datetime) BETWEEN 9 AND 21 GROUP BY HOUR(datetime) ORDER BY HOUR(datetime);
+
+BETWEEN a AND b 에서 a와 b를 모두 포함한다.
+
 
 ##### 문자관련 함수
 
@@ -193,11 +245,15 @@ DATE_FORMAT
 
 %M (달 이름), %W (요일 이름), %Y (YYYY 형식의 년도), %y (YY 형식의 년도)
 
-, %a (요일 이름의 약자), %d (DD 형식의 날짜), %e (D 형식의 날짜), %m (MM 형식의 날짜)
+, %a (요일 이름의 약자)
 
-, %c (M 형식의 날짜), %H (HH 형식의 시간, 24시간 형식), %k (H 형식의 시간, 24시간 형식)
+일 : %d (DD 형식의 일(ex) 05)), %e (D 형식의 일 ex)5(0 제외)), 
 
-, %h (HH 형식의 시간, 12시간 형식), %i (MM 형식의 분), %p (AM 또는 PM)
+월 : %m(MM 형식의 월, 0포함)) , %c (M 형식의 날짜, 0 제외),
+
+시간:  %H (HH 형식의 시간, 24시간 형식, 0포함), %k (H 형식의 시간, 24시간 형식, 0 제외)
+
+, %h (HH 형식의 시간, 12시간 형식, 0포함), %i (MM 형식의 분, 0포), %p (AM 또는 PM)
 
 
 DAYOFWEEK(date) : 해당 날짜의 요일을 숫자로 반환한다. 일요일은 1, 토요일은 7 이다.
@@ -223,5 +279,16 @@ DAYNAME(date) : 해당 날짜의 요일 이름을 반환한다. 일요일은 'Su
 MONTHNAME(date) : 해당 날짜의 월 이름을 반환한다. 2월은 'February' 이다.
 
 
+
+##### AS
+
+출력되는 데이터의 속성명을 지정
+
+	SELECT COUNT(*) AS count FROM animal_ins;
+
+	SELECT COUNT(*) count FROM animal_ins;
+
+
+AS를 생략해도 동일한 결과가 나온다. 별칭은 ""로 감싸도 무관하다.
 
 

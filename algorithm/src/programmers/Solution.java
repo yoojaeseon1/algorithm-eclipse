@@ -1,7 +1,9 @@
 package programmers;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Solution {
 
@@ -10,8 +12,24 @@ public class Solution {
 		int[] progresses = { 93, 30, 55 };
 		int[] speeds = { 1, 30, 5 };
 
-		System.out.println(solution(progresses, speeds));
-
+//		System.out.println(solution(progresses, speeds));
+		
+		
+		Map<Integer, String> testMap = new HashMap<>();
+		
+		testMap.put(1, "haha");
+		testMap.put(2, "hoho");
+		
+		List<Integer> testList = new ArrayList<>();
+		
+		testList.addAll(testMap.keySet());
+		
+		
+		for(int testListI = 0; testListI < testList.size(); testListI++) {
+			
+			System.out.println(testList.get(testListI));
+			
+		}
 	}
 
 	public static int[] solution(int[] progresses, int[] speeds) {

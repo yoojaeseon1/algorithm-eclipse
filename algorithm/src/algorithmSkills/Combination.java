@@ -13,6 +13,9 @@ public class Combination {
 		ex.doCombination(source, n, r, selectedIndice, 0, 0);  // n = 5, r = 2
 	}
 
+	
+	// other method name : searchAllRoute, searchAllCases
+	
 	public void doCombination(int[] source, int n, int r, int[] selectedIndices, int selectedIndex, int targetIndex) {
 		// System.out.println("=> " + n + " " + r + " " + index + " " + target);
 

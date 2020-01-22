@@ -13,6 +13,8 @@ public class Permutation {
 	}
 	
 	
+	// other method name : searchAllRoute, searchAllCases
+	
 	public static void doPermutation(int[] source, int n, int r, int[] selectedIndices, int selectedIndex,
 			boolean[] visited) {
 

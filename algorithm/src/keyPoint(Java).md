@@ -173,6 +173,16 @@ replaceFirst, replaceLast는 하나만
 
 ---
 
+#### 배열의 범위
+
+	int[][] tree = new int[2][nodeinfo.length];
+	// = {{nodeinfo.length},{nodeinfo.length}}; // nodeinfo.length만큼의 1차원 배열을 2개 만든다.
+	
+	int[][] tree = new int[nodeinfo.length][2];
+	// = {{2},{2},{2},...,{2}}  // length가 2인 1차원 배열을 nodeinfo.length개 만큼 만든다.
+
+
+
 #### 배열을 ArrayList로
 
 	String[] city = {"서울","부산","대구","광주"};
@@ -660,6 +670,8 @@ ex)
 
 해당 index에 추가하고 그 뒤로 오는 문자열을 한칸씩 밀어준다.(해당 인덱스에 대체 해주는 것이 아니다.)
 
+해당 index에 대체하고 싶으면 StirngBuilder/StringBuffer.serCharAt(index) 를 사용하면 된다.
+
 String은 insert의 기능을 하는 메소드가 없다.(문자/문자열로 접근해서 대체 해주는 replace메소드가 있다.(replace는 StringBuilder/StringBuffer도 있다.))
 
 ---
@@ -829,4 +841,31 @@ ex)
 
 다른 클래스를 타입 파라미터로 넣어도 Comparator 인터페이스를 구현해 원하는 우선순위에 따라 enqueue하는 큐를 만들 수 있다.
 
+---
 
+#### Set의 elements를 List에 바로 넣기
+
+	Set<Integer> testSet = new HashSet<>();
+
+	List<Integer> testList = new ArrayList<>(testSet);
+
+또는
+	
+	Map<Integer, List<int[]>> levelToX = new HashMap<>();
+
+	List<Integer> levels = new ArrayList<>(levelToX.keySet());
+
+또는 (List인스턴스 생성이후)
+	
+	levels.addAll(levelToX.keySet());
+
+와 같은 방식으로 List 인스턴스를 생성할 때 생성자의 인자로 넣어줘야 한다.
+
+List인스턴스를 선언만 하고
+
+	levels.addAll(levelToX.keySet())
+
+과 같이 사용하면 NullPointException이 발생한다.
+	
+
+---
