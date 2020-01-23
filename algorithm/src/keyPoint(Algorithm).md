@@ -46,6 +46,24 @@
 				visitSequence[wi] = 0; // 다음 루프로 넘어가기 전에 푸시하지 않은 것으로 원상복귀
 			}
 		}
+
+---
+
+##### BFS/DFS 영역 구하는 문제
+
+0 : enqueue/push 되지 않고 방문하지 않은 영역
+
+1 : enqueue/push 했지만 방문하진 않은 영역
+
+2 : 방문 한 영역 
+
+field의 값을 위와 같이 초기화 하고
+
+dequeue(queue.poll())/pop 할 때 : 2로 초기화(방문)와 방문한 영역의 count
+
+주위 영역을 enqueue(add(e) or offer(e))/push 할 때 : 1로 초기화
+
+0,1,2로 구분을 해줘야 나중에 문제가 발생했을 때 디버깅하기 편하다.
 		
 		
 ##### visited 배열을 deepCopy할 필요가 없는 이유

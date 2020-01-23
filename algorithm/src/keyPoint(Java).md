@@ -8,6 +8,24 @@
 
 ---
 
+#### switch문
+
+      switch(currentChar) {
+          case 'S':
+              currentPoint = Integer.parseInt(dartResult.substring(pointStartIndex, dartResultI));
+              break;
+          case 'D':
+              currentPoint = (int)Math.pow(Integer.parseInt(dartResult.substring(pointStartIndex, dartResultI)),2);
+              break;
+          case 'T':
+              currentPoint = (int)Math.pow(Integer.parseInt(dartResult.substring(pointStartIndex, dartResultI)),3);
+              break;
+      }
+
+각 case마다 break를 해주지 않으면 다음 case로 넘어가서 확인한다.
+
+Java 7버전 전에는 switch의 인자로 정수타입 변수만 올 수 있었지만 7버전 부터는 문자, 문자열타입도 올 수 있다.
+
 #### for문 초기화 변수 여러개 사용하기
 
 	for (int line = si, ci = 0; line < source.length - si; line++, ci++) {
@@ -27,7 +45,7 @@
 	boolean[] alphabet = new boolean[26];
 	alphabet[alpha-'A'] = true;
 	if(alphabet[alpha-'A']) {
-		executed statement
+		executing statement
 	}
 
 위와 같이 배열의 인덱스를 아스키코드 값으로 접근하자.
@@ -39,19 +57,7 @@
 
 ---
 
-#### BFS/DFS 영역 구하는 문제
 
-0 : enqueue/push 되지 않고 방문하지 않은 영역
-
-1 : enqueue/push 했지만 방문하진 않은 영역
-
-2 : 방문 한 영역 
-
-field의 값을 위와 같이 초기화 하고
-
-dequeue(queue.poll())/pop 할 때 : 2로 초기화(방문)와 방문한 영역의 count
-
-주위 영역을 enqueue(add(e) or offer(e))/push 할 때 : 1로 초기화
 
 ##### Queue 선언/메소드
 
@@ -730,23 +736,30 @@ key를 뽑아 iterator 반복문에서 get(key)로 value값을 검색할 생각�
 		
 #### map에서 key와 value를 동시에 뽑아 반복문 돌리는 방법
 
-	Set<Character> entrySet = nameMap.entrySet();
+- Map.Entry<T>를 모두 꼭 써줘야 programmer에서 오류없이 체점된다.
 
-	Iterator entryIter = entrySet.iterator();
+        Iterator<Map.Entry<String, List<int[]>>> entryIter = genreToPlay.entrySet().iterator();
+        List<Genre> sumPlaysOfGenre = new ArrayList<>();
 
-	while(iterator.hasNext()){
-	
-	  Map.Entry entry = (Map.Entry)entryIter.next();
-	
-	  String key = (String)entry.getKey();
-	
-	  String value = (String)entry.getValue();
-	
-	  System.out.println("hashMap Key : " + key);
-	
-	  System.out.println("hashMap Value : " + value);
-	
-	}
+        while(entryIter.hasNext()) {
+            
+            Map.Entry<String, List<int[]>> genreAndPlay = (Map.Entry<String, List<int[]>>)entryIter.next();
+            
+            String genre = genreAndPlay.getKey();
+            List<int[]> songs = genreAndPlay.getValue();
+            
+            if(songs.size() > 1) albumLength += 2;
+            else albumLength += 1;
+            
+            int sumPlay = 0;
+            
+            for(int songsI = 0; songsI < songs.size(); songsI++) {
+                
+                sumPlay += songs.get(songsI)[1];
+
+            }
+            sumPlaysOfGenre.add(new Genre(genre, sumPlay));
+        }
 	
 #### TreeMap / TreeSet
 
@@ -869,3 +882,94 @@ List인스턴스를 선언만 하고
 	
 
 ---
+
+#### 정규표현식(Regular Expression)
+
+- String.split(String regex)의 인자로 정규표현식을 넣어 간단하게 배열로 자를 수 있다.
+
+- 정규표현식은 []안에 작성해야한다.
+
+- 그냥 문자 하나로 split할 때는
+
+	String.split(" ")
+
+와 같이 []로 감싸지 않고 문자 하나만 써주면 된다.
+
+- 구분자가 String의 맨앞 또는 맨뒤에 있으면 split되는 배열의 해당 위치에 공백인 index가 생긴다.
+
+ex)
+
+	String test = "a12b34c56d";
+
+	String[] splitedTest = test.split("[0-9]{2,4}");
+
+	for(int splitedI = 0; splitedI < splitedTest.length; splitedI++) {
+		System.out.print(splitedTest[splitedI] + " ");	// 출력 : a b c d 
+	}
+
+	// 구분되는 문자를 길이 2~4인 숫자로 한다. {}안에 숫자 하나만 쓸 경우 딱 그 길이의 숫자인 경우만 구분자로 사용한다.
+
+자주 쓰는 정규 표현식(여러개를 붙여서 쓸 수도 있다.)
+
+[0-9] : 숫자
+
+[a-z] : 알파벳 소문자
+
+[A-Z] : 알파벳 대문자
+
+[a-zA-Z] : 알파벳 전부
+
+^를 써주면 not의 의미가 된다.
+
+[^0-9] : 숫자가 아닌 것
+
+[^a-z] : 알파벳 소문자가 아닌 것 
+
+[^A-Z] : 알파벳 대문자가 아닌 것
+
+[^a-zA-Z] : 알파벳이 아닌 것
+
+[^abc] : a, b, c를 제외한 다른 글자
+
+[a-z&&[^bc]] : b와 c를 제외한 a 부터 z까지 중의 하나와 일치하는 것
+
+[]안에 특정 문자만 넣어서 할 수도 있다.
+
+ex)
+
+	String dartResult = "1S2D*3T";
+
+	String[] splitedDart = dartResult.split("[SDT#*]{1,2}"); 
+
+	// 알파벳 'S', 'D', 'T'와 '#', '*'가 포함된 1~2길이의 문자
+
+
+SDT가 순서대로 나오지 않아도 된다. DS같은 문자가 나와도 구분자로 사용된다.
+	 
+
+ex)
+
+	String dartResult = "1S2D*3T";
+
+	String[] splitedDart = dartResult.split("[A-Z#*]{1,2}"); // 알파벳 대문자와 '#', '*'가 포함된 1~2길이의 문자
+
+
+##### split은 성능이 안좋으므로 substring을 사용하는 것이 더 좋다.
+
+---
+
+#### Math class
+
+- Math.pow(double a, double b) : a의 b제곱을 구해준다.(return 타입이 double이므로 정수로 사용하려면 캐스팅해야한다.)
+
+인자로 정수를 넣어줘도 알아서 실수형으로 캐스팅된다. 
+
+ex)
+	System.out.println(Math.pow(5, 2)); // output : 25.0
+
+- Math.sqrt(double num) : 제곱근을 구해준다.(return 타입이 double이므로 정수로 사용하려면 캐스팅해야한다.)
+
+인자로 정수를 넣어줘도 알아서 실수형으로 캐스팅된다. 
+
+ex)
+	System.out.println(Math.sqrt(16.0)); // output : 4.0

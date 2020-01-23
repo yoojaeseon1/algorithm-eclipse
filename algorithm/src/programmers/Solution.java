@@ -1,35 +1,50 @@
 package programmers;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 
 public class Solution {
 
 	public static void main(String[] args) {
 
-		int[] progresses = { 93, 30, 55 };
-		int[] speeds = { 1, 30, 5 };
+//		int[] progresses = { 93, 30, 55 };
+//		int[] speeds = { 1, 30, 5 };
+//
+////		System.out.println(solution(progresses, speeds));
+//		
+//		
+//		Map<Integer, String> testMap = new HashMap<>();
+//		
+//		testMap.put(1, "haha");
+//		testMap.put(2, "hoho");
+//		
+//		List<Integer> testList = new ArrayList<>();
+//		
+//		testList.addAll(testMap.keySet());
+//		
+//		
+//		for(int testListI = 0; testListI < testList.size(); testListI++) {
+//			
+//			System.out.println(testList.get(testListI));
+//			
+//		}
+		
+		int[][] testArray = new int[5][5];
+		
+		Arrays.sort(testArray, new Comparator<int[]>(){
 
-//		System.out.println(solution(progresses, speeds));
-		
-		
-		Map<Integer, String> testMap = new HashMap<>();
-		
-		testMap.put(1, "haha");
-		testMap.put(2, "hoho");
-		
-		List<Integer> testList = new ArrayList<>();
-		
-		testList.addAll(testMap.keySet());
-		
-		
-		for(int testListI = 0; testListI < testList.size(); testListI++) {
+			@Override
+			public int compare(int[] o1, int[] o2) {
+				// TODO Auto-generated method stub
+				return 0;
+			}
 			
-			System.out.println(testList.get(testListI));
-			
-		}
+		});
+		
+		
+		
 	}
 
 	public static int[] solution(int[] progresses, int[] speeds) {

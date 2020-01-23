@@ -18,21 +18,16 @@ public class DiskController {
 	}
 
 	public static int solution(int[][] jobs) {
-		Integer[][] jobsCopied = new Integer[jobs.length][jobs[0].length];
 
-		for (int jobsI = 0; jobsI < jobs.length; jobsI++) {
-			jobsCopied[jobsI][0] = jobs[jobsI][0];
-			jobsCopied[jobsI][1] = jobs[jobsI][1];
-		}
 
-		Arrays.sort(jobsCopied, new Comparator<Integer[]>() {
+		Arrays.sort(jobs, new Comparator<int[]>() {
 
 			@Override
-			public int compare(Integer[] o1, Integer[] o2) {
-				if (o1[0] != o2[0])
-					return Integer.compare(o1[0], o2[0]);
-				else
+			public int compare(int[] o1, int[] o2) {
+				if (o1[0] == o2[0])
 					return Integer.compare(o1[1], o2[1]);
+				else
+					return Integer.compare(o1[0], o2[0]);
 
 			}
 		});
@@ -43,50 +38,40 @@ public class DiskController {
 		int startTime = jobs[jobsI][0];
 		int endTime = jobs[jobsI][0];
 
-		Queue<Integer[]> jobsQueue = new PriorityQueue<>(new Comparator<Integer[]>() {
+		Queue<int[]> jobsQueue = new PriorityQueue<>(new Comparator<int[]>() {
 
 			@Override
-			public int compare(Integer[] o1, Integer[] o2) {
-				// TODO Auto-generated method stub
+			public int compare(int[] o1, int[] o2) {
+				
 				return Integer.compare(o1[1], o2[1]);
 			}
 
 		});
 
-		while (jobsI < jobsCopied.length && jobsCopied[jobsI][0] == startTime) {
-			jobsQueue.add(jobsCopied[jobsI++]);
+		while (jobsI < jobs.length && jobs[jobsI][0] == startTime) {
+			jobsQueue.add(jobs[jobsI++]);
 		}
 
-		while (jobsI < jobsCopied.length) {
-
-			// startTime = jobs[jobsI][0];
-			// endTime = startTime + jobs[jobsI][1];
-			//
-			// computedTime += endTime - startTime;
-			// System.out.println("1. computedTime : " + computedTime);
-			//
-			// // jobsQueue.add(jobs[jobsI]);
-			// jobsI++;
+		while (!jobsQueue.isEmpty()) {
 
 			while (!jobsQueue.isEmpty()) {
-				Integer[] currentJob = jobsQueue.poll();
+				int[] currentJob = jobsQueue.poll();
 				startTime = endTime;
 				endTime = startTime + currentJob[1];
 				computedTime += endTime - currentJob[0];
-				System.out.println("2. computedTime : " + computedTime);
-				while (jobsI < jobsCopied.length && jobsCopied[jobsI][0] > startTime
-						&& jobsCopied[jobsI][0] <= endTime) {
-					System.out.println("added : " + jobsI);
-					jobsQueue.add(jobsCopied[jobsI++]);
-					System.out.println("added end");
+				while (jobsI < jobs.length && jobs[jobsI][0] > startTime
+						&& jobs[jobsI][0] <= endTime) {
+					jobsQueue.add(jobs[jobsI++]);
 				}
 			}
 
-			if (jobsI < jobsCopied.length)
-				startTime = jobsCopied[jobsI++][0];
+			if (jobsI < jobs.length){
+				startTime = jobs[jobsI][0];
+				endTime = jobs[jobsI][0];
+			}
 
-			while (jobsI < jobsCopied.length && jobsCopied[jobsI][0] == startTime) {
-				jobsQueue.add(jobsCopied[jobsI++]);
+			while (jobsI < jobs.length && jobs[jobsI][0] == startTime) {
+				jobsQueue.add(jobs[jobsI++]);
 			}
 
 		}
