@@ -36,24 +36,20 @@ public class Q2206 {
 		int[] dx = { 0, 1, 0, -1 };
 		int[] dy = { -1, 0, 1, 0 };
 
-		int minDistance = Integer.MAX_VALUE;
+		Queue<Coordinate> fieldQueue = new LinkedList<>();
 
-		Queue<int[]> fieldQueue = new LinkedList<>();
-
-		int[] firstPosition = { 0, 0 };
-		
 		field[0][0][0] = 1;
 		field[0][0][1] = 0;
-		fieldQueue.add(firstPosition);
-
+		fieldQueue.add(new Coordinate(0, 0, 1, 0));
+		int minDistance = 0;
 		while (!fieldQueue.isEmpty()) {
+			Coordinate currentPosition = fieldQueue.poll();
 
-			int[] currentPosition = fieldQueue.poll();
+			int currentX = currentPosition.getX();
+			int currentY = currentPosition.getY();
 
-			int currentX = currentPosition[0];
-			int currentY = currentPosition[1];
-			if(currentX == M-1 && currentY == N-1){
-				System.out.println(field[currentY][currentX][0]);
+			if (currentX == M - 1 && currentY == N - 1) {
+				minDistance = currentPosition.getDistance();
 				break;
 			}
 
@@ -61,36 +57,85 @@ public class Q2206 {
 
 				if (currentX + dx[di] >= 0 && currentX + dx[di] < field[0].length && currentY + dy[di] >= 0
 						&& currentY + dy[di] < field.length) {
-					
-					if(field[currentY + dy[di]][currentX + dx[di]][1] <= field[currentY][currentX][1])
+					if (field[currentY + dy[di]][currentX + dx[di]][1] <= currentPosition.getNumDestroy())
 						continue;
 
 					if (field[currentY + dy[di]][currentX + dx[di]][0] == 0) {
 
-						field[currentY + dy[di]][currentX + dx[di]][0] = field[currentY][currentX][0] + 1;
-						field[currentY + dy[di]][currentX + dx[di]][1] = field[currentY][currentX][1];
-						int[] addedPosition = { currentX + dx[di], currentY + dy[di] };
-						
-						fieldQueue.add(addedPosition);
+						field[currentY + dy[di]][currentX + dx[di]][1] = currentPosition.getNumDestroy();
+
+						fieldQueue.add(new Coordinate(currentX + dx[di], currentY + dy[di],
+								currentPosition.getDistance() + 1, currentPosition.getNumDestroy()));
 
 					} else if (field[currentY + dy[di]][currentX + dx[di]][0] == 1
-							&& field[currentY][currentX][1] == 0) {
-						
+							&& currentPosition.getNumDestroy() == 0) {
+
 						field[currentY + dy[di]][currentX + dx[di]][1] = 1;
-						field[currentY + dy[di]][currentX + dx[di]][0] = field[currentY][currentX][0] + 1;
-						int[] addedPosition = { currentX + dx[di], currentY + dy[di] };
-						fieldQueue.add(addedPosition);
+						fieldQueue.add(new Coordinate(currentX + dx[di], currentY + dy[di], currentPosition.getDistance()+1,
+								currentPosition.getNumDestroy() + 1));
 
 					}
 				}
 			}
 		}
 
-		if (field[N - 1][M - 1][0] == 0)
+		if (minDistance == 0)
 			System.out.println(-1);
 		else
-			System.out.println(field[N-1][M-1][0]);
+			System.out.println(minDistance);
+	}
 
+}
+
+class Coordinate {
+
+	private int x;
+	private int y;
+	private int distance;
+	private int numDestroy;
+
+	public Coordinate() {
+
+	}
+
+	public Coordinate(int x, int y, int distance, int numDestroy) {
+
+		this.x = x;
+		this.y = y;
+		this.distance = distance;
+		this.numDestroy = numDestroy;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	public int getDistance() {
+		return distance;
+	}
+
+	public void setDistance(int distance) {
+		this.distance = distance;
+	}
+
+	public int getNumDestroy() {
+		return numDestroy;
+	}
+
+	public void setNumDestroy(int numDestroy) {
+		this.numDestroy = numDestroy;
 	}
 
 }

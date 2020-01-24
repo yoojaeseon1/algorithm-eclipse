@@ -985,3 +985,109 @@ ex)
 
 ex)
 	System.out.println(Math.sqrt(16.0)); // output : 4.0
+
+---
+
+#### Integer class
+
+- Integer.toBinaryString(int num)
+
+인자로 들어가는 num을 2진수로 변환한 문자열을 리턴한다.
+
+ex)
+
+	System.out.println(Integer.toBinaryString(30)); // output : 11110
+
+이외에도 toOctalString(8진수), toHexString(16진수)가 있다.
+
+
+
+
+---
+
+
+#### 비트연산자
+
+두 정수를 이진수로 바꿔 AND, OR, XOR 연산을 간편하게 할 수 있다.
+
+비트연산을 쓸 수 있는 문제는 쓰는게 더 코드도 간결해지고 약간은 빨라진다.
+
+- 사용법
+
+AND : 둘다 1일 경우만 1
+
+OR : 둘 중 하나 이상 1이면 1
+
+XOR : 두개의 숫자가 다르면 1
+
+		System.out.println(Integer.toBinaryString(42));  // 2진수 : 101010
+		System.out.println(Integer.toBinaryString(27));  // 2진수 : 11011
+
+		// 계산할 때 27의 자리수가 부족한 만큼 앞을 0으로 채우고 계산한다.
+
+		// 101010
+		// 011011
+
+		System.out.println(Integer.toBinaryString(27|42)); // 111011
+		System.out.println(Integer.toBinaryString(27&42)); // 1010(001010이지만 앞에 있는 0은 생략된다.)
+		System.out.println(Integer.toBinaryString(27^42)); // 110001
+		
+		
+		System.out.println(Integer.toBinaryString(42)); // 2진수 : 101010
+		System.out.println(Integer.toBinaryString(7));  // 2진수 : 111
+
+		// 101010
+		// 000111
+
+		System.out.println(Integer.toBinaryString(42|7)); // 101111
+		System.out.println(Integer.toBinaryString(42&7)); // 10
+		System.out.println(Integer.toBinaryString(42^7)); // 101101
+
+---
+
+### 쉬프트 연산자
+
+#### 좌측 쉬프트 연산
+
+- n << i = n*2^i
+
+i가 1씩 증가할 때마다 값이 두배씩 커진다. 
+
+ex)
+
+		System.out.println(2<<4); // 32
+		System.out.println(2<<2); // 8
+		System.out.println(3<<2); // 12
+
+#### 우측 쉬프트 연산
+
+- n >> i = n / 2^i
+
+i가 1씩 증가할 때마다 값이 절반으로 나눠진다.
+
+		System.out.println(20>>3); // 2(몫만 계산된다.)
+		System.out.println(20>>2); // 5
+		System.out.println(20>>1); // 10
+
+---
+
+#### String의 replace vs replaceAll
+
+	
+
+	String test = "12341";
+
+	test = test.replace("1", "a");
+
+	System.out.println(test) // a234a
+
+
+	String testAll = "12341";
+
+	testAll = test.replaceAll("1", "a");
+
+	System.out.println(testAll) // a234a
+
+
+하지만 replaceAll는 첫번째 인자로 정규표현식을 받을 수 있다.(다양한 범위의 내용을 replace할 수 있다.)
+

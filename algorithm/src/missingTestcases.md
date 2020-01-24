@@ -117,3 +117,76 @@ Fail code에서
 ##### 근본적인 문제 
 
 예외 케이스를 생각하는 능력 부족
+
+---
+
+#### 벽부수고 이동하기(백준 2206)
+
+BFS를 통한 탐색문제
+
+경로별로 부수는 벽이 다를 수 있는데 하나의 2차원배열(field)로 경로계산을 다 하니까 정확한 계산이 되지 않았다.
+
+- 해결책
+
+field배열은 건드리지말고 움직이는 경로별로 인스턴스(Coordinate)를 만들어 이동하는 거리를 계산하고 먼저 도착하는 인스턴스의
+
+거리를 최단경로로 잡았다.
+
+
+##### 근본적인 문제
+
+예외 케이스를 생각하는 능력 부족
+
+---
+
+
+#### 캐시(kakao2018Blind)
+
+- LRU 캐시 알고리즘 문제
+
+
+		public int solution(int cacheSize, String[] cities) {
+     
+      		if(cacheSize == 0) 
+          		return 5*cities.length;
+      
+      		int answer = 0;
+      		List<String> LRUList = new ArrayList<>();
+      
+      		for(int citiesI = 0; citiesI < cities.length; citiesI++) {
+          		String cityToLowerCase = cities[citiesI].toLowerCase();
+          		int indexOfElement = LRUList.indexOf(cityToLowerCase);
+          
+         		 if(indexOfElement >= 0) {
+              		LRUList.remove(indexOfElement);
+              		LRUList.add(cityToLowerCase);
+              		answer++;
+          		} else {
+              		if(LRUList.size() < cacheSize)
+                  	LRUList.add(cityToLowerCase);
+              		else {
+                  		LRUList.remove(0);
+                  		LRUList.add(cityToLowerCase);
+              			}
+              		answer += 5; 
+          		}
+      		}
+			return answer;
+		}
+
+cash hit : 메모리에 이미 들어있는 데이터를 갱신하는 경우(메모리에 올라오는 속도가 빠르다.)
+
+cash miss : 메모리에 없는 데이터를 추가하는 경우(메모리에 올라오는 속도가 hit에 비해 느리다.)
+
+
+cashSize가 0인 경우는 메모리에 들어오지 않기 때문에 항상 cache miss가 발생한다.
+
+그러므로 맨 위 처럼 5*cashSize로 처리해서 끝내면 되는 문제였다.
+
+입력형식(제한사항)에서 caseSize의 범위를 민감하게 봐야했다.
+
+##### 근본적인 문제
+
+제한사항(입력형식 등)을 민감하게 확인하는 습관 부족(예외 케이스를 생각 하는 능력과 직관된다.)
+
+---
