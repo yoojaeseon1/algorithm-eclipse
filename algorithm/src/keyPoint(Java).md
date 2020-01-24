@@ -625,14 +625,6 @@ ex)
 	}
 
 ---
-#### map을 key와 value로 구분해서 ArrayList에 넣는 방법
-
-		ArrayList<Character> keys = new ArrayList<>(sortedMap.keySet());
-		ArrayList<Integer> values = new ArrayList<>(sortedMap.values());
-
-map의 key 또는 value로 정렬한 후에 위와 같이 하면 정렬한 순서대로 ArrayList에 추가된다.
-
----
 
 #### StringBuilder/StringBuffer에서 substring을 뽑아 새로운 StringBuilder/StringBuffer에 옮길 때는
 
@@ -736,7 +728,9 @@ key를 뽑아 iterator 반복문에서 get(key)로 value값을 검색할 생각�
 		
 #### map에서 key와 value를 동시에 뽑아 반복문 돌리는 방법
 
-- Map.Entry<T>를 모두 꼭 써줘야 programmer에서 오류없이 체점된다.
+- Map.Entry로 캐스팅 하는 것이 핵심!!(Iterator 인스턴스 생성할 때, 인스턴스에서 값을 확인할 때)
+
+- Map.Entry<T>를 모두 꼭 써줘야 programmers에서 오류없이 체점된다.
 
         Iterator<Map.Entry<String, List<int[]>>> entryIter = genreToPlay.entrySet().iterator();
         List<Genre> sumPlaysOfGenre = new ArrayList<>();
@@ -760,7 +754,18 @@ key를 뽑아 iterator 반복문에서 get(key)로 value값을 검색할 생각�
             }
             sumPlaysOfGenre.add(new Genre(genre, sumPlay));
         }
-	
+
+---
+
+#### map을 key와 value로 구분해서 ArrayList에 넣는 방법
+
+		ArrayList<Character> keys = new ArrayList<>(sortedMap.keySet());
+		ArrayList<Integer> values = new ArrayList<>(sortedMap.values());
+
+map의 key 또는 value로 정렬한 후에 위와 같이 하면 정렬한 순서대로 ArrayList에 추가된다.
+
+---
+
 #### TreeMap / TreeSet
 
 추가되는 element(Map은 key)가 오름차순으로 정렬된다.(Hash는 순서 없음)
@@ -774,6 +779,8 @@ ex)
 	Map<String, Integer> testSet = new TreeMap<>((o1,o2)-> o2.compareTo(o1));
 
 String은 문자열 크기 순, Integer는 숫자 크기 순으로 정렬된다.(숫자와 숫자로 된 문자열은 정렬 기준이 다르다.)
+
+---
 	
 #### LinkedHashMap / LinkedHashSet
 
@@ -782,6 +789,8 @@ HashMap과 HashSet은 순서가 없지만
 LinkedHashMap과 LinkedHashSet은 입력된 순서를 보장한다.(Map은 key값의 순서)
 
 사용법은 기존의 Map, Set과 동일
+
+---
 	
 #### Object 타입 배열의 활용 방법 
 
@@ -808,6 +817,8 @@ Object배열보다는 해당 자료형,인스턴스를 필드로 가지는 클�
 	curY = (int) curPosition[1];
 	movedRoute = (StringBuilder) curPosition[2];
 
+---
+
 #### method signature
 
 메서드 명과 파라미터의 순서, 타입, 개수를 의미한다.(리턴 타입과 exceptions는 메서드 시그니처가 아니다.)
@@ -827,6 +838,7 @@ ex)
 
 메소드명은 같지만 인자 리스트의 구성이 다르기 때문에  오버로딩이 되는 것이다.
 
+---
 
 #### PriorityQueue(우선순위 큐)
 

@@ -3,9 +3,9 @@ package backjoon;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Stack;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -13,95 +13,122 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
 		StringTokenizer st = new StringTokenizer(br.readLine());
 
-		int m = Integer.parseInt(st.nextToken());
-		int n = Integer.parseInt(st.nextToken());
-		int k = Integer.parseInt(st.nextToken());
+		int N = Integer.parseInt(st.nextToken());
+		int M = Integer.parseInt(st.nextToken());
 
-		int[][] field = new int[m][n];
+		int[][][] field = new int[N][M][2];
 
-		for (int kCount = 1; kCount <= k; kCount++) {
-
-			st = new StringTokenizer(br.readLine());
-
-			int beginX = Integer.parseInt(st.nextToken());
-			int beginY = Integer.parseInt(st.nextToken());
-			int endX = Integer.parseInt(st.nextToken());
-			int endY = Integer.parseInt(st.nextToken());
-
-			for (int fi = beginY; fi < endY; fi++) {
-
-				for (int fj = beginX; fj < endX; fj++) {
-
-					field[fi][fj] = 1;
+		StringBuilder oneLine = new StringBuilder();
+		List<int[]> walls = new ArrayList<>();
+		List<int[]> roads = new ArrayList<>();
+		int[] firstPosition = { 0, 0 };
+		walls.add(firstPosition);
+		for (int fieldI = 0; fieldI < field.length; fieldI++) {
+			oneLine.append(br.readLine());
+			for (int fieldJ = 0; fieldJ < field[fieldI].length; fieldJ++) {
+				if (oneLine.charAt(fieldJ) == '0') {
+					field[fieldI][fieldJ][0] = 0;
+					int[] road = { fieldJ, fieldI };
+					roads.add(road);
+				} else {
+					field[fieldI][fieldJ][1] = -1;
+					int[] wall = { fieldJ, fieldI };
+					walls.add(wall);
 				}
 			}
-
+			oneLine.setLength(0);
 		}
 
 		int[] dx = { 0, 1, 0, -1 };
 		int[] dy = { -1, 0, 1, 0 };
 
-		List<Integer> areas = new ArrayList<>();
-		Stack<int[]> fieldStack = new Stack<>();
+		// int[][] copiedField = copyArray(field);
+		int minDistance = Integer.MAX_VALUE;
 
-		for (int fi = 0; fi < field.length; fi++) {
-			for (int fj = 0; fj < field[fi].length; fj++) {
+		Queue<int[]> fieldQueue = new LinkedList<>();
 
-				if (field[fi][fj] == 0) {
-					int[] beginPosition = { fj, fi };
+		for (int wallsI = 0; wallsI < walls.size(); wallsI++) {
 
-					fieldStack.push(beginPosition);
-					field[beginPosition[1]][beginPosition[0]] = 2;
-//					System.out.println("start new area");
-					int areaCount = 0;
+			for (int roadsI = 0; roadsI < roads.size(); roadsI++) {
+				int[] road = roads.get(roadsI);
+				field[road[1]][road[0]][0] = 0;
+			}
 
-					while (!fieldStack.isEmpty()) {
+			int[] oneOfWall = walls.get(wallsI);
+			boolean isSearchNM = false;
+			field[oneOfWall[1]][oneOfWall[0]][0] = 0;
 
-						areaCount++;
+			field[0][0][0] = 1;
 
-						int[] currentPosition = fieldStack.pop();
+			int[] startPosition = { 0, 0 };
+			fieldQueue.add(startPosition);
 
-						int currentX = currentPosition[0];
-						int currentY = currentPosition[1];
-						
-//						System.out.println("currentX : " + currentX);
-//						System.out.println("currentY : " + currentY);
-//						System.out.println("--------");
+			while (!fieldQueue.isEmpty() && !isSearchNM) {
 
-						for (int di = 0; di < 4; di++) {
+				int[] currentPosition = fieldQueue.poll();
 
-							if (currentX + dx[di] >= 0 && currentX + dx[di] < field[0].length && currentY + dy[di] >= 0
-									&& currentY + dy[di] < field.length) {
+				int currentX = currentPosition[0];
+				int currentY = currentPosition[1];
 
-								if (field[currentY + dy[di]][currentX + dx[di]] == 0) {
-									int[] pushedPosition = { currentX + dx[di], currentY + dy[di] };
+				for (int di = 0; di < dx.length; di++) {
 
-									fieldStack.push(pushedPosition);
+					if (currentX + dx[di] >= 0 && currentX + dx[di] < field[0].length && currentY + dy[di] >= 0
+							&& currentY + dy[di] < field.length) {
+						if (field[currentY + dy[di]][currentX + dx[di]][0] == 0) {
 
-									field[currentY + dy[di]][currentX + dx[di]] = 2;
-									
-								}
-							}
+							field[currentY + dy[di]][currentX + dx[di]][0] = field[currentY][currentX][0] + 1;
+//							if (currentY + dy[di] == N && currentX + dx[di] == M) {
+//								isSearchNM = true;
+//								break;
+//							}
+							int[] addedPosition = { currentX + dx[di], currentY + dy[di] };
+
+							fieldQueue.add(addedPosition);
 						}
 					}
-					
-					areas.add(areaCount);
-
 				}
-
 			}
+
+			if (field[N - 1][M - 1][0] > 0)
+				minDistance = Math.min(minDistance, field[N - 1][M - 1][0]);
+			field[oneOfWall[1]][oneOfWall[0]][0] = -1;
 		}
-		
-		System.out.println(areas.size());
-		
-		
-		Collections.sort(areas);
-		for(int ai = 0; ai < areas.size(); ai++) {
-			System.out.print(areas.get(ai) + " ");
-		}
+
+		if (minDistance == Integer.MAX_VALUE)
+			System.out.println(-1);
+		else
+			System.out.println(minDistance);
+
+		// for (int fieldI = 0; fieldI < field.length; fieldI++) {
+		// for (int fieldJ = 0; fieldJ < field[fieldI].length; fieldJ++) {
+		// System.out.print(copiedField[fieldI][fieldJ] + " ");
+		// }
+		// System.out.println();
+		// }
+		// for(int fieldI = 0; fieldI < field.length; fieldI++) {
+		// for(int fieldJ = 0; fieldJ < field[fieldI].length; fieldJ++) {
+		// System.out.print(field[fieldI][fieldJ] + " ");
+		// }
+		// System.out.println();
+		// }
 
 	}
+
+	public static int[][] copyArray(int[][] source) {
+
+		int[][] copied = new int[source.length][source[0].length];
+
+		for (int sourceI = 0; sourceI < source.length; sourceI++) {
+
+			int[] oneLineOfCopied = new int[source[sourceI].length];
+
+			System.arraycopy(source[sourceI], 0, oneLineOfCopied, 0, source[sourceI].length);
+			copied[sourceI] = oneLineOfCopied;
+		}
+
+		return copied;
+	}
+
 }
