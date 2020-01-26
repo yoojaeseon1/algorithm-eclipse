@@ -737,7 +737,7 @@ key를 뽑아 iterator 반복문에서 get(key)로 value값을 검색할 생각�
 
         while(entryIter.hasNext()) {
             
-            Map.Entry<String, List<int[]>> genreAndPlay = (Map.Entry<String, List<int[]>>)entryIter.next();
+            Map.Entry<String, List<int[]>> genreAndPlay = entryIter.next();
             
             String genre = genreAndPlay.getKey();
             List<int[]> songs = genreAndPlay.getValue();
