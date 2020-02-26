@@ -17,16 +17,16 @@ public class FromSeoulToGyeongsan {
 
 	public static int solution(int K, int[][] travel) {
 
-		int[][] dp = new int[travel.length][100001];
+		int[][] dp = new int[travel.length][K+1];
 
 		dp[0][travel[0][0]] = travel[0][1];
-		dp[0][travel[0][2]] = travel[0][3];
+		dp[0][travel[0][2]] = travel[0][3];	
 
 		int answer = 0;
 
 		for (int travelI = 1; travelI < travel.length; travelI++) {
 
-			for (int sumBeforeDistance = 0; sumBeforeDistance <= K; sumBeforeDistance++) {
+			for (int sumBeforeDistance = 1; sumBeforeDistance <= K; sumBeforeDistance++) {
 
 				if (dp[travelI - 1][sumBeforeDistance] == 0)
 					continue;

@@ -205,3 +205,35 @@ deleteCharAt을 인덱스 순서대로 진행하기 때문에
 
 
 ---
+
+#### sort 메소드 사용할 때
+
+		Arrays.sort(phoneNumbers, new Comparator<String>() {
+			
+			@Override
+			public int compare(String o1, String o2) {
+				
+				if (o1.length() > o2.length())
+					return 1;
+				else if(o1.length() == o2.length())
+					return 0;
+				else
+					return -1;
+			}
+		});
+
+같은 경우를 따로 정렬할 필요가 없더라도
+
+위와 같이 클 때, 같을 때, 작을 때를 다 구분해주자
+
+나중에 인덱스로 접근해야 할 경우 IndexOutOfBoundException이 나올 수 있다.
+
+		for (int phoneJ = phoneI + 1; phoneJ < phoneNumbers.length; phoneJ++) {
+			if (currentPhoneNum.length() == phoneNumbers[phoneJ].length())
+				continue;
+			if (currentPhoneNum.equals(phoneNumbers[phoneJ].substring(0, currentPhoneNum.length()))) // IndexOutOfBoundException 발생가능
+				return false;
+		}
+
+
+---

@@ -10,7 +10,10 @@ public class Combination {
 		int r = 2;
 		int[] selectedIndice = new int[r];
 
-		ex.doCombination(source, n, r, selectedIndice, 0, 0);  // n = 5, r = 2
+//		ex.doCombination(source, n, r, selectedIndice, 0, 0);  // n = 5, r = 2
+		
+		System.out.println(computeCombiValue(4,2));
+		
 	}
 
 	
@@ -45,5 +48,32 @@ public class Combination {
 			// not select and plus one index of source array(target)
 			doCombination(source, n, r, selectedIndices, selectedIndex, targetIndex + 1);
 		}
+	}
+	
+	
+	public static int computeCombiValue(int n, int r) {
+		
+		int answer = computePactorial(n) / (computePactorial(r) * computePactorial(n-r));
+		
+		
+		return answer;
+	}
+	
+	public static int computePactorial(int n) {
+		
+		if(n == 1)
+			return 1;
+		else
+			return computePactorial(n-1) * n;
+		
+		
+	}
+	
+	public static int computePermuValue(int n, int r) {
+		
+		int answer = computePactorial(n) / computePactorial(n-r);
+		
+		return answer;
+		
 	}
 }

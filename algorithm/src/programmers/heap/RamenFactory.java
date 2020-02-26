@@ -1,5 +1,6 @@
 package programmers.heap;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -19,7 +20,7 @@ public class RamenFactory {
     public static int solution(int stock, int[] dates, int[] supplies, int k) {
         int numSupplyment = 0;
         
-        Queue<Integer> supplyQueue = new PriorityQueue<>(Comparator.reverseOrder());
+        Queue<Integer> supplyQueue = new PriorityQueue<>(Collections.reverseOrder());
 
         for (int today = 0, datesI = 0; today < k;today++) {
             if(datesI < dates.length && today == dates[datesI])

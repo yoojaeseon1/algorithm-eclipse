@@ -1071,7 +1071,9 @@ i가 1씩 증가할 때마다 값이 절반으로 나눠진다.
 
 ---
 
-#### String의 replace vs replaceAll
+#### String
+
+##### replace vs replaceAll
 
 	
 
@@ -1091,3 +1093,23 @@ i가 1씩 증가할 때마다 값이 절반으로 나눠진다.
 
 하지만 replaceAll는 첫번째 인자로 정규표현식을 받을 수 있다.(다양한 범위의 내용을 replace할 수 있다.)
 
+##### toLowerCase / toUpperCase
+
+
+String type의 변수를 모두 소문자 / 대문자로 변환시킨 String을 반환한다.
+
+숫자/특수문자/공백 등이 포함되어 있어도 알파벳만 변환시켜준다.
+
+ex)
+
+	String str1 = "AA1+aa2";
+
+	str1.toLowerCase();  // 이렇게 한다고 해도 str1이 변환되는 것이 아니다. 다른 String 변수에 초기화 해야한다.
+
+	str2 = str1.toLowerCase();
+
+	System.out.println(str2) // aa1+aa2
+
+	
+
+---

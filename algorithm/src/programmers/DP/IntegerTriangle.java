@@ -17,9 +17,10 @@ public class IntegerTriangle {
 		maxComputeds[0] = new int[1];
 
 		maxComputeds[0][0] = triangle[0][0];
-
+		
 		for (int maxCompI = 1; maxCompI < maxComputeds.length; maxCompI++) {
 			
+			maxComputeds[maxCompI] = new int[triangle[maxCompI].length];
 
 			maxComputeds[maxCompI][0] = maxComputeds[maxCompI - 1][0] + triangle[maxCompI][0];
 
@@ -43,6 +44,7 @@ public class IntegerTriangle {
 			maxRouteComputed = Math.max(maxRouteComputed, maxComputeds[maxComputeds.length - 1][maxCompI]);
 
 		}
+		
 		return maxRouteComputed;
 
 	}
