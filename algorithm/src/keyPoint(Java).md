@@ -732,12 +732,19 @@ key를 뽑아 iterator 반복문에서 get(key)로 value값을 검색할 생각�
 
 - Map.Entry<T>를 모두 꼭 써줘야 programmers에서 오류없이 체점된다.
 
-        Iterator<Map.Entry<String, List<int[]>>> entryIter = genreToPlay.entrySet().iterator();
+import java.util.Map;
+import java.util.Map.Entry;
+
+를 해주면 Map.Entry를 Entry만 써줘도 된다.
+
+(import java.util.*; 를 하면 Map.Entry를 다 써줘야 된다.)
+
+        Iterator<Entry<String, List<int[]>>> entryIter = genreToPlay.entrySet().iterator();
         List<Genre> sumPlaysOfGenre = new ArrayList<>();
 
         while(entryIter.hasNext()) {
             
-            Map.Entry<String, List<int[]>> genreAndPlay = entryIter.next();
+            Entry<String, List<int[]>> genreAndPlay = entryIter.next();
             
             String genre = genreAndPlay.getKey();
             List<int[]> songs = genreAndPlay.getValue();

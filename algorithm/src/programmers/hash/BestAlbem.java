@@ -145,10 +145,6 @@ class Genre{
 		this.sumPlays = sumPlays;
 	}
     
-    
-    
-    
-    
 }
 
 

@@ -21,19 +21,18 @@ public class PhoneNumberList {
 			for (int pj = pi + 1; pj < phone_book.length; pj++) {
 
 				if (phone_book[pj].length() > phone_book[pi].length()) {
-					if (checkIsEqualChars(phone_book[pi], phone_book[pj]))
+					if (isEqualChars(phone_book[pi], phone_book[pj]))
 						return false;
 				} else {
-					if (checkIsEqualChars(phone_book[pj], phone_book[pi]))
+					if (isEqualChars(phone_book[pj], phone_book[pi]))
 						return false;
 				}
-
 			}
 		}
 		return true;
 	}
 
-	public static boolean checkIsEqualChars(String str1, String str2) {
+	public static boolean isEqualChars(String str1, String str2) {
 
 		for (int si = 0; si < str1.length(); si++) {
 			if (str1.charAt(si) != str2.charAt(si))
