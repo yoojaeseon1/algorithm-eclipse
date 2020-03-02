@@ -134,11 +134,29 @@ ex) 회의실 배정 문제 : 현재 상황에서 가장 빨리 배정할 수 �
 - 이 전의 결과가 하나만 있을 수도 있고 경우의 수에 따라 여러가지의 결과 값이 나올 수도 있다.
 
 
-##### 배열을 사용하는 경우
+##### 배열을 사용하는 경우(memoization)
 
 ###### 1차원 배열
 
 - 이 경우는 이전 index(직전 index가 아닐 수도 있다.)를 활용해서 풀면 된다.
+
+- 이 전 까지 값 중 최대/최소 값과 현재 값을 이용해 문제를 푸는 경우(간단한 문제에서 많이 나온다.)
+
+      int[] maxSales = new int[v.length];
+      
+      int maxSale = 0;
+      for(int vI = 0; vI < maxSales.length; vI++) {
+    	  maxSale = Math.max(maxSale, v[vI]);
+    	  maxSales[vI] = maxSale;
+      }
+      
+      int maxProfit = -999999999;
+      for(int vI = 1; vI < v.length; vI++) {
+    	maxProfit = Math.max(maxProfit, maxSales[vI-1] - v[vI]);  
+      }
+      
+      return maxProfit;
+
 
 ###### 2차원 배열
 

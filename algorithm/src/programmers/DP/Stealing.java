@@ -28,10 +28,8 @@ public class Stealing {
 
 			int[][] maxMoneyRoute = new int[money.length][2];
 
-			// maxMoneyRoute[maxMoneyI][0] : index 0 steal max(money[0] ~
-			// money[maxMoneyI])
-			// maxMoneyRoute[maxMoneyI][1] : index 0 don't steal
-			// max(money[0] ~ money[maxMoneyI])
+            // [i][0] : maxSumMoney(0~i), first house attend 
+            // [i][1] : maxSumMoney(0~i), first house don't attend
 
 			maxMoneyRoute[0][0] = money[0];
 			maxMoneyRoute[0][1] = 0;
