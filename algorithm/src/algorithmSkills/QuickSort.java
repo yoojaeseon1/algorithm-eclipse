@@ -1,6 +1,9 @@
 package algorithmSkills;
 
 public class QuickSort {
+	
+	
+	// 출처 & 설명 : https://palpit.tistory.com/126
 
 	public static void main(String[] args) {
 		
@@ -19,14 +22,11 @@ public class QuickSort {
 	public static int partition(int[] arr, int left, int right) {
 
 		int pivot = arr[(left + right) / 2];
-		System.out.println("pivot : " + pivot);
 		while (left < right) {
 			while ((arr[left] < pivot) && (left < right))
 				left++;
-			System.out.println("left : " + left);
 			while ((arr[right] > pivot) && (left < right))
 				right--;
-			System.out.println("right : " + right);
 
 			if (left < right) {
 				int temp = arr[left];
@@ -34,16 +34,10 @@ public class QuickSort {
 				arr[right] = temp;
 			}
 		}
-		System.out.println("---------");
 		return left;
 	}
 	
 	public static void quickSort(int[] arr, int left, int right) {
-		
-		for(int arrI = 0; arrI < arr.length; arrI++) {
-			System.out.print(arr[arrI] + " ");
-		}
-		System.out.println();
 		
 		
 		if(left < right) {

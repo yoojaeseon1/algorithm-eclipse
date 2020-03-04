@@ -24,19 +24,13 @@ public class Combination {
 
 		// r ==0 means already selectd enough elements
 		if (r == 0) {
-			// System.out.println(Arrays.toString(combArr));
 			
-			System.out.println("selectedIndex : " + selectedIndex);
 			for (int si = 0; si < selectedIndex; si++) {
 				System.out.print(source[selectedIndices[si]] + " ");
 				
 			}
-			System.out.println();
 
 		} else if (targetIndex == n) {
-
-			System.out.println("target : " + targetIndex);
-			System.out.println("n : " + n);
 			return;
 
 		} else {
@@ -54,7 +48,6 @@ public class Combination {
 	public static int computeCombiValue(int n, int r) {
 		
 		int answer = computePactorial(n) / (computePactorial(r) * computePactorial(n-r));
-		
 		
 		return answer;
 	}
