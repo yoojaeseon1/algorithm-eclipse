@@ -99,6 +99,18 @@ id IS NULL / id IS NOT NULL(O)
 
 WHERE 절에서 사용하는 조건의 문자열은 대,소문자를 구분하지 않는다.("CAT" = "Cat", "DOG" = Dog)
 
+
+
+###### 날짜(datetime) 검색
+
+	select * from reviewboard where date(registeredDate) = "2020-04-02";
+
+	select * from reviewboard where registeredDate >= "2020-04-02 00:00:00" and registeredDate <= "2020-04-02 23:59:59";
+	
+둘 다 같은 결과 값을 리턴한다.
+
+하지만 밑에 쿼리문이 날짜를 파싱하는 단계가 없기 때문에 더 빠르다.
+
 ##### ORDER BY
 
 ASC : 오름차순
