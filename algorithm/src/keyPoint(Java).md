@@ -452,6 +452,15 @@ ex)
 	List<String> destination = new ArrayList<>();
 
 	destination.addAll(source);
+	
+###### set의 deepCopy
+
+	Set<Integer> source = new HashSet<>();
+	source.add(1);
+	source.add(2);
+	source.add(3);
+	
+	Set<Integer> destination = new Hashset<>(source); // deepcopy가 된다.
  
 ---
 
