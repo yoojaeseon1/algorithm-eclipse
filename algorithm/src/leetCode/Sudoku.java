@@ -1,7 +1,7 @@
-package programmers;
+package leetCode;
 
-public class Solution {
-
+public class Sudoku {
+	
 	public static void main(String[] args) {
 
 //		char[][] board = { { '5', '3', '.', '.', '7', '.', '.', '.', '.' },
@@ -83,4 +83,5 @@ public class Solution {
 		}
 		return true;
 	}
+
 }

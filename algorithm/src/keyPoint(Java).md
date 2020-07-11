@@ -389,6 +389,26 @@ ex)
 	a = "changed name";
 	System.out.println(b); // output : name
  
+###### List의 deep copy
+
+	List<Integer> source = new ArrayList<>();
+		
+		source.add(1);
+		source.add(2);
+		source.add(3);
+		source.add(4);
+		source.add(5);
+		
+	List<Integer> copied = new ArrayList<>(source);
+	
+- List를 생성할 때 생성자의 파라미터로 copy할 source List를 넣어주면 된다.
+
+- 주의사항
+
+		List<Integer> copied = source.subList(0, source.size());
+		
+subList는 view를 리턴하기 때문에 같은 객체를 참조하므로 shallow copy가 된다.
+
 ---
 
 ##### 배열의 copy
