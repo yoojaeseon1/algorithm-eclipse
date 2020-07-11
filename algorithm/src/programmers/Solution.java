@@ -1,23 +1,11 @@
 package programmers;
-
-<<<<<<< HEAD
-=======
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.List;
 
->>>>>>> branch 'master' of https://github.com/yoojaeseon1/algorithm
 public class Solution {
 
 	public static void main(String[] args) {
 
-<<<<<<< HEAD
-//		char[][] board = { { '5', '3', '.', '.', '7', '.', '.', '.', '.' },
-//				{ '6', '.', '.', '1', '9', '5', '.', '.', '.' }, { '.', '9', '8', '.', '.', '.', '.', '6', '.' },
-//				{ '8', '.', '.', '.', '6', '.', '.', '.', '3' }, { '4', '.', '.', '8', '.', '3', '.', '.', '1' },
-//				{ '7', '.', '.', '.', '2', '.', '.', '.', '6' }, { '.', '6', '.', '.', '.', '.', '2', '8', '.' },
-//				{ '.', '.', '.', '4', '1', '9', '.', '.', '5' }, { '.', '.', '.', '.', '8', '.', '.', '7', '9' } };
 		
 		char[][] board = 	{
 				  {'8','3','.','.','7','.','.','.','.'},
@@ -32,7 +20,6 @@ public class Solution {
 				};
 		System.out.println(isValidSudoku(board));
 
-=======
 //		int[] progresses = { 93, 30, 55 };
 //		int[] speeds = { 1, 30, 5 };
 //
@@ -67,11 +54,9 @@ public class Solution {
 			
 		});
 		
-		
-		
->>>>>>> branch 'master' of https://github.com/yoojaeseon1/algorithm
 	}
-
+	
+	
 	public static boolean isValidSudoku(char[][] board) {
 
 		boolean[] isUsed = new boolean[10];
