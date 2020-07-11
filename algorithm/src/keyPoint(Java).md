@@ -8,9 +8,31 @@
 
 ---
 
-#### 변수명의 길이
+#### switch문
 
-- 8자~20자정도가 적당하다(너무 짧아도 별로)
+      switch(currentChar) {
+          case 'S':
+              currentPoint = Integer.parseInt(dartResult.substring(pointStartIndex, dartResultI));
+              break;
+          case 'D':
+              currentPoint = (int)Math.pow(Integer.parseInt(dartResult.substring(pointStartIndex, dartResultI)),2);
+              break;
+          case 'T':
+              currentPoint = (int)Math.pow(Integer.parseInt(dartResult.substring(pointStartIndex, dartResultI)),3);
+              break;
+      }
+
+각 case마다 break를 해주지 않으면 다음 case로 넘어가서 확인한다.
+
+Java 7버전 전에는 switch의 인자로 정수타입 변수만 올 수 있었지만 7버전 부터는 문자, 문자열타입도 올 수 있다.
+
+#### for문 초기화 변수 여러개 사용하기
+
+	for (int line = si, ci = 0; line < source.length - si; line++, ci++) {
+				copied[ci] = source[si][line];
+			}
+
+예시처럼 ,로 구분해 여러개의 초기화 변수를 사용하고 증감시킬 수 있다.
 
 ---
 
@@ -23,7 +45,7 @@
 	boolean[] alphabet = new boolean[26];
 	alphabet[alpha-'A'] = true;
 	if(alphabet[alpha-'A']) {
-		executed statement
+		executing statement
 	}
 
 위와 같이 배열의 인덱스를 아스키코드 값으로 접근하자.
@@ -35,33 +57,27 @@
 
 ---
 
-#### BFS/DFS 영역 구하는 문제
 
-0 : enqueue/push 되지 않고 방문하지 않은 영역
-
-1 : enqueue/push 했지만 방문하진 않은 영역
-
-2 : 방문 한 영역 
-
-field의 값을 위와 같이 초기화 하고
-
-dequeue(queue.poll())/pop 할 때 : 2로 초기화(방문)와 방문한 영역의 count
-
-주위 영역을 enqueue(add(e) or offer(e))/push 할 때 : 1로 초기화
 
 ##### Queue 선언/메소드
 
-Queue<Integer> queue = new LinkedList<>();
+	Queue<Integer> queue = new LinkedList<>();
 
-queue.add() // enqueue(include exception)
+	queue.add() // enqueue(include exception)
 
-queue.offer() // enqueue(exclude exception)
+	queue.offer() // enqueue(exclude exception)
 
-queue.poll() // dequeue
+	queue.poll() // dequeue
+
+	queue.peek() // check recent added element
 
 ---
 
-배열과 list중에서 배열을 사용해도 무관하다면 배열을 사용하는것이 수행시간이 적게 나온다.(정렬 할 때, 거의 1/3 수준)
+#### 배열과 list중에서 배열을 사용해도 무관하다면 배열을 사용하는것이 수행시간이 적게 나온다.(정렬 할 때, 거의 1/3 수준)
+
+크기가 정해져 있다면 배열을 사용하는 습관을 들이자.(list가 편하긴 하지만 수행시간에서 조금 차이가 있다.)
+
+배열의 인덱스 변수를 하나 따로 만들어서 초기화 할 때마다 증가시키는 것으로 list와 동일하게 사용이 가능하다.
 
 배열 : Arrays.sort(array);
 
@@ -77,6 +93,12 @@ list : Collections.sort(list);
 알파벳 소문자(a~z) : 97~122
 
 A~B(B>A) 범위 안의 개수 : 둘다 포함하면 (B-A)+1, 하나만 포함하면 B-A, 둘다 포함 안하면 (B-A)-1
+
+한글 :44032 ~ 55203
+
+한글 자음(ㄱ~ㅎ) : 12593 ~ 12622
+
+한글 모음(ㅏ~ㅣ) : 12623 ~ 12643
 
 ---
 
@@ -142,18 +164,6 @@ try문에서 선언, 초기화된 클래스, 변수는 밖에서 사용할 수 �
 
 밖에서 선언된 전역변수를 가져와서 쓸 수 있다.
 
----
-
-Queue선언
-
-Queue<T> q = new LinkedList<T>();
-
-enqueue : offer()
-
-dequeue : poll()
-
-search bottom element: peek()
-
 
 ---
 
@@ -169,21 +179,36 @@ replaceFirst, replaceLast는 하나만
 
 ---
 
+#### 배열의 범위
+
+	int[][] tree = new int[2][nodeinfo.length];
+	// = {{nodeinfo.length},{nodeinfo.length}}; // nodeinfo.length만큼의 1차원 배열을 2개 만든다.
+	
+	int[][] tree = new int[nodeinfo.length][2];
+	// = {{2},{2},{2},...,{2}}  // length가 2인 1차원 배열을 nodeinfo.length개 만큼 만든다.
+
+
+
 #### 배열을 ArrayList로
 
 	String[] city = {"서울","부산","대구","광주"};
 	List<String> list = new ArrayList<String>();
 	Collections.addAll(list, city);
 
-배열이 래퍼클래스의 배열일 경우만 사용가능하다.
+배열이 래퍼클래스의 배열일 경우만 사용 가능하다.
 
 ---
 
 #### ArrayList를 배열로
 
-String[] result2 = result.toArray(new String[result.size()]);
+	List<String> list = new ArrayList<String>();
 
-배열이 래퍼클래스의 배열일 경우만 사용가능하다.
+	list.add("abc");
+	list.add("def");
+
+	String[] array = list.toArray(new String[list.size()]);
+
+	// 배열이 래퍼클래스의 배열일 경우만 사용가능하다.
 
 ---
 
@@ -195,6 +220,7 @@ String[] result2 = result.toArray(new String[result.size()]);
 ##### 배열
 
 ex) 첫 번째 인덱스 오름차순 -> 같으면 두 번째 인덱스 오름차순 
+
 
 		Arrays.sort(coordiArr, new Comparator<int[]>() {
 
@@ -212,9 +238,32 @@ ex) 첫 번째 인덱스 오름차순 -> 같으면 두 번째 인덱스 오름�
 Integer.compare(o1,o2); // 오름차순(가장 작은 것이 1등)
 Integer.compare(o2,o1); // 내림차순(가장 큰 것이 1등)
 
+##### 내부 배열의 인덱스가 길 경우 정렬 방법
+
+		Collections.sort(routes, new Comparator<List<String>>(){
+
+			@Override
+			public int compare(List<String> o1, List<String> o2) {
+				
+				for(int oi = 0; oi < o1.size(); oi++) {
+					
+					int compareResult = o1.get(oi).compareTo(o2.get(oi));
+					
+					if(compareResult > 0) return 1;
+					else if(compareResult < 0) return -1;
+				
+				}
+				
+				return 0;
+			}
+
+		});
+
 ##### list
 
-래퍼 클래스의 배열로 받아서 Collections.sort해주면 동일하게 정렬된다.
+위와 같이 래퍼 클래스의 배열로 받거나 List<List<String>>을 Collections.sort해주면 동일하게 정렬된다.
+
+
 
 #### Comparator 인터페이스
 
@@ -388,6 +437,30 @@ ex)
 	System.out.println(b); // output : name
 	a = "changed name";
 	System.out.println(b); // output : name
+
+
+###### List의 deepCopy
+
+- addAll메소드를 사용하면 된다.
+
+ex)
+
+	List<String> source = new ArrayList<>();
+	source.add("abc");
+	source.add("def");
+
+	List<String> destination = new ArrayList<>();
+
+	destination.addAll(source);
+	
+###### set의 deepCopy
+
+	Set<Integer> source = new HashSet<>();
+	source.add(1);
+	source.add(2);
+	source.add(3);
+	
+	Set<Integer> destination = new Hashset<>(source); // deepcopy가 된다.
  
 ###### List의 deep copy
 
@@ -481,7 +554,6 @@ deep copy
 		return copied;
 
 	}
- 
 ---
 
 #### 배열의 초기화
@@ -582,14 +654,6 @@ ex)
 	}
 
 ---
-#### map을 key와 value로 구분해서 ArrayList에 넣는 방법
-
-		ArrayList<Character> keys = new ArrayList<>(sortedMap.keySet());
-		ArrayList<Integer> values = new ArrayList<>(sortedMap.values());
-
-map의 key 또는 value로 정렬한 후에 위와 같이 하면 정렬한 순서대로 ArrayList에 추가된다.
-
----
 
 #### StringBuilder/StringBuffer에서 substring을 뽑아 새로운 StringBuilder/StringBuffer에 옮길 때는
 
@@ -632,6 +696,8 @@ ex)
 #### StringBuilder/StringBuffer.insert(index)
 
 해당 index에 추가하고 그 뒤로 오는 문자열을 한칸씩 밀어준다.(해당 인덱스에 대체 해주는 것이 아니다.)
+
+해당 index에 대체하고 싶으면 StirngBuilder/StringBuffer.serCharAt(index) 를 사용하면 된다.
 
 String은 insert의 기능을 하는 메소드가 없다.(문자/문자열로 접근해서 대체 해주는 replace메소드가 있다.(replace는 StringBuilder/StringBuffer도 있다.))
 
@@ -691,24 +757,51 @@ key를 뽑아 iterator 반복문에서 get(key)로 value값을 검색할 생각�
 		
 #### map에서 key와 value를 동시에 뽑아 반복문 돌리는 방법
 
-	Set<Character> entrySet = nameMap.entrySet();
+- Map.Entry로 캐스팅 하는 것이 핵심!!(Iterator 인스턴스 생성할 때, 인스턴스에서 값을 확인할 때)
 
-	Iterator entryIter = entrySet.iterator();
+- Map.Entry<T>를 모두 꼭 써줘야 programmers에서 오류없이 체점된다.
 
-	while(iterator.hasNext()){
-	
-	  Map.Entry entry = (Map.Entry)entryIter.next();
-	
-	  String key = (String)entry.getKey();
-	
-	  String value = (String)entry.getValue();
-	
-	  System.out.println("hashMap Key : " + key);
-	
-	  System.out.println("hashMap Value : " + value);
-	
-	}
-	
+import java.util.Map;
+import java.util.Map.Entry;
+
+를 해주면 Map.Entry를 Entry만 써줘도 된다.
+
+(import java.util.*; 를 하면 Map.Entry를 다 써줘야 된다.)
+
+        Iterator<Entry<String, List<int[]>>> entryIter = genreToPlay.entrySet().iterator();
+        List<Genre> sumPlaysOfGenre = new ArrayList<>();
+
+        while(entryIter.hasNext()) {
+            
+            Entry<String, List<int[]>> genreAndPlay = entryIter.next();
+            
+            String genre = genreAndPlay.getKey();
+            List<int[]> songs = genreAndPlay.getValue();
+            
+            if(songs.size() > 1) albumLength += 2;
+            else albumLength += 1;
+            
+            int sumPlay = 0;
+            
+            for(int songsI = 0; songsI < songs.size(); songsI++) {
+                
+                sumPlay += songs.get(songsI)[1];
+
+            }
+            sumPlaysOfGenre.add(new Genre(genre, sumPlay));
+        }
+
+---
+
+#### map을 key와 value로 구분해서 ArrayList에 넣는 방법
+
+		ArrayList<Character> keys = new ArrayList<>(sortedMap.keySet());
+		ArrayList<Integer> values = new ArrayList<>(sortedMap.values());
+
+map의 key 또는 value로 정렬한 후에 위와 같이 하면 정렬한 순서대로 ArrayList에 추가된다.
+
+---
+
 #### TreeMap / TreeSet
 
 추가되는 element(Map은 key)가 오름차순으로 정렬된다.(Hash는 순서 없음)
@@ -722,6 +815,8 @@ ex)
 	Map<String, Integer> testSet = new TreeMap<>((o1,o2)-> o2.compareTo(o1));
 
 String은 문자열 크기 순, Integer는 숫자 크기 순으로 정렬된다.(숫자와 숫자로 된 문자열은 정렬 기준이 다르다.)
+
+---
 	
 #### LinkedHashMap / LinkedHashSet
 
@@ -730,6 +825,8 @@ HashMap과 HashSet은 순서가 없지만
 LinkedHashMap과 LinkedHashSet은 입력된 순서를 보장한다.(Map은 key값의 순서)
 
 사용법은 기존의 Map, Set과 동일
+
+---
 	
 #### Object 타입 배열의 활용 방법 
 
@@ -755,56 +852,8 @@ Object배열보다는 해당 자료형,인스턴스를 필드로 가지는 클�
 	curX = (int) curPosition[0];
 	curY = (int) curPosition[1];
 	movedRoute = (StringBuilder) curPosition[2];
-	
-	
-#### index 가지고 장난치기
 
-##### 배열
-
-모듈러 연산자(%)
-	
-	int[] input = {1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,6,7,8,9,0};
-	int[] pattern = {1,1,2,2,3,3,4,4,5,5};
-	
-와 같은 패턴일 때 input과 pattern이 같은 index에서 값이 같은지 확인하기 위해서는
-	
-	for(int ii = 0; ii < input.length; ii++){
-	
-		if(input[ii] == pattern[ii%pattern.length]) answer++;
-	}
-	
-과 같이 패턴의 길이로 모듈러 연산을 해주면 input의 해당 인덱스의 값과 일치하는지 확인할 수 있다.
-
-	
-
-##### 문자열
-
-substring
-
-기준 index를 가지고 원하는 문자열 뽑아내기
-
-0부터 기준 index까지
-
-	substring(0, index+1);
-	
-기준 index부터 끝까지
-
-	substring(index);
-	
-#### Iterator 
-
-		Iterator keyIter = keySet.iterator();
-		
-		while (keyIter.hasNext()) {
-			// key의 자료형 또는 클래스로 casting해주면 된다.(next() 메소드는 Object 객체를 반환한다.)
-			char key = (char) keyIter.next();  
-			
-			if (nameMap.get(key) >= 5) {
-				entryList.add(key);
-			}
-		}
-		
-map(key 또는 value), set 의 원소를 하나씩 확인할 수 있다.
+---
 
 #### method signature
 
@@ -824,3 +873,279 @@ ex)
 	
 
 메소드명은 같지만 인자 리스트의 구성이 다르기 때문에  오버로딩이 되는 것이다.
+
+---
+
+#### PriorityQueue(우선순위 큐)
+
+
+		PriorityQueue<Integer> scovilles = new PriorityQueue<>(new Comparator<Integer>(){
+
+			@Override
+			public int compare(Integer o1, Integer o2) {
+				
+				return o2.compareTo(o1);
+			}
+			
+		});
+
+		scovilles.add(2);
+		scovilles.add(3);
+		scovilles.add(4);
+		scovilles.add(1);
+
+		System.out.println(scovilles.poll()); // output : 4
+
+와 같은 방식으로 Comparator 인터페이스를 구현해 사용 할 수 있다.
+
+어떤 순서대로 enqueue를 했더라도 내림차순 우선순위에 따라 가장 큰 수 인 4가 dequeue되었다.
+
+다른 클래스를 타입 파라미터로 넣어도 Comparator 인터페이스를 구현해 원하는 우선순위에 따라 enqueue하는 큐를 만들 수 있다.
+
+---
+
+#### Set의 elements를 List에 바로 넣기
+
+	Set<Integer> testSet = new HashSet<>();
+
+	List<Integer> testList = new ArrayList<>(testSet);
+
+또는
+	
+	Map<Integer, List<int[]>> levelToX = new HashMap<>();
+
+	List<Integer> levels = new ArrayList<>(levelToX.keySet());
+
+또는 (List인스턴스 생성이후)
+	
+	levels.addAll(levelToX.keySet());
+
+와 같은 방식으로 List 인스턴스를 생성할 때 생성자의 인자로 넣어줘야 한다.
+
+List인스턴스를 선언만 하고
+
+	levels.addAll(levelToX.keySet())
+
+과 같이 사용하면 NullPointException이 발생한다.
+	
+
+---
+
+#### 정규표현식(Regular Expression)
+
+- String.split(String regex)의 인자로 정규표현식을 넣어 간단하게 배열로 자를 수 있다.
+
+- 정규표현식은 []안에 작성해야한다.
+
+- 그냥 문자 하나로 split할 때는
+
+	String.split(" ")
+
+와 같이 []로 감싸지 않고 문자 하나만 써주면 된다.
+
+- 구분자가 String의 맨앞 또는 맨뒤에 있으면 split되는 배열의 해당 위치에 공백인 index가 생긴다.
+
+ex)
+
+	String test = "a12b34c56d";
+
+	String[] splitedTest = test.split("[0-9]{2,4}");
+
+	for(int splitedI = 0; splitedI < splitedTest.length; splitedI++) {
+		System.out.print(splitedTest[splitedI] + " ");	// 출력 : a b c d 
+	}
+
+	// 구분되는 문자를 길이 2~4인 숫자로 한다. {}안에 숫자 하나만 쓸 경우 딱 그 길이의 숫자인 경우만 구분자로 사용한다.
+
+자주 쓰는 정규 표현식(여러개를 붙여서 쓸 수도 있다.)
+
+[0-9] : 숫자
+
+[a-z] : 알파벳 소문자
+
+[A-Z] : 알파벳 대문자
+
+[a-zA-Z] : 알파벳 전부
+
+^를 써주면 not의 의미가 된다.
+
+[^0-9] : 숫자가 아닌 것
+
+[^a-z] : 알파벳 소문자가 아닌 것 
+
+[^A-Z] : 알파벳 대문자가 아닌 것
+
+[^a-zA-Z] : 알파벳이 아닌 것
+
+[^abc] : a, b, c를 제외한 다른 글자
+
+[a-z&&[^bc]] : b와 c를 제외한 a 부터 z까지 중의 하나와 일치하는 것
+
+[]안에 특정 문자만 넣어서 할 수도 있다.
+
+ex)
+
+	String dartResult = "1S2D*3T";
+
+	String[] splitedDart = dartResult.split("[SDT#*]{1,2}"); 
+
+	// 알파벳 'S', 'D', 'T'와 '#', '*'가 포함된 1~2길이의 문자
+
+
+SDT가 순서대로 나오지 않아도 된다. DS같은 문자가 나와도 구분자로 사용된다.
+	 
+
+ex)
+
+	String dartResult = "1S2D*3T";
+
+	String[] splitedDart = dartResult.split("[A-Z#*]{1,2}"); // 알파벳 대문자와 '#', '*'가 포함된 1~2길이의 문자
+
+
+##### split은 성능이 안좋으므로 substring을 사용하는 것이 더 좋다.
+
+---
+
+#### Math class
+
+- Math.pow(double a, double b) : a의 b제곱을 구해준다.(return 타입이 double이므로 정수로 사용하려면 캐스팅해야한다.)
+
+인자로 정수를 넣어줘도 알아서 실수형으로 캐스팅된다. 
+
+ex)
+	System.out.println(Math.pow(5, 2)); // output : 25.0
+
+- Math.sqrt(double num) : 제곱근을 구해준다.(return 타입이 double이므로 정수로 사용하려면 캐스팅해야한다.)
+
+인자로 정수를 넣어줘도 알아서 실수형으로 캐스팅된다. 
+
+ex)
+	System.out.println(Math.sqrt(16.0)); // output : 4.0
+
+---
+
+#### Integer class
+
+- Integer.toBinaryString(int num)
+
+인자로 들어가는 num을 2진수로 변환한 문자열을 리턴한다.
+
+ex)
+
+	System.out.println(Integer.toBinaryString(30)); // output : 11110
+
+이외에도 toOctalString(8진수), toHexString(16진수)가 있다.
+
+
+
+
+---
+
+
+#### 비트연산자
+
+두 정수를 이진수로 바꿔 AND, OR, XOR 연산을 간편하게 할 수 있다.
+
+비트연산을 쓸 수 있는 문제는 쓰는게 더 코드도 간결해지고 약간은 빨라진다.
+
+- 사용법
+
+AND : 둘다 1일 경우만 1
+
+OR : 둘 중 하나 이상 1이면 1
+
+XOR : 두개의 숫자가 다르면 1
+
+		System.out.println(Integer.toBinaryString(42));  // 2진수 : 101010
+		System.out.println(Integer.toBinaryString(27));  // 2진수 : 11011
+
+		// 계산할 때 27의 자리수가 부족한 만큼 앞을 0으로 채우고 계산한다.
+
+		// 101010
+		// 011011
+
+		System.out.println(Integer.toBinaryString(27|42)); // 111011
+		System.out.println(Integer.toBinaryString(27&42)); // 1010(001010이지만 앞에 있는 0은 생략된다.)
+		System.out.println(Integer.toBinaryString(27^42)); // 110001
+		
+		
+		System.out.println(Integer.toBinaryString(42)); // 2진수 : 101010
+		System.out.println(Integer.toBinaryString(7));  // 2진수 : 111
+
+		// 101010
+		// 000111
+
+		System.out.println(Integer.toBinaryString(42|7)); // 101111
+		System.out.println(Integer.toBinaryString(42&7)); // 10
+		System.out.println(Integer.toBinaryString(42^7)); // 101101
+
+---
+
+### 쉬프트 연산자
+
+#### 좌측 쉬프트 연산
+
+- n << i = n*2^i
+
+i가 1씩 증가할 때마다 값이 두배씩 커진다. 
+
+ex)
+
+		System.out.println(2<<4); // 32
+		System.out.println(2<<2); // 8
+		System.out.println(3<<2); // 12
+
+#### 우측 쉬프트 연산
+
+- n >> i = n / 2^i
+
+i가 1씩 증가할 때마다 값이 절반으로 나눠진다.
+
+		System.out.println(20>>3); // 2(몫만 계산된다.)
+		System.out.println(20>>2); // 5
+		System.out.println(20>>1); // 10
+
+---
+
+#### String
+
+##### replace vs replaceAll
+
+	
+
+	String test = "12341";
+
+	test = test.replace("1", "a");
+
+	System.out.println(test) // a234a
+
+
+	String testAll = "12341";
+
+	testAll = test.replaceAll("1", "a");
+
+	System.out.println(testAll) // a234a
+
+
+하지만 replaceAll는 첫번째 인자로 정규표현식을 받을 수 있다.(다양한 범위의 내용을 replace할 수 있다.)
+
+##### toLowerCase / toUpperCase
+
+
+String type의 변수를 모두 소문자 / 대문자로 변환시킨 String을 반환한다.
+
+숫자/특수문자/공백 등이 포함되어 있어도 알파벳만 변환시켜준다.
+
+ex)
+
+	String str1 = "AA1+aa2";
+
+	str1.toLowerCase();  // 이렇게 한다고 해도 str1이 변환되는 것이 아니다. 다른 String 변수에 초기화 해야한다.
+
+	str2 = str1.toLowerCase();
+
+	System.out.println(str2) // aa1+aa2
+
+	
+
+---

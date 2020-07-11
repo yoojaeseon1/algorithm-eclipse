@@ -1,4 +1,4 @@
-package programmers.BFSDFS;
+package programmers.DFS;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import java.util.List;
 
 // https://programmers.co.kr/learn/courses/30/lessons/43165
 
-public class TargetNumber {
+public class TargetNumberFail2 {
 	
 	
 	static List<List<Integer>> combiList;

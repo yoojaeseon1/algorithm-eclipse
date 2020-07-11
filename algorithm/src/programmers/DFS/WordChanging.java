@@ -1,4 +1,4 @@
-package programmers.BFSDFS;
+package programmers.DFS;
 
 public class WordChanging {
 	

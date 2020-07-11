@@ -1,9 +1,18 @@
 package programmers;
 
+<<<<<<< HEAD
+=======
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+
+>>>>>>> branch 'master' of https://github.com/yoojaeseon1/algorithm
 public class Solution {
 
 	public static void main(String[] args) {
 
+<<<<<<< HEAD
 //		char[][] board = { { '5', '3', '.', '.', '7', '.', '.', '.', '.' },
 //				{ '6', '.', '.', '1', '9', '5', '.', '.', '.' }, { '.', '9', '8', '.', '.', '.', '.', '6', '.' },
 //				{ '8', '.', '.', '.', '6', '.', '.', '.', '3' }, { '4', '.', '.', '8', '.', '3', '.', '.', '1' },
@@ -23,6 +32,44 @@ public class Solution {
 				};
 		System.out.println(isValidSudoku(board));
 
+=======
+//		int[] progresses = { 93, 30, 55 };
+//		int[] speeds = { 1, 30, 5 };
+//
+////		System.out.println(solution(progresses, speeds));
+//		
+//		
+//		Map<Integer, String> testMap = new HashMap<>();
+//		
+//		testMap.put(1, "haha");
+//		testMap.put(2, "hoho");
+//		
+//		List<Integer> testList = new ArrayList<>();
+//		
+//		testList.addAll(testMap.keySet());
+//		
+//		
+//		for(int testListI = 0; testListI < testList.size(); testListI++) {
+//			
+//			System.out.println(testList.get(testListI));
+//			
+//		}
+		
+		int[][] testArray = new int[5][5];
+		
+		Arrays.sort(testArray, new Comparator<int[]>(){
+
+			@Override
+			public int compare(int[] o1, int[] o2) {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+			
+		});
+		
+		
+		
+>>>>>>> branch 'master' of https://github.com/yoojaeseon1/algorithm
 	}
 
 	public static boolean isValidSudoku(char[][] board) {

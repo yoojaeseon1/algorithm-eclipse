@@ -1,193 +1,266 @@
 #### 알고리즘 문제 풀 때
 
-##### 테스트케이스 하나는 손으로 직접 풀어보자
+##### 문제의 이해를 빨리 하고 나올 수 있는 예외를 확인하고 풀자
 
-하나를 완전히 직접 풀어봐서 이해하고 코드로 바꾸자
+입력 값, 문제설명, 제한사항을 논리적으로 생각하자. 그냥 있는 그대로만 보지말고 어떻게 쓰일지를 생각하자
 
-#### 조건문(if/else, 삼항 연산자)
+나올 수 있는 경우의 수, 예외를 다 확인해야 if문의 조건을 정확히 나눌 수 있다.
 
-##### 값이 더 유동적인 조건을 먼저 쓰자
+경우의 수, 예외를 모두 공책에 써서 확인하고 공책에 설계를 하자
 
-- 영어의 어순으로 볼 때 읽기 편하다.
-- 조건이 모두 유동적이라면 영어의 어순으로 자연스러운 것을 택하자.
+ex) 3개,5개 채울 수 있는 상자의 개수를 최소로 짐을 채우는 문제(모바일리더 오프라인 3번문제)
 
-ex)
+##### 꼭 공책에 설계를 다 하고 타이핑을 시작하자
 
-	if(arr[i] > A && arr2[i] < A) System.out.println("correct!!");
+제발... 그래야 실수해서 돌아오거나 중간중간에 생각해서 낭비하는 시간을 줄일 수 있다.
 
-##### if / else 블록의 순서
+##### index 가지고 조건을 만들어야 하는 문제
 
-- 부정이 아닌 긍정을 다루자  
-	- if(!debug)가 아닌 if(debug)
-#
-- 간단한 것을 먼저 처리하자(해보면서 생각해보자)
- 
-- 더 흥미롭고, 확실한 것을 먼저 다루자(해보면서 생각해보자)  
+꼭 반드시 공책에 적어서 하나하나 인덱스를 표시해주고 인덱스 간의 관계를 살펴보자.
 
-##### if- else if문 작성할 때 
+어렵다고 생각이 드는 문제는 인덱스 정리만 잘해도 보통 풀린다.
 
-if문 또는 상위의 else if문의 조건에서 걸러진 것을 참고해서 else if의 조건문을 작성하자
+꼭 공책에 적어서!!!
 
+안적고 생각으로만 해결하려다가 매번 망쳤다..제발
 
-##### 조건문에서 인덱스를 결정하는 변수(i,j등)
+ex) 사다리게임(모바일리더 오프라인 1번문제)
 
-인덱스 범위에 들어오는지 확인하는 조건을 먼저 작성하자
+##### 테스트케이스 예제는 손으로 직접 풀어보자
 
-	while (j >= 0 && operator[j] == '<') // j의 범위를 먼저 확인하기 때문에 에러가 나지 않는다.
-			j--;
-			
-	while (operator[j] == '<' && j >= 0)  // indexOutOfBound 에러가 날 수 있다.
-			j--;
-
-##### 삼항연산자는 매우 간단할 때만 사용하자
-
-ex)
-
-	timeStr += (hour >= 12) ? "pm" : "am";
+완전히 직접 풀어봐서 이해하고 설계를 시작하자
 
 ---
 
+#### 문제를 풀기 시작할 때
 
-#### 메소드
+메인 반복문에 들어가기 전에 초기화 해놓고 들어가는 변수에 민감해지자
 
-#### 메소드명
+      int pointStartIndex = 0;
+      int totalPoint = 0;
+      int beforePoint = 0;
+      
+      for(int dartResultI = 0; dartResultI < dartResult.length(); dartResultI++) {
+			....
+		}
 
-##### 리턴 타입 별 naming convention
+beforePoint의 경우 맨 처음에 들어가면 이전 포인트가 없기 때문에 0으로 해놓으면 totalPoint에 더해줘도
 
-###### boolean
-
-- has~, can~, should~
-
-###### int
-
-- 카운팅 : ~count
-
-##### 메소드명 키워드로 사용할 만한 것들
-
-- 변환 : convertTo~, changeTo~
-
-
-##### 자료구조 별 naming convention
-
-###### map
-
-keyToValue 또는 valueByKey 
+영향이 없기 때문에 0으로 해놓고 index 0부터 반복문을 돌면 된다.
 
 
 ---
+
+### 재귀를 사용하는 문제에서
+
+재귀로 메소드를 계속 실행하다. 백트래킹하는 return문을 만드는 조건을 가장 신경쓰자.
+
+---
+
+#### String 가지고 노는 문제에서
+
+구분의 기준이 되는 문자를 설정하자
+
+다트게임문제에서
+
+예제	 dartResult	answer	설명
+1	 1S2D*3T	  37	11 * 2 + 22 * 2 + 33
+
+dartResult로 주어지는 문자열을 쪼개서 답을 찾아야 하는데
+
+보너스 점수가 되는 S,D,T를 기준으로 앞을 포인트, 뒤를 옵션으로 봐서 답을 찾을 수 있다.
+
+기준이 되는 문자를 잡고 앞, 뒤로 연관된 문자를 찾자.
+
+
+
 
 #### map
 
 ##### map을 굳이 쓰지 않아도 되는 경우
 
-- 알파벳(a~z, A~Z), 숫자(0~9) 등 아스키코드 값으로 인덱스에 접근 가능한 경우
-	- 배열을 사용하자
-
-
----
-#### 변수명
-
-##### 적당한 변수의 길이
-
-- 변수 이름의 길이가 평균적으로 10~16일 때 프로그램을 디버깅하기 위해서 들이는 노력을 최소화 할 수 있고 변수의 평균 길이가 8~20인 프로그램은 디버깅하기가 쉽다.
-
-- 결론 : 길이가 8~20 이면 적절하다.(약간 길어보여도 의미가 명확하도록 이름 짓자)
-
-##### 변수 naming convention
-
-max, min : 경계를 포함하는 최대/최소값
-
-first, last : 경계를 포함하는 범위
-
-begin, end : 경계를 포함/배제하는 범위(begin이상 end미만 일 때)
-
-num* : 개수를 나타낼 때(ex) numNodes : 노드의 개수)
-
-sum* : 특정 값의 합을 나타낼 때(ex) sumSquares : 사각형들의 합)
-
-is* / has* : boolean 타입 변수를 지을 때
-
-base* : 기준이 되는 변수(높이, 길이 등)
-
-filled* : 채워진
-
-
-##### 변수명 키워드로 사용할 만한 것들
-
-- before / after
-
-##### 너무 긴 이름
-
-numberOfPeopleOnTheUsOlympicTeam
-
-numberOfSeatsInTheStadium
- 
-maximunNumberOfPointsInMordernOlympics
-
-
-##### 너무 짧은 이름 
-
-n, np, ntm 
-n, ns, nsisd 
-m, mp, max, points
-
-##### 적당한 이름 
-
-numTeamMembers, teamMemberCount
-
-numSeatsInStadium, seatCount
-
-teamPointsMax, pointsRecord
-
-
+- 알파벳(a~z, A~Z), 숫자(0~9) 등 아스키코드 값으로 
+- 에 접근 가능한 경우 배열을 사용하자
 ---
 
-##### num, size, input과 같은 변수명은 지양하자
+#### index 가지고 장난치기(the best 결과 값 제대로 안나오는 이유)
 
-num : 정수/실수의 자료형이라면 당연히 숫자(number)의 의미를 포함하므로 적어주지 않는게 좋다. 단, ~~의 개수의 의미를 가질 경우라면 괜찮다.
+##### 배열
 
-size : 무엇의 size인지 명확하게 써줘야 한다.
-
-input : 표준 입력으로 받는 인스턴스라면 입력(input)의 의미를 이미 포함하므로 적어주지 않는게 좋다
-
-XXXArray : 배열이라고 써주지 않아도 배열이라는 것을 알고 있다.
-
-ex) fieldArray[](X) >>> field[](O)
-
----
+모듈러 연산자(%)
+	
+	int[] inputs = {1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,6,7,8,9,0};
+	int[] patterns = {1,1,2,2,3,3,4,4,5,5};
+	
+와 같은 패턴일 때 input과 pattern이 같은 index에서 값이 같은지 확인하기 위해서는
+	
+	for(int inpustI = 0; inpustI < inpustI.length; inpustI++){
+	
+		if(inputs[inpustI] == patterns[inpustI%pattern.length]) answer++;
+	}
+	
+과 같이 패턴의 길이로 모듈러 연산을 해주면 input의 해당 인덱스의 값과 일치하는지 확인할 수 있다.
 
 	
-#### 루프반복자(i, j, iter, it등) 더 명확하게 이름짓는 방법
 
-반복자를 단순히 i,j,iter가 아니라 어떤 배열의 인덱스인지를 나타내는 것이 좋다.(ci,mi,ui)
+##### 문자열
 
-	int[] club = new int[5];
-	int[] member = new int[5];
-	int[] user = new int[5];
+substring
+
+기준 index를 가지고 원하는 문자열 뽑아내기
+
+- 0부터 기준 index까지
+
+	substring(0, index+1);
 	
-club[ci], memeber[mi], user[ui] 또는 club[club_i], memeber[member_i], user[user_i] 
+- 기준 index부터 끝까지
 
- 처럼 반복자의 이름을 알아보기 쉽게 작성하자.
+	substring(index);
+
+- 뒤에서 부터 일정 길이(str.substring(str.length()-뒤에서 원하는 만큼 길이, str.length()))
+	
+	String test = "0123456";
+
+	test.substring(test.length()-3, test.length()); // return "456";
+
+
+#### 반복문을 돌면서 사용하고 있는 자료구조의 사이즈를 줄일 경우
+
+- 반복문의 조건이 계속 줄어들어 원하지 않은 결과가 나온다.
+
+		
+		 
+		 for (int removedI = 0; removedI < removedIndices.length()-1; removedI++)  {
+		 
+		
+			 removedIndices.deleteCharAt(0);
+			 System.out.println("removedI : " + removedI);
+			 System.out.println("removedIndices : " + removedIndices);
+
+			 for (int candidatesI = 0; candidatesI < candidates.size();candidatesI++) {
+
+			 	if (candidates.get(candidatesI).contains(removedIndices.toString())){
+			 		return;
+				 }
+		
+			}
+		}
+
+removedIndicesLength를 처음에 따로 생성해두지 않으면 for문의 조건인 removedI < removedIndices.length()-1에서
+
+removedIndices.length()가 deleteCharAt(0)이 되면서 1씩 줄어들기 때문에 for문의 조건도 1씩 줄어들어 결과적으론
+
+remove증가 + removedIndices.length()감소로 인해 반복문이 절반만 돌게 된다.
+
+	int removedIndicesLength = removedIndices.length();
+
+을 생성하고 removedIndices.length()대신 넣어주면 조건이 변하지 않고 원하는 만큼 반복문을 돌 수 있다.
+
+
+#### 조합할 수 있는 경우의 수는 combination 알고리즘으로 찾아야한다.
+
+- 단순 반복문으로는 모든 조합을 찾을 수 없다.
+	
+	 System.out.println("to front");
+	
+	 int removedIndicesLength = removedIndices.length();
+
+	 for (int removedI = 0; removedI < removedIndicesLength-1; removedI++)
+	 {
+	
+		 removedIndices.deleteCharAt(0);
+	 	System.out.println("removedI : " + removedI);
+	 	System.out.println("removedIndices : " + removedIndices);
+	 	for (int candidatesI = 0; candidatesI < candidates.size();candidatesI++) {
+	
+	 		if (candidates.get(candidatesI).contains(removedIndices.toString()))
+	 		 return;
+		}
+	}
+
+
+	System.out.println("to end");
+
+	for(int removedI = removedIndices.length() - 1;removedI>=0;removedI--){
+
+			removedIndices.deleteCharAt(removedI);
+			removedIndices.deleteCharAt(removedI);
+			System.out.println("removedIndices : " + removedIndices);
+		for (int candidatesI = 0; candidatesI < candidates.size(); candidatesI++) {
+
+		if (candidates.get(candidatesI).contains(removedIndices.toString())) {
+				System.out.println("duplicated : ");
+				return;
+			}
+
+		}
+	}
+
+위 두 반복문으로는 모든 조합을 찾을 수 없다.
+
+deleteCharAt을 인덱스 순서대로 진행하기 때문에
+
+(1,3) 또는 (2,5)와 같은 조합은 찾을 수 없다.
 
 ---
-	
-#### 메소드에서 변수(인스턴스)의 선언 위치
 
-사용하는 스코프 바로 위에 선언&초기화 한다.(맨 위에 한꺼번에 선언하지 말고 필요할 때 선언!!)
+#### 배열의 초기화
 
-변수를 해당 스코프(if,for,while)내에서만 쓰도록 제한한다.(메모리 관리 측면에서)
+	int[] test = {1,2,3,4}; // possible
+
+
+	int[][] test2 = new int[2][];
+
+	test2[0] = {1,2,3}; // impossioble
+
+	test2[0] = new int[3];  // possible
+	test2[0][0] = 1;
+	test2[0][1] = 2;
+	test2[0][2] = 3;
+
+
+	test2[0] = test; // possible
+
+	System.out.println(test[0][1]); // 2
+
+
+- 2차원 배열은 impossible의 방식으로는 안되고 new 키워드로 배열 인스턴스를 생성한 이후에 하나씩 초기화
+
+하던가
+
+- 이전에 new 키워드로 생성된 배열을 초기화 시켜주거나 둘 중 하나를 해야 한다.
+
 
 ---
 
-#### 상수는 대문자로
+#### sort 메소드 사용할 때
 
-단어를 이을 경우 _로 연결한다.(카멜케이스X)
+		Arrays.sort(phoneNumbers, new Comparator<String>() {
+			
+			@Override
+			public int compare(String o1, String o2) {
+				
+				if (o1.length() > o2.length())
+					return 1;
+				else if(o1.length() == o2.length())
+					return 0;
+				else
+					return -1;
+			}
+		});
 
-final 키워드를 추가한다.
+같은 경우를 따로 정렬할 필요가 없더라도
 
-ex) 
+위와 같이 클 때, 같을 때, 작을 때를 다 구분해주자
 
-	final int N = 5; // 앞으로 수정할 일이 없을 경우
-	
+나중에 인덱스로 접근해야 할 경우 IndexOutOfBoundException이 나올 수 있다.
+
+		for (int phoneJ = phoneI + 1; phoneJ < phoneNumbers.length; phoneJ++) {
+			if (currentPhoneNum.length() == phoneNumbers[phoneJ].length())
+				continue;
+			if (currentPhoneNum.equals(phoneNumbers[phoneJ].substring(0, currentPhoneNum.length()))) // IndexOutOfBoundException 발생가능
+				return false;
+		}
+
+
 ---
-

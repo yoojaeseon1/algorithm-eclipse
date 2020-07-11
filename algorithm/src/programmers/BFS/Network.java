@@ -1,4 +1,4 @@
-package programmers.BFSDFS;
+package programmers.BFS;
 
 import java.util.LinkedList;
 import java.util.Queue;
