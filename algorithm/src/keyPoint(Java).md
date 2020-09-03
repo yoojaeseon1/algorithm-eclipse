@@ -945,10 +945,13 @@ List인스턴스를 선언만 하고
 
 와 같이 []로 감싸지 않고 문자 하나만 써주면 된다.
 
+- 사용된 정규표현식이 제외되는 것이다.(정규표현식을 기준으로 split이 되는 것이기 때문에)
+
 - 구분자가 String의 맨앞 또는 맨뒤에 있으면 split되는 배열의 해당 위치에 공백인 index가 생긴다.
 
+- ^가 not으로 쓰이는 경우, [], {}를 제외하고는 split에서 사용할 일은 없다.(Pattern.matchs()에서 사용된다.)
 
- ^ : 문자열의 시작(집합([]) 안에서는 not의 의미)
+^ : 문자열의 시작(집합([]) 안에서는 not의 의미)
 
 $ : 문자열의 종료
 
@@ -969,23 +972,56 @@ $ : 문자열의 종료
 | : 패턴 안에서 or 연산을 수행할 때 사용
 
 
-\s : 공백 문자
+\s : 공백 문자(" ")
 
-\S : 공백 문자가 아닌 나머지 문자
+\S : 공백 문자가 아닌 나머지 문자([^' '])
 
-\w : 알파벳이나 숫자
+\w : 알파벳이나 숫자([0-9A-Za-z])
 
-\W : 알파벳이나 숫자를 제외한 문자
+\W : 알파벳이나 숫자를 제외한 문자([^0-9A-Za-z])
 
-\d : 숫자 [0-9]와 동일
+\d : 숫자([0-9]와 동일)
 
-\D : 숫자를 제외한 모든 문자
+\D : 숫자를 제외한 모든 문자([^0-9])
 
 \ : 정규표현식 역슬래시(\)는 확장 문자. 역슬래시 다음에 일반 문자가 오면 특수문자로 취급하고 역슬래시 다음에 특수문자가 오면 그 문자 자체를 의미
 
 (?i) : 앞 부분에 (?i) 라는 옵션을 넣어주면 대소문자를 구분하지 않음
 
 
+자주쓰이는 match 패턴
+
+이메일 : "[0-9A-Za-z]{1,15}@[a-z]{1,10}.[a-z]{1,5}"
+
+주민등록번호 : "\\d{6}-[1-4]\\d{6}"
+
+		String pattern = "[0-9A-Za-z]{1,15}@[a-z]{1,10}.[a-z]{1,5}";
+		
+		String input = "you8054@nate.com";
+		boolean validationofInput = Pattern.matches(pattern, input);
+		System.out.println(validationofInput);
+		
+		input = "you8054@nate.com.com";
+		validationofInput = Pattern.matches(pattern, input);
+		System.out.println(validationofInput);
+		
+		pattern = "\\d{6}-[1-4]\\d{6}";
+		input = "930114-1216014";
+		validationofInput = Pattern.matches(pattern, input);
+		
+		System.out.println(validationofInput);
+		
+		input = "930114-5216014";
+		validationofInput = Pattern.matches(pattern, input);
+		
+		System.out.println(validationofInput);
+
+출력
+
+	true
+	false
+	true
+	false
 
 #### 주의사항
 
@@ -995,11 +1031,25 @@ $ : 문자열의 종료
 
 - [] 안에서 \를 사용할 때는 한 번 더 입력해야 된다.
 
+- {시작,끝} : 정규표현식에 맞는 문자가 시작 이상 끝 이하인 길이 일 경우에만 적용(+를 사용할 경우 길이 1 이상)
+
 ex)
 
 	String expression = "100-200*300-500+20";
 
-	String[] symbols = expression.split("[^\\+\\-\\*]{1,3}");
+	String[] symbols = expression.split("[^\\+\\-\\*]{1,3}"); // 길이 1이상 3이하
+
+	System.out.println(Arrays.toString(symbols));
+
+	symbols = expression.split("[^\\+\\-\\*]+"); // 길이 1이상	
+
+	System.out.println(Arrays.toString(symbols));
+
+	symbols = expression.split("[0-9]+"); // 길이 1이상
+
+	System.out.println(Arrays.toString(symbols));
+
+	symbols = expression.split("\\d+"); // 길이 1이상
 
 	System.out.println(Arrays.toString(symbols));
 
@@ -1179,9 +1229,9 @@ XOR : 두개의 숫자가 다르면 1
 
 ---
 
-### 쉬프트 연산자
+#### 쉬프트 연산자
 
-#### 좌측 쉬프트 연산
+##### 좌측 쉬프트 연산
 
 - n << i = n*2^i
 
@@ -1193,7 +1243,7 @@ ex)
 		System.out.println(2<<2); // 8
 		System.out.println(3<<2); // 12
 
-#### 우측 쉬프트 연산
+##### 우측 쉬프트 연산
 
 - n >> i = n / 2^i
 
