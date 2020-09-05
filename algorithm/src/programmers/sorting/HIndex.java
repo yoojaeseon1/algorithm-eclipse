@@ -7,8 +7,8 @@ public class HIndex {
 	public static void main(String[] args) {
 		
 //		int[] citations = {3, 0, 6, 1, 5};
-		int[] citations = {3,0,6,1,5,6};
-//		int[] citations = {6,6,6,6};
+//		int[] citations = {3,0,6,1,5,6};
+		int[] citations = {6,6,6,6};
 //		
 		System.out.println(solution(citations));
 
