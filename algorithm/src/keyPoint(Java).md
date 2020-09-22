@@ -265,7 +265,47 @@ Integer.compare(o2,o1); // 내림차순(가장 큰 것이 1등)
 
 위와 같이 래퍼 클래스의 배열로 받거나 List<List<String>>을 Collections.sort해주면 동일하게 정렬된다.
 
+#### Comparable 인터페이스
 
+- Collections.sort() 메소드에서 인자를 List하나만 넣었을 경우에 적용되는 정렬방식
+- List에 들어가는 타입의 클래스에서 인터페이스를 구현해야한다.
+
+		class Alphabet implements Comparable<Alphabet>{
+			
+			private char alphabet;
+			private int count;
+			
+			public Alphabet() {
+				// TODO Auto-generated constructor stub
+			}
+			
+			public Alphabet(char alphabet, int count) {
+				this.alphabet = alphabet;
+				this.count = count;
+			}
+			
+			
+			
+			@Override
+			public int compareTo(Alphabet o) {
+				
+				return Integer.compare(o.getCount(), this.count);
+			}
+	
+			// getter, setter..
+		
+		}
+
+
+compareTo 인자가 하나라서 Comparator의 compare랑 헷갈릴 수 있지만
+
+	compare(Alphabet o1, Alphabet o2) {...}
+
+라면
+
+	compareTo(Alphabet o) {...}
+
+compareTo 에서는 o2에 해당하는 인자만 받고 o1은 해당 클래스의 필드 값이 된다.
 
 #### Comparator 인터페이스
 

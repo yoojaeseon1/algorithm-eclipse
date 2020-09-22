@@ -2,6 +2,9 @@ package programmers;
 
 import java.util.Arrays;
 
+
+// all cases success (LifeBoat1~4 fail)
+
 public class LifeBoat5 {
 
 	public static void main(String[] args) {
