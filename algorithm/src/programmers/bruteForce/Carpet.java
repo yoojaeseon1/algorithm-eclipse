@@ -1,4 +1,4 @@
-package programmers.exhaustiveSearch;
+package programmers.bruteForce;
 
 public class Carpet {
 

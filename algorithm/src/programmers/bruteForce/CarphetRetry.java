@@ -1,4 +1,4 @@
-package programmers.exhaustiveSearch;
+package programmers.bruteForce;
 
 import java.util.Arrays;
 

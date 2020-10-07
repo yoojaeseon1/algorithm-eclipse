@@ -1,4 +1,4 @@
-package programmers;
+package programmers.DFS;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -30,8 +30,6 @@ public class Network {
 
 		Queue<Integer> searchQueue = new LinkedList<>();
 
-		int[] dx = { 0, 1, 0, -1 };
-		int[] dy = { -1, 0, 1, 0 };
 		for (int computersI = 0; computersI < computers.length; computersI++) {
 
 			if (computers[computersI][computersI] == 1) {

@@ -150,6 +150,8 @@ GROUP BY groupName 의 조건을 추가해 원하는 튜플만 출력되도록 �
 
 출력되는 튜플 중 name의 count가 2이상인 튜플만 출력한다.
 
+- 집계 함수(COUNT, SUM, MAX)는 HAVING 절에서만 쓸 수 있다.(WHERE절에서는 불가능. WHERE 절에서 HOUR, MONTH 등의 함수는 사용 가능하다.)
+
 ##### DISTINCT
 
 GROUP BY와 같은 논리로 작동한다(중복을 제거하는 것과 같은 것끼리 그룹화 하는 건 같은 원리니까)
@@ -172,6 +174,15 @@ GROUP BY와 같은 논리로 작동한다(중복을 제거하는 것과 같은 �
 
 "LIMIT 제한할 개수" 를 입력하면 된다.
 
+---
+
+인자가 두 개인 경우
+
+LIMIT 시작 index, 개수 : 시작 index부터 개수만큼 뽑는다. (인덱스는 0부터 시작)  
+
+	SELECT name FROM animal_ins ORDER BY datetime LIMIT 4, 10;
+
+4(5번째 인덱스) 부터 10개가 출력된다.
 
 #### 함수
 
@@ -231,6 +242,8 @@ BETWEEN a AND b 에서 a와 b를 모두 포함한다.
 
 
 ##### 문자관련 함수
+
+- 시작위치는 1부터(index 아님)
 
 LEFT('문자열',개수) : 문자열 중 왼쪽에서 개수만큼을 추출
 

@@ -1,4 +1,4 @@
-package programmers;
+package programmers.greedy;
 
 import java.util.LinkedList;
 import java.util.Queue;

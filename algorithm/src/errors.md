@@ -2,7 +2,9 @@
 
 - 자료형의 범위를 벗어날 경우(ex) int형의 범위를 벗어난 큰 숫자 또는 너무 적은 숫자일 경우)
 
-- 배열 인덱스 범위 초과
+- Array/StringIndexOfBoundException : Array/String의 인덱스 범위 미만(음수) 또는 초과
+
+- NumberFormatException : 비어있는 String에 parseInt를 시도하는 경우
 
 ---
 
