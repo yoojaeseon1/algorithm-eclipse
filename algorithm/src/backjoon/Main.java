@@ -12,126 +12,183 @@ public class Main {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		int N = Integer.parseInt(br.readLine());
+		StringTokenizer st = new StringTokenizer(br.readLine());
 
-		int M = Integer.parseInt(br.readLine());
+		int N = Integer.parseInt(st.nextToken());
+		int M = Integer.parseInt(st.nextToken());
+		int H = Integer.parseInt(st.nextToken());
 
-		boolean[] isDeadButton = new boolean[10];
+		boolean[][] ladder = new boolean[H][N];
 
-		int[] livedButtons = new int[10 - M];
 		if (M > 0) {
-			StringTokenizer st = new StringTokenizer(br.readLine());
-			for (int tokenCount = 1; tokenCount <= M; tokenCount++) {
-				isDeadButton[Integer.parseInt(st.nextToken())] = true;
+			for (int row = 1; row <= M; row++) {
+
+				st = new StringTokenizer(br.readLine());
+				int columnNumber = Integer.parseInt(st.nextToken()) - 1;
+				int rowNumber = Integer.parseInt(st.nextToken()) - 1;
+				ladder[columnNumber][rowNumber] = true;
+
 			}
 		}
 
-		int livedI = 0;
+		if (isStreaightLadder(ladder))
+			System.out.println(0);
+		else {
+			int minLaidNewLow = 4;
 
-		for (int isDeadI = 0; isDeadI < isDeadButton.length; isDeadI++) {
-			if (!isDeadButton[isDeadI])
-				livedButtons[livedI++] = isDeadI;
-		}
+			// System.out.println(isStreaightLadder(ladder));
 
-		// for (livedI = 0; livedI < livedButtons.length; livedI++)
-		// System.out.println(livedButtons[livedI]);
-		// System.out.println("livedButtons.length : " + livedButtons.length);
-		// System.out.println("------");
+			List<int[]> layableRows = new ArrayList<>();
 
-		channels.add(100);
+			for (int ladderI = 0; ladderI < ladder.length; ladderI++) {
+				for (int ladderJ = 0; ladderJ < ladder[ladderI].length; ladderJ++) {
 
-		int nLength = Integer.toString(N).length();
-		int[] selectedIndices = new int[nLength];
-
-		searchChannels(livedButtons, 10 - M, nLength, selectedIndices, 0);
-
-		// for(int channel : channels) {
-		// System.out.println(channel);
-		// }
-
-		if (livedButtons.length > 0) {
-			StringBuilder maxUnderN = new StringBuilder();
-
-			for (int maxUnderLength = 1; maxUnderLength < nLength; maxUnderLength++) {
-				maxUnderN.append(livedButtons[livedButtons.length - 1]);
-			}
-			channels.add(Integer.parseInt(maxUnderN.toString()));
-
-			StringBuilder minOverN = new StringBuilder();
-
-			for (int minUnderLength = 1; minUnderLength <= nLength + 1; minUnderLength++) {
-				minOverN.append(livedButtons[0]);
+					if (ladderJ == 0) {
+						if (!ladder[ladderI][ladderJ]) {
+							int[] row = { ladderJ, ladderI };
+							layableRows.add(row);
+						}
+					} else if (ladderJ == ladder[ladderI].length - 1) {
+						if (!ladder[ladderI][ladderJ - 1]) {
+							int[] row = { ladderJ - 1, ladderI };
+							layableRows.add(row);
+						}
+					} else {
+						if (!ladder[ladderI][ladderJ] && !ladder[ladderI][ladderJ - 1]) {
+							int[] row = { ladderJ, ladderI };
+							layableRows.add(row);
+						}
+					}
+				}
 			}
 
-//			System.out.println(minOverN);
+			for (int r = 1; r <= 3; r++) {
+				int[] selectedIndices = new int[r];
+				selectedRowIndices = new ArrayList<>();
+				doCombination(layableRows.size(), r, selectedIndices, 0, 0);
 
-			if (minOverN.length() > 0)
-				channels.add(Integer.parseInt(minOverN.toString()));
-		}
+				for (int selectedI = 0; selectedI < selectedRowIndices.size(); selectedI++) {
 
-		int minChannelGap = Integer.MAX_VALUE;
-		int minGapChannel = Integer.MAX_VALUE;
-		for (int channelsI = 0; channelsI < channels.size(); channelsI++) {
+					int[] selectedRowIndex = selectedRowIndices.get(selectedI);
 
-			int currentChannel = channels.get(channelsI);
-			int channelGap = Math.abs(N - currentChannel);
+					for (int selectedJ = 0; selectedJ < r; selectedJ++) {
+						int[] selectedIndex = layableRows.get(selectedRowIndex[selectedJ]);
+						ladder[selectedIndex[1]][selectedIndex[0]] = true;
+					}
 
-			if (channelGap < minChannelGap) {
-				minChannelGap = channelGap;
-				minGapChannel = currentChannel;
+					if (isCorrectLadder(ladder) && isStreaightLadder(ladder)) {
+						minLaidNewLow = r;
+						break;
+					}
+
+					for (int selectedJ = 0; selectedJ < r; selectedJ++) {
+						int[] selectedIndex = layableRows.get(selectedRowIndex[selectedJ]);
+						ladder[selectedIndex[1]][selectedIndex[0]] = false;
+					}
+
+				}
+				
+				if(minLaidNewLow < 4)
+					break;
+
 			}
+			
+			if(minLaidNewLow == 4)
+				System.out.println(-1);
+			else
+				System.out.println(minLaidNewLow);
 
+			// for(int ladderI = 0; ladderI < ladder.length; ladderI++) {
+			// for(int ladderJ = 0; ladderJ < ladder[ladderI].length; ladderJ++)
+			// {
+			// System.out.print(ladder[ladderI][ladderJ] + " ");
+			// }
+			// System.out.println();
+			// }
 		}
-
-		// System.out.println(livedButtons[livedButtons.length-1]);
-		// System.out.println(maxUnderN);
-		// System.out.println(minOverN);
-
-		// if (Math.abs(N - Integer.parseInt(maxUnderN.toString())) <=
-		// minChannelGap) {
-		// minChannelGap = Math.abs(N - Integer.parseInt(maxUnderN.toString()));
-		// System.out.println(Math.min(Math.abs(100 - minGapChannel),
-		// maxUnderN.length() + minChannelGap));
-		// } else if (Math.abs(N - Integer.parseInt(minUnderN.toString())) <
-		// minChannelGap) {
-		// minChannelGap = Math.abs(N - Integer.parseInt(minUnderN.toString()));
-		// System.out.println(Math.min(Math.abs(100 - minGapChannel),
-		// minUnderN.length() + minChannelGap));
-		// } else
-
-//		System.out.println(minChannelGap);
-//		System.out.println(minGapChannel);
-//		System.out.println(Math.abs(100 - minGapChannel));
-//		System.out.println(Integer.toString(minGapChannel).length() + minChannelGap);
-		System.out.println(
-				Math.min(Math.abs(100 - minGapChannel), Integer.toString(minGapChannel).length() + minChannelGap));
 
 	}
 
-	private static List<Integer> channels = new ArrayList<>();
+	static List<int[]> selectedRowIndices;
 
-	public static void searchChannels(int[] source, int n, int r, int[] selectedIndices, int selectedIndex) {
-
-		if (selectedIndex > 1 && source[selectedIndices[0]] == 0)
-			return;
+	public static void doCombination(int n, int r, int[] selectedIndices, int selectedIndex, int targetIndex) {
 
 		if (r == 0) {
-			StringBuilder numberSB = new StringBuilder();
 
-			for (int selectedI = 0; selectedI < selectedIndex; selectedI++) {
-				numberSB.append(source[selectedIndices[selectedI]]);
+			int[] selectedRowIndex = new int[selectedIndex];
+
+			for (int si = 0; si < selectedIndex; si++) {
+				selectedRowIndex[si] = selectedIndices[si];
 			}
-			// System.out.println(numberSB);
 
-			channels.add(Integer.parseInt(numberSB.toString()));
+			selectedRowIndices.add(selectedRowIndex);
+
+//			System.out.println(Arrays.toString(selectedRowIndices.get(selectedRowIndices.size() - 1)));
+
+		} else if (targetIndex == n) {
 			return;
-		}
 
-		for (int sourceI = 0; sourceI < source.length; sourceI++) {
+		} else {
+			selectedIndices[selectedIndex] = targetIndex;
 
-			selectedIndices[selectedIndex] = sourceI;
-			searchChannels(source, n, r - 1, selectedIndices, selectedIndex + 1);
+			doCombination(n, r - 1, selectedIndices, selectedIndex + 1, targetIndex + 1);
 
+			doCombination(n, r, selectedIndices, selectedIndex, targetIndex + 1);
 		}
 	}
+
+	public static boolean isStreaightLadder(boolean[][] ladder) {
+
+		int rowLength = ladder[0].length;
+
+		for (int ladderJ = 0; ladderJ < rowLength; ladderJ++) {
+
+			int currentPosition = ladderJ;
+
+			for (int ladderI = 0; ladderI < ladder.length; ladderI++) {
+
+				if (currentPosition == 0) {
+
+					if (ladder[ladderI][currentPosition])
+						currentPosition++;
+
+				} else if (currentPosition == rowLength) {
+					if (ladder[ladderI][currentPosition - 1])
+						currentPosition--;
+				} else {
+					if (ladder[ladderI][currentPosition])
+						currentPosition++;
+					else if (ladder[ladderI][currentPosition - 1])
+						currentPosition--;
+				}
+
+				// if(ladderI == ladder.length - 1)
+				// System.out.print(currentPosition + " ");
+			}
+
+			if (currentPosition != ladderJ)
+				return false;
+
+		}
+
+		// for(int ladderJ = 0; ladderJ < ladder[0].length; ladderJ++)
+		// System.out.print(ladder[0][ladderJ] + " ");
+
+		return true;
+
+	}
+
+	public static boolean isCorrectLadder(boolean[][] ladder) {
+
+		for (int ladderI = 0; ladderI < ladder.length; ladderI++) {
+			for (int ladderJ = 1; ladderJ < ladder[ladderI].length - 1; ladderJ++) {
+				if (ladder[ladderI][ladderJ] && ladder[ladderI][ladderJ - 1])
+					return false;
+			}
+		}
+
+		return true;
+
+	}
+
 }
