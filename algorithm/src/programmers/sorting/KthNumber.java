@@ -10,7 +10,7 @@ public class KthNumber {
 		
 		int[][] commands = {{2, 5, 3}, {4, 4, 1}, {1, 7, 3}};
 		
-		solution(array, commands);
+		System.out.println(Arrays.toString(solution(array, commands)));
 
 	}
 
@@ -18,10 +18,11 @@ public class KthNumber {
 		
         int[] answer = new int[commands.length];
         
-        for(int ci = 0; ci < commands.length; ci++) {
-        	int i = commands[ci][0];
-        	int j = commands[ci][1];
-        	int k = commands[ci][2];
+        for(int commandsI = 0; commandsI < commands.length; commandsI++) {
+    		int[] command = commands[commandsI];
+    		int i = command[0];
+    		int j = command[1];
+    		int k = command[2];
         	
         	int[] dividedArray = new int[j-i+1];
         	
@@ -29,7 +30,7 @@ public class KthNumber {
         	
         	Arrays.sort(dividedArray);
         	
-        	answer[ci] = dividedArray[k-1];
+        	answer[commandsI] = dividedArray[k-1];
         	
         }
         

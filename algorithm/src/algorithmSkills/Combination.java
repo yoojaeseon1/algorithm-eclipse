@@ -20,9 +20,7 @@ public class Combination {
 	// other method name : searchAllRoute, searchAllCases
 	
 	public void doCombination(int[] source, int n, int r, int[] selectedIndices, int selectedIndex, int targetIndex) {
-		// System.out.println("=> " + n + " " + r + " " + index + " " + target);
 
-		// r ==0 means already selectd enough elements
 		if (r == 0) {
 			
 			for (int si = 0; si < selectedIndex; si++) {
@@ -36,10 +34,8 @@ public class Combination {
 		} else {
 			selectedIndices[selectedIndex] = targetIndex;
 
-			// select a element in source array
 			doCombination(source, n, r - 1, selectedIndices, selectedIndex + 1, targetIndex + 1);
 
-			// not select and plus one index of source array(target)
 			doCombination(source, n, r, selectedIndices, selectedIndex, targetIndex + 1);
 		}
 	}

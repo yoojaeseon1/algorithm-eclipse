@@ -1,11 +1,10 @@
-package backjoon;
+package backjoon.bruteForce;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-public class Main {
-
+public class Q2309 {
 	
 	static int[] answer;
 	
@@ -63,4 +62,5 @@ public class Main {
 		}
 		
 	}
+
 }

@@ -9,13 +9,9 @@ public class Test {
 	
 	public static void main(String[] args) {
 		
-		StringBuilder sb = new StringBuilder();
+		String test = "12345";
 		
-		sb.append(123);
-
-		sb.append(0);
-		
-		System.out.println(Integer.parseInt(sb.toString()));
+		System.out.println(test.contains("34"));
 		
 		
 	}

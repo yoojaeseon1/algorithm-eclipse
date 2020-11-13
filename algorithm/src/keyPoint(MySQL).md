@@ -85,6 +85,12 @@ a 와 b의 속성이 모두 일치하는 튜플만 반환한다.(NULL 값이 나
 	SELECT ins.animal_id, ins.name FROM animal_ins ins INNER JOIN animal_outs outs ON ins.animal_id = outs.animal_id WHERE ins.animal_id=outs.animal_id AND ins.datetime > outs.datetime ORDER BY ins.datetime;
 
 
+###### 3개 이상의 테이블을 JOIN할 때
+
+table1 JOIN table2 ON 조건 JOIN table3 ON 조건...
+
+	SELECT places.id, places.name FROM places JOIN schedules ON places.id = schedules.place_id JOIN place_reviews reviews ON places.id=reviews.place_id WHERE DATE_FORMAT(schedules.scheduled_at, '%Y-%m-%d') = '2019-01-06' GROUP BY places.id ORDER BY places.id;
+
 ##### WHERE 조건
 
 = : 같다.
@@ -150,7 +156,9 @@ GROUP BY groupName 의 조건을 추가해 원하는 튜플만 출력되도록 �
 
 출력되는 튜플 중 name의 count가 2이상인 튜플만 출력한다.
 
-- 집계 함수(COUNT, SUM, MAX)는 HAVING 절에서만 쓸 수 있다.(WHERE절에서는 불가능. WHERE 절에서 HOUR, MONTH 등의 함수는 사용 가능하다.)
+- 
+- 
+-  함수(COUNT, SUM, MAX)는 HAVING 절에서만 쓸 수 있다.(WHERE절에서는 불가능. WHERE 절에서 HOUR, MONTH 등의 함수는 사용 가능하다.)
 
 ##### DISTINCT
 
@@ -189,6 +197,8 @@ LIMIT 시작 index, 개수 : 시작 index부터 개수만큼 뽑는다. (인덱�
 ##### 집계 함수
 
 COUNT/SUM/AVG/MAX/MIN(속성명) : 개수, 합계, 평균, 최댓값, 최솟값
+
+- 조건으로 사용할 때는 반드시 GROUP BY절의 HAVING절에서만 사용할 수 있다.(WHERE절에서 사용불가, 집계를 위해서는 그룹화가 필수니까)
 
 
 ###### COUNT(속성명)의 경우 
