@@ -2,65 +2,92 @@ package backjoon;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
+	
+	static int maxCalculatedValue;
 
-	
-	static int[] answer;
-	
-	public static void main(String[] args) throws Exception{
+	public static void main(String[] args) throws Exception {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		int N = Integer.parseInt(br.readLine());
 		
+		String equation = br.readLine();
 		
-		BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
+		List<Integer> numbers = new ArrayList<>();
+		List<Character> operators = new ArrayList<>();
 		
-		int sumHeight = 0;
-		int[] heights = new int[9];
-		for(int heightsI = 0; heightsI < 9; heightsI++) {
-			int height = Integer.parseInt(br.readLine());
-			heights[heightsI] = height;
-			sumHeight += height;
+		for(int equationI = 0; equationI < equation.length(); equationI++) {
+			
+			char currentChar = equation.charAt(equationI);
+			
+			if(currentChar >= 48 && currentChar <=57)
+				numbers.add(Integer.parseInt(Character.toString(currentChar)));
+			else
+				operators.add(currentChar);
+			
 		}
 		
-		answer = new int[7];
+		maxCalculatedValue = 0;
+				
+		selectBracket(numbers, operators, 1);
 		
-		selectPerson(heights, sumHeight);
-		
-		Arrays.sort(answer);
-		
-		for(int answerI = 0; answerI < answer.length; answerI++)
-			System.out.println(answer[answerI]);
-		
-		
+		System.out.println(maxCalculatedValue);
+
 	}
 	
 	
-	public static void selectPerson(int[] heights, int sumHeight) {
+	public static void selectBracket(List<Integer> numbers, List<Character> operators, int startIndex) {
 		
-		for(int heightsI = 0; heightsI < heights.length; heightsI++) {
+		int currentCalculatedValue = numbers.get(0);
+		
+		for(int operI = 0; operI < operators.size(); operI++) {
 			
-			sumHeight -= heights[heightsI];
+			currentCalculatedValue = calculateEquation(currentCalculatedValue, numbers.get(operI+1), operators.get(operI));
 			
-			for(int heightsJ = heightsI+1; heightsJ < heights.length;heightsJ++) {
-				
-				sumHeight -= heights[heightsJ];
-				
-				if(sumHeight == 100) {
-					int answerI = 0;
-					
-					for(int heightK = 0; heightK < heights.length; heightK++) {
-						if(!(heightK == heightsI || heightK == heightsJ))
-							answer[answerI++] = heights[heightK];
-					}
-					
-					return;
-					
-					
-				}
-				sumHeight += heights[heightsJ];
-			}
-			sumHeight += heights[heightsI];
 		}
 		
+		maxCalculatedValue = Math.max(maxCalculatedValue, currentCalculatedValue);
+		
+		for(int operI = startIndex; operI < operators.size(); operI++) {
+			int beforeNumber1 = numbers.get(operI);
+			int beforeNumber2 = numbers.get(operI+1);
+			char beforeOperator = operators.get(operI);
+			int calculatedValue = calculateEquation(beforeNumber1, beforeNumber2, beforeOperator);
+			
+			numbers.set(operI, calculatedValue);
+			numbers.remove(operI+1);
+			operators.remove(operI);
+			
+			selectBracket(numbers, operators, operI+1);
+			
+			numbers.set(operI, beforeNumber1);
+			numbers.add(operI+1, beforeNumber2);
+			operators.add(operI, beforeOperator);
+			
+		}
+		
+		
+		
 	}
+
+	public static int calculateEquation(int number1, int number2, char operator) {
+
+
+		switch (operator) {
+		case '+':
+			return number1 + number2;
+		case '-':
+			return number1 - number2;
+		case '*':
+			return number1 * number2;
+		}
+		
+		return 0;
+
+	}
+
 }
