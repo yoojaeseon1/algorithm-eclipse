@@ -15,6 +15,25 @@ public class Combination {
 		System.out.println(computeCombiValue(4,2));
 		
 	}
+	
+	// combination using for loop
+	
+	public static void selectNumber(int[] source, int[] selectedIndices, int selectedIndex, int nextIndex) {
+		
+		if(selectedIndex == selectedIndices.length) {
+			for(int selectedI = 0; selectedI < selectedIndices.length-1;selectedI++) {
+				System.out.print(selectedIndices[selectedI] + " ");
+			}
+			System.out.println(selectedIndices[selectedIndices.length-1]);
+			return;
+		}
+		
+		for(int numbersI = nextIndex; numbersI < source.length; numbersI++) {
+			selectedIndices[selectedIndex] = source[numbersI];
+			selectNumber(source, selectedIndices, selectedIndex+1, numbersI+1);
+			
+		}
+	}
 
 	
 	// other method name : searchAllRoute, searchAllCases
